@@ -1,4 +1,4 @@
-package com.qunyu.base.utils;
+package com.example.doreamon.utils;
 
 import android.util.Base64;
 
@@ -7,7 +7,7 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
 /**
- * aes加密、解密
+ * aes加密、解密(注：这里的Base64.encodeToString和Base64.decode是安卓的Api,只能在安卓环境调用)
  */
 public class AESUtil {
 
