@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Doreamon</string>
+
+    <string name="token_failed">您的帐号已在别的设备登录</string>
+    <string name="token_expired">登录状态失效，请重新登录</string>
+    <string name="success">操作成功</string>
+    <string name="connect_error">连接错误</string>
+    <string name="connect_timeout">连接超时</string>
+    <string name="bad_network">网络连接异常</string>
+    <string name="parse_error">解析数据失败</string>
+    <string name="unknown_error">未知错误%1$s</string>
+    <string name="loading">加载中</string>
 </resources>

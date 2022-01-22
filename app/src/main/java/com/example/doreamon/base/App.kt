@@ -1,6 +1,7 @@
 package com.example.doreamon.base
 
 import android.app.Application
+import com.example.doreamon.utils.AppManager
 
 /**
  * @author wzh
@@ -10,6 +11,7 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         instance = this
+        AppManager.register(this)
     }
 
     companion object {

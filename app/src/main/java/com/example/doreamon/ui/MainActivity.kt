@@ -1,7 +1,8 @@
-package com.example.doreamon
+package com.example.doreamon.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.doreamon.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
