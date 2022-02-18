@@ -1,10 +1,14 @@
 package com.example.doreamon.base
 
 import android.content.pm.ActivityInfo
+import android.os.Build
 import android.os.Bundle
+import android.view.WindowManager
+import androidx.core.content.ContextCompat
 import com.example.doreamon.R
 import com.example.doreamon.common.CommonConfirmDialog
 import com.example.doreamon.widget.ViewLoadingFix
+import com.gyf.immersionbar.ImmersionBar
 
 
 /**
@@ -18,6 +22,7 @@ abstract class BaseActivity<VM : BaseViewModel> : DataBindingActivity<VM>() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
 
         setScreenOrientation()
         super.onCreate(savedInstanceState)
@@ -49,5 +54,10 @@ abstract class BaseActivity<VM : BaseViewModel> : DataBindingActivity<VM>() {
     }
 
     protected open fun initBar() {
+        ImmersionBar.with(this)
+            .fitsSystemWindows(true)
+            .statusBarColor(R.color.white)
+            .statusBarDarkFont(true)
+            .init()
     }
 }

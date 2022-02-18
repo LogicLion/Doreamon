@@ -49,7 +49,7 @@
         <item name="android:layout_height">60dp</item>
         <item name="android:layout_marginStart">30dp</item>
         <item name="android:layout_marginEnd">30dp</item>
-        <item name="android:background">@drawable/selector_line_0ccfc9_eeeeee</item>
+        <item name="android:background">@drawable/selector_line_primary_eeeeee</item>
         <item name="android:textColor">@color/color_black_333333</item>
         <item name="android:textColorHint">@color/color_gray_999999</item>
         <item name="android:textSize">15sp</item>
@@ -63,5 +63,13 @@
         <!--<item name="android:windowTranslucentStatus">true</item>-->
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowBackground">@drawable/bg_splash</item>
+    </style>
+
+    <style name="roundCornerStyle" >
+        <!--rounded是指定圆角，cut是指定切角-->
+        <item name="cornerFamily">rounded</item>
+
+        <!--切角或圆角大小,可以指定百分比，或者dp-->
+        <item name="cornerSize">50%</item>
     </style>
 </resources>

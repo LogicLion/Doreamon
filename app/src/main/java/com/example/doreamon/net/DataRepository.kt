@@ -22,9 +22,9 @@ object DataRepository {
      */
     suspend fun loginByPassword(account: String, password: String) = netRequest {
         val map = HashMap<String, String?>()
-        map["account"] = account
-        map["passWord"] = password
-        netService.loginClassroom("sagsdx", map)
+        map["username"] = account
+        map["password"] = password
+        netService.login(map)
     }
 
 

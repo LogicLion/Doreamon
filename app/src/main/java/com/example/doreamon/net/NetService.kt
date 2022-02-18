@@ -11,18 +11,17 @@ interface NetService {
 
 
     /**
-     * 登录课堂
-     * @return
+     * 登录
      */
-    @POST("/student/fzdStudent/loginByPhoneOrStudentCode")
-    suspend fun loginClassroom(@Header("ntk") ntk:String,@Body params: Map<String, String?>): NetResult<User>
+    @POST("/user/login")
+    suspend fun login(@Body params: Map<String, String?>): NetResult<User>
 
 
     /**
-     * 获取用户信息（动态带token）
+     * 获取用户信息
      * @return
      */
-    @GET("/student/fzdStudent/info")
+    @GET("/user/lg/userinfo/json")
     suspend fun userInfo(@Header("token") token:String): NetResult<User>
 
 

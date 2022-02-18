@@ -10,7 +10,6 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:bind="http://schemas.android.com/apk/res-auto"
-        android:focusable="true"
         android:focusableInTouchMode="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,22 +21,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
+            android:text="WanAndroid"
             android:layout_marginTop="80dp"
-            android:text="欢迎来到分之道课堂"
             android:textColor="@color/color_black_333333"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_login"
-            style="?android:attr/borderlessButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
             android:layout_marginHorizontal="30dp"
             android:layout_marginTop="100dp"
-            android:background="@drawable/selector_0ccfc9_eeeeee_radius_10"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:backgroundTint="@color/color_primary"
+            app:cornerRadius="6dp"
+            app:rippleColor="@color/color_black_333333"
             android:text="登录"
             android:textColor="@color/white"
             app:layout_constraintTop_toBottomOf="@id/et_password" />
@@ -48,16 +51,16 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             style="@style/LoginEditText"
-            android:text="15017137243"
+            android:text="@={vm.account}"
             android:layout_marginTop="40dp"
-            android:hint="请输入手机号码/学籍号"
+            android:hint="请输入账号"
             app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/et_password"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="123456"
+            android:text="@={vm.password}"
             style="@style/LoginEditText"
             android:hint="请输入密码"
             android:inputType="textPassword"

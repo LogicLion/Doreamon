@@ -1,12 +1,21 @@
 package com.example.doreamon.ui
 
+import android.content.res.ColorStateList
+import android.graphics.Color
+import android.graphics.Paint
 import android.os.Bundle
+import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.doreamon.R
+import com.example.doreamon.base.App
 import com.example.doreamon.base.BaseActivity
 import com.example.doreamon.base.BaseViewModel
 import com.example.doreamon.ext.startTargetActivity
 import com.example.doreamon.global.UserInfoData
+import com.example.doreamon.utils.dip2px
+import com.google.android.material.imageview.ShapeableImageView
+import com.google.android.material.shape.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -20,15 +29,40 @@ class LaunchActivity : BaseActivity<BaseViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        val ivLogo = findViewById<ShapeableImageView>(R.id.iv_logo)
+
+        //设置阴影
+//        val shapePathModel = ShapeAppearanceModel.builder()
+//            .setAllCorners(RoundedCornerTreatment())
+//            .setAllCornerSizes(dip2px(16))
+//            .build()
+//        val backgroundDrawable = MaterialShapeDrawable(shapePathModel).apply {
+//            setTint(Color.RED)
+//            paintStyle = Paint.Style.FILL
+//            shadowCompatibilityMode = MaterialShapeDrawable.SHADOW_COMPAT_MODE_ALWAYS
+//            initializeElevationOverlay(this@LaunchActivity)
+//            elevation = dip2px(6)
+//            setShadowColor(Color.RED)
+//        }
+//        (ivLogo.parent as? ViewGroup)?.clipChildren = false
+//        ivLogo.background = backgroundDrawable
+        val shapeModel = ShapeAppearanceModel.builder().setAllCorners(CornerFamily.ROUNDED, dip2px(30)).build()
+
+        ivLogo.shapeAppearanceModel = shapeModel
+
+        ivLogo.strokeColor= ColorStateList.valueOf(ContextCompat.getColor(App.instance,R.color.color_primary))
+        ivLogo.strokeWidth= dip2px(3)
+
         lifecycleScope.launch {
             delay(500)
-//            if (UserInfoData.value == null) {
+            if (UserInfoData.value == null) {
                 startTargetActivity<LoginActivity>()
-//            } else {
-//                startTargetActivity<MainActivity>()
-//            }
+            } else {
+                startTargetActivity<MainActivity>()
+            }
 
             finish()
+
         }
     }
 }

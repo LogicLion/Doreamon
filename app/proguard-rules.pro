@@ -180,3 +180,9 @@
 -if interface * { @retrofit2.http.* <methods>; }
 -keep,allowobfuscation interface <1>
 
+
+###Lebo
+-keep class com.hpplay.**{*;}
+-keep class com.hpplay.**$*{*;}
+-dontwarn com.hpplay.**
+

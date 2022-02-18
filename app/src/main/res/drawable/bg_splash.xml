@@ -7,27 +7,16 @@
     </item>
 
 
-    <item>
-
-
-        <bitmap
-            android:dither="true"
-            android:filter="true"
-            android:gravity="fill_vertical|fill_horizontal"
-            android:src="@drawable/bg_splash_page" />
-
-
-    </item>
-    <item >
-        <bitmap android:src="@drawable/pic_splash_logo"
-            android:gravity="center"
-            />
-    </item>
-<!--    <item-->
-<!--        android:gravity="center"-->
-<!--        >-->
-<!--        <bitmap android:src="@mipmap/foreground_start"-->
+<!--    <item>-->
+<!--        <bitmap-->
+<!--            android:dither="true"-->
+<!--            android:filter="true"-->
+<!--            android:gravity="fill_vertical|fill_horizontal"-->
+<!--            android:src="@drawable/bg_splash_page" />-->
+<!--    </item>-->
+<!--    <item >-->
+<!--        <bitmap android:src="@drawable/pic_splash_logo"-->
 <!--            android:gravity="center"-->
-<!--           />-->
-<!--       </item>-->
+<!--            />-->
+<!--    </item>-->
 </layer-list>

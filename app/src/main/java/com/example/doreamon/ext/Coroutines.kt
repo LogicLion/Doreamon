@@ -1,6 +1,5 @@
 package com.example.doreamon.ext
 
-import android.util.Log
 import com.example.doreamon.entity.BusinessException
 import com.example.doreamon.net.NetResult
 import kotlinx.coroutines.CoroutineScope
@@ -20,9 +19,9 @@ suspend fun <T> netRequest(block: suspend CoroutineScope.() -> NetResult<T>): T 
         block.invoke(this)
     }
 
-    var code = result.code
+    var code = result.errorCode
     val data = result.data
-    val msg = result.msg
+    val msg = result.errorMsg
     if (data != null && "0" == code) {
         return data
     } else {
@@ -39,8 +38,8 @@ suspend fun <T> netRequestIgnoreData(block: suspend CoroutineScope.() -> NetResu
         block.invoke(this)
     }
 
-    val code = result.code
-    val msg = result.msg
+    val code = result.errorCode
+    val msg = result.errorMsg
 
     if ("0" != code) {
         throw BusinessException(code, msg)

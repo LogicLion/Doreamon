@@ -29,13 +29,13 @@ class LoginActivity : BaseActivity<LoginViewModel>() {
 
         val binding = getViewBinding<ActivityLoginBinding>()
         binding.btnLogin.setOnClickListener {
-            val account = binding.etAccount.text.toString().trim()
-            val password = binding.etPassword.text.toString().trim()
-            viewModel.loginByPassword(account, password){
+            viewModel.loginByPassword{
                 startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                 finish()
             }
         }
+
+        arrayListOf<String>().
     }
 
     companion object {
