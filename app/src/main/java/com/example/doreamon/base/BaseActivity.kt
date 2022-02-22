@@ -54,10 +54,10 @@ abstract class BaseActivity<VM : BaseViewModel> : DataBindingActivity<VM>() {
     }
 
     protected open fun initBar() {
-        ImmersionBar.with(this)
-            .fitsSystemWindows(true)
-            .statusBarColor(R.color.white)
-            .statusBarDarkFont(true)
-            .init()
+//        ImmersionBar.with(this)
+//            .fitsSystemWindows(true)
+//            .statusBarColor(R.color.white)
+//            .statusBarDarkFont(true)
+//            .init()
     }
 }

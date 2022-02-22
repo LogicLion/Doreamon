@@ -2,7 +2,18 @@ package com.example.doreamon.ui
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.view.View
+import android.view.View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+import android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+import android.widget.FrameLayout
+import android.widget.ImageView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.OnApplyWindowInsetsListener
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
 import com.example.doreamon.R
 import com.example.doreamon.base.BaseActivity
 import com.example.doreamon.databinding.ActivityLoginBinding
@@ -10,6 +21,7 @@ import com.example.doreamon.ext.startTargetActivity
 import com.example.doreamon.global.UserInfoData
 import com.example.doreamon.utils.AppManager
 import com.example.doreamon.viewmodel.LoginViewModel
+import java.util.*
 
 /**
  * @author wzh
@@ -29,13 +41,40 @@ class LoginActivity : BaseActivity<LoginViewModel>() {
 
         val binding = getViewBinding<ActivityLoginBinding>()
         binding.btnLogin.setOnClickListener {
-            viewModel.loginByPassword{
+            viewModel.loginByPassword {
                 startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                 finish()
             }
         }
 
-        arrayListOf<String>().
+    }
+
+    override fun initBar() {
+        window.statusBarColor = Color.TRANSPARENT
+
+        val clRootView = findViewById<ConstraintLayout>(R.id.cl_root_view)
+        val ivBg = findViewById<ImageView>(R.id.iv_bg)
+//        clRootView.systemUiVisibility=(SYSTEM_UI_FLAG_LAYOUT_STABLE
+//                or SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
+
+
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        val controller = ViewCompat.getWindowInsetsController(clRootView).let {
+
+        }
+
+
+//        ViewCompat.setOnApplyWindowInsetsListener(clRootView
+//        ) { v, insets ->
+//            val layoutParams = v.layoutParams as FrameLayout.LayoutParams
+//            layoutParams.topMargin = insets.systemWindowInsetTop
+//
+//            insets
+//        }
+
+//        ivBg.fitsSystemWindows=true
+//        clRootView.fitsSystemWindows = true
+
     }
 
     companion object {
