@@ -1,5 +1,6 @@
 package com.example.doreamon.net
 
+import com.example.doreamon.entity.ArticleListEntity
 import com.example.doreamon.entity.User
 import retrofit2.http.*
 
@@ -13,8 +14,20 @@ interface NetService {
     /**
      * 登录
      */
+    @FormUrlEncoded
     @POST("/user/login")
-    suspend fun login(@Body params: Map<String, String?>): NetResult<User>
+    suspend fun login(@Field("username") username: String,
+                      @Field("password") password: String): NetResult<User>
+
+
+    /**
+     * 注册
+     */
+    @FormUrlEncoded
+    @POST("/user/register")
+    suspend fun register(@Field("username") username: String,
+                         @Field("password") password: String,
+    @Field("repassword") repassword:String): NetResult<User>
 
 
     /**
@@ -25,24 +38,12 @@ interface NetService {
     suspend fun userInfo(@Header("token") token:String): NetResult<User>
 
 
-    /**
-     *发送短信验证码
-     */
-    @POST("/student/sms/sendSms")
-    suspend fun sendSms(@Body params: Map<String, String>): NetResult<Any>
+    /** 根据页码[pageNum]获取并返回首页文章列表 */
+    @GET("/article/list/{pageNum}/json")
+    suspend fun getHomepageArticleList(@Path("pageNum") pageNum: Int): NetResult<ArticleListEntity>
 
 
-    /**
-     *验证码登录
-     */
-    @POST("/student/fzdStudent/loginBySms")
-    suspend fun loginByCode(@Body params: Map<String, String>): NetResult<User>
 
-    /**
-     * 修改登录密码
-     */
-    @POST("/student/fzdStudent/updatePassword")
-    suspend fun resetPW(@Header("ntk") ntk:String,@Body params: Map<String, String>): NetResult<Any>
 
 
 

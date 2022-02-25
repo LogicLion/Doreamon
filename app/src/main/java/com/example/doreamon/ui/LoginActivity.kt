@@ -4,16 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.view.View
-import android.view.View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-import android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-import android.widget.FrameLayout
-import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.OnApplyWindowInsetsListener
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.doreamon.R
 import com.example.doreamon.base.BaseActivity
 import com.example.doreamon.databinding.ActivityLoginBinding
@@ -47,13 +40,16 @@ class LoginActivity : BaseActivity<LoginViewModel>() {
             }
         }
 
+        binding.tvRegister.setOnClickListener {
+            startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
+        }
+
     }
 
     override fun initBar() {
         window.statusBarColor = Color.TRANSPARENT
 
         val clRootView = findViewById<ConstraintLayout>(R.id.cl_root_view)
-        val ivBg = findViewById<ImageView>(R.id.iv_bg)
 //        clRootView.systemUiVisibility=(SYSTEM_UI_FLAG_LAYOUT_STABLE
 //                or SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
 

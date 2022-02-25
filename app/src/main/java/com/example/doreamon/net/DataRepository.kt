@@ -21,22 +21,19 @@ object DataRepository {
      * 登录--密码登录
      */
     suspend fun loginByPassword(account: String, password: String) = netRequest {
-        val map = HashMap<String, String?>()
-        map["username"] = account
-        map["password"] = password
-        netService.login(map)
+        netService.login(account,password)
     }
 
 
     /**
-     * 短信验证码--登录
+     * 注册
      */
-    suspend fun sendSms4Login(phone: String) = netRequestIgnoreData {
-        val map = HashMap<String, String>()
-        map["phone"] = phone
-        map["code"] = "LoginConfirmation"
-        netService.sendSms(map)
+    suspend fun register(account: String, password: String,passwordAgain:String) = netRequest {
+        val map = HashMap<String, String?>()
+        netService.register(account,password,passwordAgain)
     }
+
+
 
     /**
      * 用户信息
@@ -45,42 +42,6 @@ object DataRepository {
         netService.userInfo(token)
     }
 
-
-    /**
-     * 短信验证码-修改密码
-     */
-    suspend fun sendSms4ResetPW(phone: String) = netRequestIgnoreData {
-        val map = HashMap<String, String>()
-        map["phone"] = phone
-        map["code"] = "ChangePassword"
-        netService.sendSms(map)
-    }
-
-    /**
-     * 验证码登录
-     */
-    suspend fun loginByCode(phone: String, code: String): User =
-        netRequest {
-            val map = HashMap<String, String>()
-            map["account"] = phone
-            map["valCode"] = code
-
-            netService.loginByCode(map)
-        }
-
-
-    /**
-     * 密码修改
-     */
-    suspend fun resetPW(phone: String, code: String, newPassword: String, confirmPassword: String) =
-        netRequestIgnoreData {
-            val map = HashMap<String, String>()
-            map["phone"] = phone
-            map["valCode"] = code
-            map["newPassword"] = newPassword
-            map["studyPassword"] = confirmPassword
-            netService.resetPW("sagsdx",map)
-        }
 
 
 

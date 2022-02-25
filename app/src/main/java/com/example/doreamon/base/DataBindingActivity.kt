@@ -37,7 +37,7 @@ abstract class DataBindingActivity<VM : BaseViewModel> : AppCompatActivity() {
         val className = Objects.requireNonNull(javaClass.genericSuperclass)
         if (className is ParameterizedType && className.actualTypeArguments.isNotEmpty()) {
             val vmClass = className.actualTypeArguments[0] as Class<VM>
-            vm = getActivityViewModel(vmClass)
+            vm = getViewModel(vmClass)
             binding.setVariable(BR.vm, vm)
         }
 
@@ -77,7 +77,7 @@ abstract class DataBindingActivity<VM : BaseViewModel> : AppCompatActivity() {
     }
 
 
-    protected open fun <T : ViewModel?> getActivityViewModel(modelClass: Class<T>): T {
+    protected open fun <T : ViewModel?> getViewModel(modelClass: Class<T>): T {
         if (!::mActivityProvider.isInitialized) {
             mActivityProvider = ViewModelProvider(this)
         }

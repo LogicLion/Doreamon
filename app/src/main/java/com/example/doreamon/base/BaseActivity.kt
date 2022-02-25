@@ -1,14 +1,9 @@
 package com.example.doreamon.base
 
 import android.content.pm.ActivityInfo
-import android.os.Build
 import android.os.Bundle
-import android.view.WindowManager
-import androidx.core.content.ContextCompat
-import com.example.doreamon.R
 import com.example.doreamon.common.CommonConfirmDialog
 import com.example.doreamon.widget.ViewLoadingFix
-import com.gyf.immersionbar.ImmersionBar
 
 
 /**
