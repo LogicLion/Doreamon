@@ -52,6 +52,6 @@ fun <N : Number> sp2px(spValue: N, context: Context = AppManager.getContext()): 
 /** 将**px**单位的值[pxValue]转换为**sp**单位的值[Float] */
 @JvmOverloads
 fun <N : Number> px2sp(pxValue: N, context: Context = AppManager.getContext()): Float {
-    val density = context.resources.displayMetrics.scaledDensity
+    val density = context.resources.displayMetrics.densityDpi
     return pxValue.toFloat() / density
 }

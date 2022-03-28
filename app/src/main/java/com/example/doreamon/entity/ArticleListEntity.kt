@@ -1,6 +1,5 @@
 package com.example.doreamon.entity
 
-import androidx.databinding.ObservableBoolean
 import com.example.doreamon.ext.orFalse
 import java.io.Serializable
 
@@ -23,7 +22,7 @@ data class ArticleListEntity(
         val total: String? = "",
         val over: String? = "",
         val datas: ArrayList<ArticleEntity>? = arrayListOf()
-):java.io.Serializable
+):Serializable
 
 /**
  * 文章对象数据实体类

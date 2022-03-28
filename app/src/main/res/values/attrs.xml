@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PlanView">
+        <attr name="plan_progress_bar_color" format="color"/>
+        <attr name="plan_background_color" format="color"/>
+        <attr name="plan_total" format="integer"/>
+        <attr name="plan_progress" format="integer"/>
+        <attr name="plan_bar_corner_radius" format="dimension"/>
+
+        <attr name="plan_bar_orientation">
+            <!-- Defines an horizontal widget. -->
+            <enum name="horizontal" value="0" />
+            <!-- Defines a vertical widget. -->
+            <enum name="vertical" value="1" />
+        </attr>
+    </declare-styleable>
+</resources>

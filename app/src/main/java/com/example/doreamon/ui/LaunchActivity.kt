@@ -55,11 +55,11 @@ class LaunchActivity : BaseActivity<BaseViewModel>() {
 
         lifecycleScope.launch {
             delay(500)
-            if (UserInfoData.value == null) {
-                startTargetActivity<LoginActivity>()
-            } else {
+//            if (UserInfoData.value == null) {
+//                startTargetActivity<LoginActivity>()
+//            } else {
                 startTargetActivity<MainActivity>()
-            }
+//            }
 
             finish()
 

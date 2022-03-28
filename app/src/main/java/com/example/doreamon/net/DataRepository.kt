@@ -1,9 +1,7 @@
 package com.example.doreamon.net
 
 import com.example.doreamon.base.App
-import com.example.doreamon.entity.User
 import com.example.doreamon.ext.netRequest
-import com.example.doreamon.ext.netRequestIgnoreData
 
 /**
  * @author wzh
@@ -40,6 +38,10 @@ object DataRepository {
      */
     suspend fun userInfo(token: String) = netRequest {
         netService.userInfo(token)
+    }
+
+    suspend fun getHomepageArticleList(pageNum: Int) = netRequest{
+        netService.getHomepageArticleList(pageNum)
     }
 
 

@@ -48,7 +48,7 @@ android {
 
     buildTypes {
         debug {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         release {
@@ -89,4 +89,11 @@ dependencies {
 
     //immersionbar
     implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
+
+    //bravh
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.6'
+
+
+    implementation 'com.haibin:calendarview:3.7.1'
+
 }

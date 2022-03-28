@@ -19,10 +19,7 @@ fun String?.toast(){
     }
     mToast?.cancel()
     val context = App.instance
-    mToast = Toast(context)
-    mToast?.setText(this)
-    mToast?.duration = Toast.LENGTH_SHORT
-    mToast?.setGravity(Gravity.CENTER, 0, 0)
+    mToast = Toast.makeText(context,this,Toast.LENGTH_SHORT)
     mToast?.show()
 }
 
