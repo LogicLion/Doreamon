@@ -1,9 +1,11 @@
 package com.example.doreamon.ui
 
+import android.graphics.Color
 import com.example.doreamon.R
 import com.example.doreamon.base.BaseFragment
 import com.example.doreamon.databinding.FragmentHomePageBinding
 import com.example.doreamon.entity.VideoLearnData
+import com.example.doreamon.utils.dip2px
 import com.example.doreamon.viewmodel.HomePageViewModel
 import com.haibin.calendarview.Calendar
 
@@ -17,33 +19,21 @@ class HomePageFragment : BaseFragment<HomePageViewModel>() {
 
     override fun initView() {
         val binding = getViewBinding<FragmentHomePageBinding>()
-//        binding.rv.adapter = HomeAdapter()
-//        binding.rv.layoutManager = LinearLayoutManager(mContext)
 
         getViewModel()
 
-        val calendarView1 = binding.calendarView
-        val map = hashMapOf<String, Calendar>()
+        val planView = binding.planView
 
-        map.put("2022-3-22",getSchemeCalendar(2022,3,22,"2022-3-22"))
-        calendarView1.setSchemeDate(map)
+        planView.setProgressColor(Color.parseColor("#45C4ED"))
+        planView.setBgColor(Color.parseColor("#A7E3FF"))
 
+        planView.setProgressAndTotal(20, 30)
+
+        binding.tvChange.setOnClickListener {
+            planView.updateProgressWithAnimator(20)
+        }
 
     }
 
-
-    private fun getSchemeCalendar(
-        year: Int,
-        month: Int,
-        day: Int,
-        text: String
-    ): Calendar {
-        val calendar = Calendar()
-        calendar.year = year
-        calendar.month = month
-        calendar.day = day
-        calendar.scheme = text
-        return calendar
-    }
 
 }
