@@ -29,9 +29,6 @@ class HomePageFragment : BaseFragment<HomePageViewModel>() {
 
         planView.setProgressAndTotal(20, 30)
 
-        binding.tvChange.setOnClickListener {
-            planView.updateProgressWithAnimator(20)
-        }
 
     }
 

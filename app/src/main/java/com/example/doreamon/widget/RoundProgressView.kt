@@ -13,7 +13,7 @@ import androidx.annotation.Keep
 import java.time.Duration
 
 /**
- * 可设置圆角进度条控件
+ * 可设置圆角进度条控件,可考虑实现,拖动进度
  * @author wzh
  * @date 2022/3/10
  */
@@ -101,12 +101,17 @@ class RoundProgressView : View {
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
 
+        Log.v("执行顺序","onSizeChanged")
         val width = width
         val height = height
         computeProgressBarLength()
         rectF = RectF(0f, 0f, width.toFloat(), height.toFloat())
         rectPath = Path()
         rectPath.addRoundRect(rectF, cornerRadius, cornerRadius, Path.Direction.CW)
+
+        animator = ObjectAnimator.ofInt(this, "progressLength", 0, progressLength)
+        animator.duration = 500
+        animator.start()
     }
 
 
@@ -147,10 +152,7 @@ class RoundProgressView : View {
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
-
-        animator = ObjectAnimator.ofInt(this, "progressLength", 0, progressLength)
-        animator.duration = 500
-        animator.start()
+        Log.v("执行顺序","onAttachedToWindow")
     }
 
     override fun onDetachedFromWindow() {
