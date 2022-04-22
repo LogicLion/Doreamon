@@ -186,3 +186,16 @@
 -keep class com.hpplay.**$*{*;}
 -dontwarn com.hpplay.**
 
+
+#x5webview
+-dontwarn dalvik.**
+-dontwarn com.tencent.smtt.**
+
+-keep class com.tencent.smtt.** {
+    *;
+}
+
+-keep class com.tencent.tbs.** {
+    *;
+}
+

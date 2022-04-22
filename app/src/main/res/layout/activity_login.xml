@@ -9,25 +9,33 @@
     </data>
 
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+    <!--测试fitsSystemWindows-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:focusableInTouchMode="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
+        android:fitsSystemWindows="false"
         android:id="@+id/cl_root_view">
 
 
+        <!--测试fitsSystemWindows-->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:visibility="gone"
+            android:contentDescription="@string/app_name"
+            android:fitsSystemWindows="true"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <!--测试fitsSystemWindows-->
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:text="WanAndroid"
+            android:fitsSystemWindows="true"
             android:textColor="@color/color_black_333333"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -87,5 +95,4 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    </FrameLayout>
 </layout>

@@ -1,7 +1,9 @@
 package com.example.doreamon.ui
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.core.view.WindowCompat
 import androidx.fragment.app.Fragment
 import com.example.doreamon.R
 import com.example.doreamon.base.BaseActivity
@@ -20,7 +22,9 @@ class MainActivity : BaseActivity<MainViewModel>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        window.statusBarColor = Color.TRANSPARENT
+        //关闭根布局的fitSystemWindow偏移
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         mHomePageFragment =
             supportFragmentManager.findFragmentByTag(HomePageFragment::class.java.simpleName) as HomePageFragment?
                 ?: HomePageFragment()
@@ -38,6 +42,8 @@ class MainActivity : BaseActivity<MainViewModel>() {
             }
             true
         }
+
+
 
         if (savedInstanceState != null) {
             when (savedInstanceState.getString(currentFragmentTagKey, "")) {
