@@ -99,4 +99,7 @@ dependencies {
 
 //    implementation 'com.tencent.tbs:tbssdk:44181'
 
+    implementation 'cn.yc:WebViewLib:1.2.4'
+
+    implementation 'com.blankj:utilcodex:1.31.0'
 }

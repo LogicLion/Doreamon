@@ -2,7 +2,6 @@ package com.example.doreamon.ui
 
 import android.graphics.Color
 import android.os.Bundle
-import android.view.MenuItem
 import androidx.core.view.WindowCompat
 import androidx.fragment.app.Fragment
 import com.example.doreamon.R
@@ -10,7 +9,6 @@ import com.example.doreamon.base.BaseActivity
 import com.example.doreamon.databinding.ActivityMainBinding
 import com.example.doreamon.ui.main.MineFragment
 import com.example.doreamon.viewmodel.MainViewModel
-import com.google.android.material.navigation.NavigationBarView
 
 class MainActivity : BaseActivity<MainViewModel>() {
     private val currentFragmentTagKey = "CURR_FRAGMENT_KEY"
@@ -23,6 +21,7 @@ class MainActivity : BaseActivity<MainViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.statusBarColor = Color.TRANSPARENT
+//        setStatusBarTextDark()
         //关闭根布局的fitSystemWindow偏移
         WindowCompat.setDecorFitsSystemWindows(window, false)
         mHomePageFragment =
@@ -59,6 +58,11 @@ class MainActivity : BaseActivity<MainViewModel>() {
         super.onSaveInstanceState(outState)
 
         outState.putString(currentFragmentTagKey, currentFragment.javaClass.simpleName)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        changeStatusFountColor(false)
     }
 
     private fun showFragment(targetFragment: Fragment) {
