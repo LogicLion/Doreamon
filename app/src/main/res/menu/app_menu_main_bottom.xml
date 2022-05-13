@@ -7,7 +7,7 @@
         android:title="@string/app_homepage" />
 
     <item
-        android:id="@+id/menu_sytem"
+        android:id="@+id/menu_topic"
         android:icon="@drawable/app_vector_system"
         android:title="@string/app_system" />
 

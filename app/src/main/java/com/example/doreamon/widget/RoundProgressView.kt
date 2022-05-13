@@ -13,7 +13,7 @@ import androidx.annotation.Keep
 import java.time.Duration
 
 /**
- * 可设置圆角进度条控件,可考虑实现,拖动进度
+ * 可设置圆角进度条控件,可考虑实现:拖动进度
  * @author wzh
  * @date 2022/3/10
  */

@@ -1,6 +1,5 @@
 package com.example.doreamon.ext
 
-import android.view.Gravity
 import android.widget.Toast
 import com.example.doreamon.base.App
 

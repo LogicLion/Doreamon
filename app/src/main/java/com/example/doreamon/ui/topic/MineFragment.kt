@@ -1,4 +1,4 @@
-package com.example.doreamon.ui.main
+package com.example.doreamon.ui.topic
 
 import com.example.doreamon.R
 import com.example.doreamon.base.BaseFragment

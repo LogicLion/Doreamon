@@ -1,16 +1,16 @@
-package com.example.doreamon.ui.main
+package com.example.doreamon.ui.topic
 
 import com.example.doreamon.R
 import com.example.doreamon.base.BaseFragment
 import com.example.doreamon.base.BaseViewModel
 
 /**
- * 刮刮卡效果
+ * 自定义进度条控件
  * @author wzh
  * @date 2022/4/26
  */
-class ScratchViewDemoFragment : BaseFragment<BaseViewModel>() {
-    override fun setupLayoutId() = R.layout.fragment_scratch_view
+class ProgressViewDemoFragment :BaseFragment<BaseViewModel>(){
+    override fun setupLayoutId()= R.layout.fragment_progress_view_demo
 
     override fun initView() {
     }

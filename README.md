@@ -8,5 +8,6 @@
 * 进度条控件可拖拽进度
 * PorterDuffXfermode各种模式
 * 自定义测量
+* 嵌套滑动
 
 

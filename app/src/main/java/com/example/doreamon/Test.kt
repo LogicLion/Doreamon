@@ -9,9 +9,14 @@ import com.example.doreamon.utils.MD5Util
  * @date 2021/11/18
  */
 class Test {
-    companion object{
+    companion object {
         @JvmStatic
         fun main(args: Array<String>) {
+
+            val nums = intArrayOf(2, 4, 5, 8, 11)
+            val target = 9
+
+
         }
     }
 }

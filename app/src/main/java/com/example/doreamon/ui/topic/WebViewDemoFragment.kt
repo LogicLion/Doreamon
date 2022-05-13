@@ -1,4 +1,4 @@
-package com.example.doreamon.ui.main
+package com.example.doreamon.ui.topic
 
 import android.graphics.Bitmap
 import android.util.Log
