@@ -1,10 +1,7 @@
 package com.example.doreamon.ui
 
 import android.content.res.ColorStateList
-import android.graphics.Color
-import android.graphics.Paint
 import android.os.Bundle
-import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.doreamon.R
@@ -12,7 +9,7 @@ import com.example.doreamon.base.App
 import com.example.doreamon.base.BaseActivity
 import com.example.doreamon.base.BaseViewModel
 import com.example.doreamon.ext.startTargetActivity
-import com.example.doreamon.global.UserInfoData
+import com.example.doreamon.ui.topic.FragmentToggleActivity
 import com.example.doreamon.utils.dip2px
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.shape.*

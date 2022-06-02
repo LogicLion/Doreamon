@@ -3,14 +3,11 @@ package com.example.doreamon.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.fragment.app.Fragment
 import com.example.doreamon.R
 import com.example.doreamon.base.BaseActivity
 import com.example.doreamon.base.BaseViewModel
 import com.example.doreamon.databinding.ActivityPracticeBinding
-import com.example.doreamon.entity.StudyTopic
-import com.example.doreamon.ui.main.TopicListFragment
 
 /**
  * @author wzh

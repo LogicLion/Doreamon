@@ -1,6 +1,7 @@
 package com.example.doreamon.ui.topic
 
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentPagerAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.doreamon.R

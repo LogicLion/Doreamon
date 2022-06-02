@@ -6,7 +6,7 @@ import com.example.doreamon.adapter.TopicAdapter
 import com.example.doreamon.base.BaseFragment
 import com.example.doreamon.base.BaseViewModel
 import com.example.doreamon.databinding.CommonRecyclerviewBinding
-import com.example.doreamon.entity.StudyTopic
+import com.example.doreamon.ui.StudyTopic
 
 /**
  * 专题列表

@@ -9,5 +9,11 @@
 * PorterDuffXfermode各种模式
 * 自定义测量
 * 嵌套滑动
+* 大图预览
+* 数据库封装
+* 研究photoview的源码
+* handler的同步屏障机制（sync barrier）
+* 防重复点击
+* Android Material Motion 转场效果，共享元素
 
 

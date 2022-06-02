@@ -6,7 +6,7 @@ import com.example.doreamon.base.BaseActivity
 import com.example.doreamon.entity.AlertDialogModel
 import com.example.doreamon.entity.BusinessException
 import com.example.doreamon.global.UserInfoData
-import com.example.doreamon.ui.LoginActivity
+import com.example.doreamon.ui.login.LoginActivity
 import com.example.doreamon.utils.AppManager
 import com.example.doreamon.utils.getStringById
 import com.google.gson.JsonParseException

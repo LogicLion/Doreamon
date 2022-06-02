@@ -17,8 +17,8 @@ class BannerFragment :BaseFragment<BaseViewModel>(){
 
     override fun initView() {
         val binding = getViewBinding<FragmentBannerBinding>()
-        val bannerAdapter = BannerAdapter(listOf("", "", "", "", ""))
-        binding.vpBanner.adapter=bannerAdapter
+//        val bannerAdapter = BannerAdapter(listOf("", "", "", "", ""))
+//        binding.vpBanner.adapter=bannerAdapter
 
     }
 }

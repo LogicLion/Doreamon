@@ -1,4 +1,4 @@
-package com.example.doreamon.ui
+package com.example.doreamon.ui.login
 
 import android.content.Context
 import android.content.Intent
@@ -12,6 +12,7 @@ import com.example.doreamon.base.BaseActivity
 import com.example.doreamon.databinding.ActivityLoginBinding
 import com.example.doreamon.ext.startTargetActivity
 import com.example.doreamon.global.UserInfoData
+import com.example.doreamon.ui.topic.FragmentToggleActivity
 import com.example.doreamon.utils.AppManager
 import com.example.doreamon.viewmodel.LoginViewModel
 import java.util.*
@@ -35,7 +36,7 @@ class LoginActivity : BaseActivity<LoginViewModel>() {
         val binding = getViewBinding<ActivityLoginBinding>()
         binding.btnLogin.setOnClickListener {
             viewModel.loginByPassword {
-                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                startActivity(Intent(this@LoginActivity, FragmentToggleActivity::class.java))
                 finish()
             }
         }

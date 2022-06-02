@@ -63,7 +63,7 @@ class HomePageFragment : BaseFragment<HomePageViewModel>() {
         pagers.add(Pager("刮刮卡效果", ScratchViewDemoFragment()))
         pagers.add(Pager("循环列表", LoopRecyclerViewFragment()))
         pagers.add(Pager("自定义进度条", ProgressViewDemoFragment()))
-        pagers.add(Pager("Banner", BannerFragment()))
+//        pagers.add(Pager("Banner", BannerFragment()))
 
         return pagers
     }

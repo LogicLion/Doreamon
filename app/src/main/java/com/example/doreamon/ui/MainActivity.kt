@@ -1,97 +1,64 @@
 package com.example.doreamon.ui
 
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
-import androidx.core.view.WindowCompat
 import androidx.fragment.app.Fragment
+import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.doreamon.R
 import com.example.doreamon.base.BaseActivity
+import com.example.doreamon.base.BaseViewModel
 import com.example.doreamon.databinding.ActivityMainBinding
 import com.example.doreamon.ui.main.HomePageFragment
+import com.example.doreamon.ui.main.MineFragment
 import com.example.doreamon.ui.main.TopicListFragment
-import com.example.doreamon.ui.topic.MineFragment
-import com.example.doreamon.viewmodel.MainViewModel
 
-class MainActivity : BaseActivity<MainViewModel>() {
-    private val currentFragmentTagKey = "CURR_FRAGMENT_KEY"
-    private lateinit var currentFragment: Fragment
-
-    private lateinit var mHomePageFragment: HomePageFragment
-    private lateinit var mTopicListFragment: TopicListFragment
-    private lateinit var mMineFragment: MineFragment
+/**
+ * @author wzh
+ * @date 2022/6/2
+ */
+class MainActivity : BaseActivity<BaseViewModel>() {
+    lateinit var binding: ActivityMainBinding
     override fun setupLayoutId() = R.layout.activity_main
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        Log.v(TAG, "onCreate")
+        binding = getViewBinding()
 
-        changeStatusFountColor(true)
+        binding.vp.adapter = object : FragmentStateAdapter(this) {
+            override fun getItemCount() = 3
 
-        //关闭根布局的fitSystemWindow偏移
-        WindowCompat.setDecorFitsSystemWindows(window, false)
-        mHomePageFragment =
-            supportFragmentManager.findFragmentByTag(HomePageFragment::class.java.simpleName) as HomePageFragment?
-                ?: HomePageFragment()
-
-        mTopicListFragment =
-            supportFragmentManager.findFragmentByTag(TopicListFragment::class.java.simpleName) as TopicListFragment?
-                ?: TopicListFragment()
-
-        mMineFragment =
-            supportFragmentManager.findFragmentByTag(MineFragment::class.java.simpleName) as MineFragment?
-                ?: MineFragment()
-
-        val binding = getViewBinding<ActivityMainBinding>()
-        binding.navView.setOnItemSelectedListener {
-            when (it.itemId) {
-                R.id.menu_homepage -> showFragment(mHomePageFragment)
-                R.id.menu_topic -> showFragment(mTopicListFragment)
-                R.id.menu_my -> showFragment(mMineFragment)
+            override fun createFragment(position: Int): Fragment {
+                return when (position) {
+                    0 -> HomePageFragment()
+                    1 -> TopicListFragment()
+                    else -> MineFragment()
+                }
             }
-            true
         }
 
-        if (savedInstanceState != null) {
+        binding.navView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.menu_homepage -> {
+                    binding.vp.currentItem = 0
+                }
 
-            when (savedInstanceState.getString(currentFragmentTagKey, "")) {
-                HomePageFragment::class.java.simpleName -> currentFragment = mHomePageFragment
-                TopicListFragment::class.java.simpleName -> currentFragment = mTopicListFragment
-                MineFragment::class.java.simpleName -> currentFragment = mMineFragment
+                R.id.menu_topic -> {
+                    binding.vp.currentItem = 1
+                }
+
+                R.id.menu_my -> {
+                    binding.vp.currentItem = 2
+                }
             }
-        } else {
-            showFragment(mHomePageFragment)
-        }
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putString(currentFragmentTagKey, currentFragment.javaClass.simpleName)
-    }
-
-    override fun onResume() {
-        super.onResume()
-
-    }
-
-    private fun showFragment(targetFragment: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        if (!targetFragment.isAdded) {
-            transaction.add(R.id.fl_content, targetFragment, targetFragment::class.java.simpleName)
+            return@setOnItemSelectedListener true
         }
 
-        if (::currentFragment.isInitialized) {
-            transaction.hide(currentFragment)
+        binding.navView.post {
+            Log.v("navView","宽："+binding.navView.width)
+            Log.v("navView","高："+binding.navView.height)
         }
 
-        transaction.show(targetFragment).commit()
-        currentFragment = targetFragment
-    }
-
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.v(TAG, "onDestroy")
     }
 }

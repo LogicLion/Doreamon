@@ -1,4 +1,4 @@
-package com.example.doreamon.ui
+package com.example.doreamon.ui.login
 
 import android.os.Bundle
 import com.example.doreamon.R
