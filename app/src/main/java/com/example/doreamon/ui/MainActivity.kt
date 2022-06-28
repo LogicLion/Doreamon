@@ -11,6 +11,8 @@ import com.example.doreamon.databinding.ActivityMainBinding
 import com.example.doreamon.ui.main.HomePageFragment
 import com.example.doreamon.ui.main.MineFragment
 import com.example.doreamon.ui.main.TopicListFragment
+import com.example.doreamon.ui.simple.MyLifeCycleObserver
+import java.lang.IllegalArgumentException
 
 /**
  * @author wzh
@@ -24,16 +26,26 @@ class MainActivity : BaseActivity<BaseViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+//        setStatusBarTextLight()
+        setStatusBarTextDark()
+        setStatusBarNotPlaceHolder()
         binding = getViewBinding()
 
+        binding.vp.isUserInputEnabled = false
         binding.vp.adapter = object : FragmentStateAdapter(this) {
             override fun getItemCount() = 3
 
             override fun createFragment(position: Int): Fragment {
                 return when (position) {
-                    0 -> HomePageFragment()
+                    0 -> {
+                        val fragmentTag = StudyTopic.List[0].fragmentTag
+                        Class.forName(fragmentTag).newInstance() as Fragment
+                    }
+
                     1 -> TopicListFragment()
-                    else -> MineFragment()
+                    2 -> MineFragment()
+
+                    else -> throw IllegalArgumentException("fragment in position $position doesn't exit")
                 }
             }
         }
@@ -56,9 +68,16 @@ class MainActivity : BaseActivity<BaseViewModel>() {
         }
 
         binding.navView.post {
-            Log.v("navView","宽："+binding.navView.width)
-            Log.v("navView","高："+binding.navView.height)
+            Log.v("navView", "宽：" + binding.navView.width)
+            Log.v("navView", "高：" + binding.navView.height)
         }
+
+
+
+    }
+
+    override fun onResume() {
+        super.onResume()
 
     }
 }

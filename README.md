@@ -15,5 +15,7 @@
 * handler的同步屏障机制（sync barrier）
 * 防重复点击
 * Android Material Motion 转场效果，共享元素
+* diffUtil使用
+* 图标列表编辑，拖拽，增删改
 
 

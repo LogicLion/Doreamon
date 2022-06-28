@@ -19,6 +19,7 @@ class TopicListFragment :BaseFragment<BaseViewModel>() {
     override fun initView() {
         val binding = getViewBinding<CommonRecyclerviewBinding>()
         val rv = binding.rv
+        rv.fitsSystemWindows=true
         rv.layoutManager=LinearLayoutManager(requireActivity())
         val topicList = StudyTopic.List
         val topicAdapter = TopicAdapter()

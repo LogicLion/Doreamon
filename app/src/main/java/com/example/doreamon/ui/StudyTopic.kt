@@ -18,8 +18,8 @@ class StudyTopic(
 
         val List = listOf(
 
-            StudyTopic("图片大图预览", ImagePreviewFragment::class.java.name),
             StudyTopic("测试", TestFragment::class.java.name),
+            StudyTopic("图片大图预览", ImagePreviewFragment::class.java.name),
             StudyTopic("嵌套滑动", NestedScrollDemoFragment::class.java.name),
             StudyTopic("ViewPager2实践",ViewPager2DemoFragment::class.java.name),
             StudyTopic("WebView使用",WebViewDemoFragment::class.java.name),

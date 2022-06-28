@@ -1,20 +1,15 @@
 package com.example.doreamon.ui.simple
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
-import androidx.lifecycle.MutableLiveData
+import android.widget.FrameLayout
+import android.widget.TextView
+import com.blankj.utilcode.util.BarUtils
 import com.example.doreamon.R
-import com.example.doreamon.adapter.FlexBoxAdapter
 import com.example.doreamon.base.BaseFragment
 import com.example.doreamon.base.BaseViewModel
 import com.example.doreamon.databinding.FragmentTestBinding
-import com.google.android.flexbox.FlexDirection
-import com.google.android.flexbox.FlexboxItemDecoration
-import com.google.android.flexbox.FlexboxLayoutManager
-import io.reactivex.Flowable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import java.util.concurrent.TimeUnit
 
 /**
  * @author wzh
@@ -28,21 +23,35 @@ class TestFragment : BaseFragment<BaseViewModel>() {
 
         val binding = getViewBinding<FragmentTestBinding>()
 
-//        binding.rv.layoutManager = FlexboxLayoutManager(activity)
-//
-//        val adapter = FlexBoxAdapter()
-//        adapter.setList(listOf("111","1111111111","22222222222","666666666","66666sdfss6666"))
-//        val flexboxItemDecoration = FlexboxItemDecoration(activity)
-//        binding.rv.adapter=adapter
 
-        binding.levelStarView.setLevel(3)
-        binding.tvSetLevel.setOnClickListener {
-            binding.levelStarView.setLevel(5)
+        binding.tvTest.post {
+
+            val ints = IntArray(2)
+            binding.tvTest.getLocationOnScreen(ints)
+
+
+//            binding.tvTest.text = "x:${ints[0]}，y:${ints[1]}"
+
+            val width = binding.tvTest.width
+            val height = binding.tvTest.height
+            val textView = TextView(requireActivity())
+            textView.setBackgroundColor(Color.parseColor("#99999999"))
+            textView.text="示例"
+//            textView.width = width
+//            textView.height = height
+//            textView.x = ints[0].toFloat()
+//            textView.y = ints[1].toFloat()
+
+            val params = FrameLayout.LayoutParams(width, height)
+
+            params.setMargins(ints[0],ints[1],0,0)
+            textView.layoutParams=params
+
+
+            binding.flContent.addView(textView,params)
+
         }
-
-        binding.levelStarView.post {
-
-        }
+//        lifecycle.addObserver(MyLifeCycleObserver())
     }
 
 
@@ -57,6 +66,8 @@ class TestFragment : BaseFragment<BaseViewModel>() {
     override fun onResume() {
         super.onResume()
         Log.v(TAG, "onResume-${title}")
+
+        lifecycle.addObserver(MyLifeCycleObserver())
     }
 
     override fun onStart() {

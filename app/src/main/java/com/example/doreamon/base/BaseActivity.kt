@@ -1,12 +1,14 @@
 package com.example.doreamon.base
 
 import android.content.pm.ActivityInfo
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.WindowInsetsController
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import com.example.doreamon.common.CommonConfirmDialog
 import com.example.doreamon.widget.ViewLoadingFix
 import com.gyf.immersionbar.BuildConfig
@@ -69,29 +71,40 @@ abstract class BaseActivity<VM : BaseViewModel> : DataBindingActivity<VM>() {
      */
     fun setStatusBarTextDark() {
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-
-            window.insetsController?.setSystemBarsAppearance(0,WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS)
-        }else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+//
+////            window.insetsController?.setSystemBarsAppearance(0,WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS)
+//            WindowInsetsControllerCompat(window,window.decorView).isAppearanceLightStatusBars = true
+//
+//        }else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
             //设置状态栏文字图标为黑色
-            val decorView = window.decorView
-            val option = decorView.systemUiVisibility
-            decorView.systemUiVisibility = option or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-        }
+        val flags = window.decorView.systemUiVisibility
+        window.decorView.systemUiVisibility = flags or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+//        }
     }
 
     /**
      * 设置状态栏文字图标颜色为浅色
      */
     fun setStatusBarTextLight() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            window.insetsController?.setSystemBarsAppearance(WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS,WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS)
-        }else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+////            window.insetsController?.setSystemBarsAppearance(WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS,WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS)
+//            WindowInsetsControllerCompat(window,window.decorView).isAppearanceLightStatusBars = false
+//        }else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             //设置状态栏文字图标为黑色
-            val decorView = window.decorView
-            val option = decorView.systemUiVisibility
-            decorView.systemUiVisibility = option or View.SYSTEM_UI_FLAG_VISIBLE
-        }
+        val flags = window.decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+        window.decorView.systemUiVisibility = flags xor View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+//        }
+    }
+
+
+    /**
+     * 设置状态栏不占位
+     */
+    fun setStatusBarNotPlaceHolder() {
+        val flags = window.decorView.systemUiVisibility
+        window.statusBarColor=Color.TRANSPARENT
+        window.decorView.systemUiVisibility = flags or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
     }
 
 
