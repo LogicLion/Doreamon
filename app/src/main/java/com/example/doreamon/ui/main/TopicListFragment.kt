@@ -13,18 +13,18 @@ import com.example.doreamon.ui.StudyTopic
  * @author wzh
  * @date 2022/5/9
  */
-class TopicListFragment :BaseFragment<BaseViewModel>() {
-    override fun setupLayoutId()= R.layout.common_recyclerview
+class TopicListFragment : BaseFragment<BaseViewModel>() {
+    override fun setupLayoutId() = R.layout.common_recyclerview
 
     override fun initView() {
         val binding = getViewBinding<CommonRecyclerviewBinding>()
         val rv = binding.rv
-        rv.fitsSystemWindows=true
-        rv.layoutManager=LinearLayoutManager(requireActivity())
+        rv.fitsSystemWindows = true
+        rv.layoutManager = LinearLayoutManager(requireActivity())
         val topicList = StudyTopic.List
         val topicAdapter = TopicAdapter()
         topicAdapter.setList(topicList)
-        rv.adapter= topicAdapter
+        rv.adapter = topicAdapter
 
     }
 }

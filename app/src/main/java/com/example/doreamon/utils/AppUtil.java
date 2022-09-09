@@ -6,7 +6,7 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 
 
-import com.example.doreamon.base.App;
+import com.example.doreamon.base.AppI;
 
 import java.security.MessageDigest;
 
@@ -43,7 +43,7 @@ public class AppUtil {
     public static String getVersionCode() {
         PackageInfo info = null;
         try {
-            info = App.getInstance().getPackageManager().getPackageInfo(App.getInstance().getPackageName(), 0);
+            info = AppI.getInstance().getPackageManager().getPackageInfo(AppI.getInstance().getPackageName(), 0);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }

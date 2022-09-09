@@ -13,9 +13,8 @@ import com.example.doreamon.databinding.ActivityLoginBinding
 import com.example.doreamon.ext.startTargetActivity
 import com.example.doreamon.global.UserInfoData
 import com.example.doreamon.ui.topic.FragmentToggleActivity
-import com.example.doreamon.utils.AppManager
+import com.doreamon.treasure.utils.AppManager
 import com.example.doreamon.viewmodel.LoginViewModel
-import java.util.*
 
 /**
  * @author wzh

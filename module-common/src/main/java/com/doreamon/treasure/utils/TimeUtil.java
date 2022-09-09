@@ -1,4 +1,4 @@
-package com.example.doreamon.utils;
+package com.doreamon.treasure.utils;
 
 /**
  * 时间处理工具
@@ -10,7 +10,7 @@ public class TimeUtil {
      * @param duration 时长（单位：秒）
      * @return xx时xx分xx秒
      */
-    public static String durationFromat(long duration) {
+    public static String durationFormat(long duration) {
         long h = duration / (long)3600;
         long m = duration % (long)3600 / (long)60;
         long s = duration % (long)3600 % (long)60;

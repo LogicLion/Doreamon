@@ -1,8 +1,8 @@
-package com.example.doreamon.utils
+package com.doreamon.treasure.utils
 
 import android.content.Context
 import androidx.annotation.StringRes
-import com.example.doreamon.base.App
+import com.example.doreamon.base.AppI
 
 /**
  * @author wzh
@@ -12,6 +12,6 @@ import com.example.doreamon.base.App
  * 根据资源id[resId] 获取字符串[String]
  */
 @JvmOverloads
-fun getStringById(@StringRes resId: Int, context: Context = App.instance): String {
+fun getStringById(@StringRes resId: Int, context: Context = AppI.instance): String {
     return context.getString(resId)
 }

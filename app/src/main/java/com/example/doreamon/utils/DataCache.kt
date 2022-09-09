@@ -1,6 +1,6 @@
 package com.example.doreamon.utils
 
-import com.example.doreamon.base.App
+import com.example.doreamon.base.AppI
 import com.tencent.mmkv.MMKV
 
 /**
@@ -9,7 +9,7 @@ import com.tencent.mmkv.MMKV
  */
 /** 默认 [MMKV] 对象 */
 private val defaultMMKV: MMKV by lazy {
-    MMKV.initialize(App.instance)
+    MMKV.initialize(AppI.instance)
     MMKV.defaultMMKV()!!
 }
 

@@ -7,10 +7,8 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
-import androidx.constraintlayout.motion.widget.DesignTool
-import androidx.core.app.NotificationCompat
 import com.example.doreamon.R
-import com.example.doreamon.utils.dip2px
+import com.doreamon.treasure.utils.dip2px
 
 /**
  * 星星等级控件

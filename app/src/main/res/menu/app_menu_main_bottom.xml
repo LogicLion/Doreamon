@@ -11,10 +11,6 @@
         android:icon="@drawable/app_vector_system"
         android:title="@string/app_system" />
 
-    <item
-        android:id="@+id/menu_bjnews"
-        android:icon="@drawable/app_vector_bjnews"
-        android:title="@string/app_bjnews" />
 
     <item
         android:id="@+id/menu_project"

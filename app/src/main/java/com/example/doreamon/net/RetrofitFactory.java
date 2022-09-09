@@ -1,7 +1,6 @@
 package com.example.doreamon.net;
 
 
-import com.example.doreamon.base.App;
 import com.example.doreamon.constant.ConstKt;
 import com.example.doreamon.entity.User;
 import com.example.doreamon.global.UserInfoData;

@@ -1,6 +1,6 @@
 package com.example.doreamon.net
 
-import com.example.doreamon.base.App
+import com.example.doreamon.base.AppI
 import com.example.doreamon.ext.netRequest
 
 /**
@@ -8,7 +8,7 @@ import com.example.doreamon.ext.netRequest
  * @date 2021/12/13
  */
 object DataRepository {
-    var context = App.instance
+    var context = AppI.instance
     private val netService: NetService
         get() {
             return RetrofitFactory.createRetrofit()

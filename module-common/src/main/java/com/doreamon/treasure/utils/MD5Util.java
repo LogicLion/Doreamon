@@ -1,4 +1,4 @@
-package com.example.doreamon.utils;
+package com.doreamon.treasure.utils;
 
 import java.security.MessageDigest;
 

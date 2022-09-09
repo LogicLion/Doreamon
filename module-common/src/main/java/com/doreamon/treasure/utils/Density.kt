@@ -1,7 +1,7 @@
 @file:Suppress("unused")
 @file:JvmName("DensityTools")
 
-package com.example.doreamon.utils
+package com.doreamon.treasure.utils
 
 import android.content.Context
 import kotlin.math.roundToInt

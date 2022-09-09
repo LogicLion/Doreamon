@@ -1,8 +1,6 @@
 package com.example.doreamon.constant
 
 import android.Manifest
-import com.example.doreamon.BuildConfig
-import com.example.doreamon.utils.getMMKV
 
 /** http读取超时 */
 const val HTTP_READ_TIMEOUT = 10000L

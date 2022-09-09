@@ -77,7 +77,7 @@ public class ScratchView extends View {
         mForePaint = new Paint();
         mForePaint.setAntiAlias(true);
         mForePaint.setColor(Color.GREEN);
-//        mForePaint.setAlpha(0);
+        mForePaint.setAlpha(0);
         mForePaint.setStrokeCap(Paint.Cap.ROUND);
         mForePaint.setStrokeJoin(Paint.Join.ROUND);
         mForePaint.setStyle(Paint.Style.STROKE);
@@ -89,8 +89,8 @@ public class ScratchView extends View {
         mLogoBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.batman_logo);
         mForeBitmap = Bitmap.createBitmap(mBitmap.getWidth(), mBitmap.getHeight(), Bitmap.Config.ARGB_8888);
         //双缓冲,装载画布
-//        mForeCanvas = new Canvas(mForeBitmap);
-//        mForeCanvas.drawBitmap(mBitmap, 0, 0, null);
+        mForeCanvas = new Canvas(mForeBitmap);
+        mForeCanvas.drawBitmap(mBitmap, 0, 0, null);
 
     }
 

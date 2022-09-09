@@ -1,4 +1,4 @@
-package com.example.doreamon.utils
+package com.doreamon.treasure.utils
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -117,7 +117,7 @@ object AppManager {
      */
     @JvmStatic
     fun setOnAppForegroundStatusChangeListener(onChange: (Boolean) -> Unit) {
-        this.mAppForegroundStatusChangeCallback = onChange
+        mAppForegroundStatusChangeCallback = onChange
     }
 
     /**

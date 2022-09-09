@@ -7,8 +7,8 @@ import com.example.doreamon.entity.AlertDialogModel
 import com.example.doreamon.entity.BusinessException
 import com.example.doreamon.global.UserInfoData
 import com.example.doreamon.ui.login.LoginActivity
-import com.example.doreamon.utils.AppManager
-import com.example.doreamon.utils.getStringById
+import com.doreamon.treasure.utils.AppManager
+import com.doreamon.treasure.utils.getStringById
 import com.google.gson.JsonParseException
 import org.json.JSONException
 import retrofit2.HttpException

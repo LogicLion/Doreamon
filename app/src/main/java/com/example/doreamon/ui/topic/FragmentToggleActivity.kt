@@ -50,7 +50,7 @@ class FragmentToggleActivity : BaseActivity<MainViewModel>() {
         binding.navView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.menu_homepage -> showFragment(mHomePageFragment)
-                R.id.menu_topic -> showFragment(mTopicListFragment)
+//                R.id.menu_topic -> showFragment(mTopicListFragment)
                 R.id.menu_my -> showFragment(mMineFragment)
             }
             true

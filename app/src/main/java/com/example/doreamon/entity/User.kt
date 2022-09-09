@@ -12,18 +12,18 @@ import java.io.Serializable
  * @date 2021/12/13
  */
 data class User(
-    var admin: Boolean,
-    var chapterTops: List<String>?,
-    var coinCount: Int,
-    var collectIds: List<String>?,
-    var email: String?,
-    var icon: String?,
-    var id: String?,
-    var nickname: String?,
-    var password: String?,
-    var publicName: String?,
-    var token: String?,
-    var type: Int,
-    var username: String?
+    var admin: Boolean = false,
+    var chapterTops: List<String>? = null,
+    var coinCount: Int = 0,
+    var collectIds: List<String>? = null,
+    var email: String? = null,
+    var icon: String? = null,
+    var id: String? = null,
+    var nickname: String? = null,
+    var password: String? = null,
+    var publicName: String? = null,
+    var token: String? = null,
+    var type: Int = 0,
+    var username: String? = null
 
 ) : Serializable

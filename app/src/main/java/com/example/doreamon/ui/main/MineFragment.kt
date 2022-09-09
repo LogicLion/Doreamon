@@ -3,8 +3,7 @@ package com.example.doreamon.ui.main
 import com.example.doreamon.R
 import com.example.doreamon.base.BaseFragment
 import com.example.doreamon.databinding.FragmentMineBinding
-import com.example.doreamon.utils.AppManager
-import com.example.doreamon.utils.AppUtil
+import com.doreamon.treasure.utils.AppManager
 import com.example.doreamon.viewmodel.MineViewModel
 
 /**

@@ -5,12 +5,11 @@ import android.os.Bundle
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.doreamon.R
-import com.example.doreamon.base.App
 import com.example.doreamon.base.BaseActivity
 import com.example.doreamon.base.BaseViewModel
 import com.example.doreamon.ext.startTargetActivity
-import com.example.doreamon.ui.topic.FragmentToggleActivity
-import com.example.doreamon.utils.dip2px
+import com.doreamon.treasure.utils.dip2px
+import com.example.doreamon.base.AppI
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.shape.*
 import kotlinx.coroutines.delay
@@ -47,7 +46,7 @@ class LaunchActivity : BaseActivity<BaseViewModel>() {
 
         ivLogo.shapeAppearanceModel = shapeModel
 
-        ivLogo.strokeColor= ColorStateList.valueOf(ContextCompat.getColor(App.instance,R.color.color_primary))
+        ivLogo.strokeColor= ColorStateList.valueOf(ContextCompat.getColor(AppI.instance,R.color.color_primary))
         ivLogo.strokeWidth= dip2px(3)
 
         lifecycleScope.launch {

@@ -16,9 +16,9 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
+import com.doreamon.treasure.utils.DensityTools;
 import com.example.doreamon.R;
 import com.example.doreamon.entity.VideoLearnData;
-import com.example.doreamon.utils.DensityTools;
 
 import java.util.ArrayList;
 import java.util.List;

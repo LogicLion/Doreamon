@@ -4,15 +4,14 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2
 import com.example.doreamon.R
 import com.example.doreamon.base.BaseActivity
 import com.example.doreamon.base.BaseViewModel
 import com.example.doreamon.databinding.ActivityMainBinding
-import com.example.doreamon.ui.main.HomePageFragment
+import com.example.doreamon.ext.toast
 import com.example.doreamon.ui.main.MineFragment
 import com.example.doreamon.ui.main.TopicListFragment
-import com.example.doreamon.ui.simple.MyLifeCycleObserver
-import java.lang.IllegalArgumentException
 
 /**
  * @author wzh
@@ -60,6 +59,7 @@ class MainActivity : BaseActivity<BaseViewModel>() {
                     binding.vp.currentItem = 1
                 }
 
+
                 R.id.menu_my -> {
                     binding.vp.currentItem = 2
                 }
@@ -72,6 +72,11 @@ class MainActivity : BaseActivity<BaseViewModel>() {
             Log.v("navView", "高：" + binding.navView.height)
         }
 
+        binding.vp.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+//                "选择页面${position}".toast()
+            }
+        })
 
 
     }
@@ -80,4 +85,6 @@ class MainActivity : BaseActivity<BaseViewModel>() {
         super.onResume()
 
     }
+
+
 }

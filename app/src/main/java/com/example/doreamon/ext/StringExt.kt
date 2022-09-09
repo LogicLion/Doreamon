@@ -1,7 +1,7 @@
 package com.example.doreamon.ext
 
 import android.widget.Toast
-import com.example.doreamon.base.App
+import com.example.doreamon.base.AppI
 
 /**
  * @author wzh
@@ -17,7 +17,7 @@ fun String?.toast(){
         return
     }
     mToast?.cancel()
-    val context = App.instance
+    val context = AppI.instance
     mToast = Toast.makeText(context,this,Toast.LENGTH_SHORT)
     mToast?.show()
 }

@@ -31,5 +31,6 @@
             android:theme="@style/BottomNavigationViewTextSize"
             app:itemTextColor="@drawable/selector_main_nav_tab" />
 
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
