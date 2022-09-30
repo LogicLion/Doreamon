@@ -8,7 +8,7 @@ import com.example.doreamon.R
 import com.example.doreamon.base.BaseFragment
 import com.example.doreamon.databinding.FragmentHomePageBinding
 import com.example.doreamon.entity.Pager
-import com.example.doreamon.ui.simple.TestFragment
+import com.example.doreamon.ui.simple.CollapseFragment
 import com.example.doreamon.ui.topic.*
 import com.example.doreamon.viewmodel.HomePageViewModel
 import com.google.android.material.tabs.TabLayoutMediator
@@ -58,7 +58,7 @@ class HomePageFragment : BaseFragment<HomePageViewModel>() {
     private fun getPager(): ArrayList<Pager> {
         val pagers = arrayListOf<Pager>()
 
-        pagers.add(Pager("测试", TestFragment()))
+        pagers.add(Pager("测试", CollapseFragment()))
 //        pagers.add(Pager("WebView使用", WebViewDemoFragment()))
         pagers.add(Pager("刮刮卡效果", ScratchViewDemoFragment()))
         pagers.add(Pager("循环列表", LoopRecyclerViewFragment()))

@@ -1,22 +1,18 @@
 plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
+    id 'com.android.application'
+    id 'kotlin-android'
     id 'kotlin-kapt'
 }
 
 
-kapt {
-    arguments {
-        arg("AROUTER_MODULE_NAME", project.getName())
-    }
-}
+
 
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-//        applicationId "com.example.doreamon"
+        applicationId "com.example.doreamon"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
@@ -29,6 +25,11 @@ android {
 //                arguments = [AROUTER_MODULE_NAME: project.getName()]
 //            }
 //        }
+        kapt {
+            arguments {
+                arg("AROUTER_MODULE_NAME", project.getName())
+            }
+        }
     }
 
 
@@ -73,7 +74,10 @@ android {
 
 dependencies {
 
-    implementation project(path: ':module-common')
+    implementation project(path: ':module_common')
+
+//    implementation project(path: ':wanandroid')
+
 
 
 }

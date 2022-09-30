@@ -8,7 +8,7 @@ import com.alibaba.android.arouter.facade.annotation.Route
  * @author wzh
  * @date 2022/9/9
  */
-@Route(path = "/test/activity")
+@Route(path = "/wanandroid/secondActivity")
 class SecondActivity :AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -28,4 +28,34 @@
 
     <color name="color_994C4242">#994C4242</color>
     <color name="color_4C4242">#4C4242</color>
+
+
+    <!--克莱因蓝-->
+    <color name="color_002ea6">#002ea6</color>
+    <!--松花黄-->
+    <color name="color_ffe76f">#ffe76f</color>
+
+
+    <!--马尔斯绿-->
+    <color name="color_01847f">#01847f</color>
+    <!--玫瑰粉-->
+    <color name="color_f9d2e4">#f9d2e4</color>
+
+
+    <!--爱马仕橙-->
+    <color name="color_ff770f">#ff770f</color>
+    <!--深蓝色-->
+    <color name="color_000026">#000026</color>
+
+
+    <!--蒂芙尼蓝-->
+    <color name="color_80d1c8">#80d1c8</color>
+    <!--奶酪色-->
+    <color name="color_f8f5d6">#f8f5d6</color>
+
+
+    <!--凡戴克棕-->
+    <color name="color_492d22">#492d22</color>
+    <!--浅卡其色-->
+    <color name="color_d8c7b5">#d8c7b5</color>
 </resources>

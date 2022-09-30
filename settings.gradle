@@ -1,5 +1,5 @@
 include ':app'
 rootProject.name = "Doreamon"
 include ':mylibrary'
-include ':module-common'
+include ':module_common'
 include ':wanandroid'

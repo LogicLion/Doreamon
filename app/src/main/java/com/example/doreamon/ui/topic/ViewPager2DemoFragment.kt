@@ -1,14 +1,12 @@
 package com.example.doreamon.ui.topic
 
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentPagerAdapter
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.doreamon.R
 import com.example.doreamon.base.BaseFragment
 import com.example.doreamon.base.BaseViewModel
 import com.example.doreamon.databinding.FragmentViewpger2DemoBinding
-import com.example.doreamon.ui.simple.TestFragment
+import com.example.doreamon.ui.simple.CollapseFragment
 import com.example.doreamon.ui.simple.TextSimple
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -35,7 +33,7 @@ class ViewPager2DemoFragment : BaseFragment<BaseViewModel>() {
             override fun getItemCount() = pagers.size
 
             override fun createFragment(position: Int): Fragment {
-                return TestFragment.newInstance("position:${position}")
+                return CollapseFragment.newInstance("position:${position}")
             }
         }
 

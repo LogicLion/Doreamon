@@ -1,6 +1,6 @@
 package com.example.doreamon.ui
 
-import com.example.doreamon.ui.simple.TestFragment
+import com.example.doreamon.ui.simple.CollapseFragment
 import com.example.doreamon.ui.topic.*
 import java.io.Serializable
 
@@ -18,7 +18,8 @@ class StudyTopic(
 
         val List = listOf(
 
-            StudyTopic("测试", TestFragment::class.java.name),
+            StudyTopic("菜单折叠收起", CollapseFragment::class.java.name),
+            StudyTopic("基础手势检测", GestureFragment::class.java.name),
             StudyTopic("图片大图预览", ImagePreviewFragment::class.java.name),
             StudyTopic("嵌套滑动", NestedScrollDemoFragment::class.java.name),
             StudyTopic("ViewPager2实践",ViewPager2DemoFragment::class.java.name),
