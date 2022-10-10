@@ -1,6 +1,6 @@
-package com.example.doreamon.ui
+package com.example.doreamon
 
-import com.example.doreamon.ui.simple.CollapseFragment
+import com.example.doreamon.ui.topic.CollapseFragment
 import com.example.doreamon.ui.topic.*
 import java.io.Serializable
 
@@ -17,7 +17,9 @@ class StudyTopic(
     companion object{
 
         val List = listOf(
-
+            StudyTopic("Bitmap的基础信息", BitmapInfoDemoFragment::class.java.name),
+            StudyTopic("实现View添加和移除时的动画", LayoutTransitionDemoFragment::class.java.name),
+            StudyTopic("ViewStub的简单使用", ViewStubDemoFragment::class.java.name),
             StudyTopic("菜单折叠收起", CollapseFragment::class.java.name),
             StudyTopic("基础手势检测", GestureFragment::class.java.name),
             StudyTopic("图片大图预览", ImagePreviewFragment::class.java.name),

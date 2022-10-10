@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_add_view"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="添加Button"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_remove_view"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/btn_add_view"
+            app:layout_constraintStart_toEndOf="@id/btn_add_view"
+            android:text="删除Button"/>
+
+        <!--
+            showDividers有4个选项
+            middle 每两个组件间显示分隔线
+            beginning 开始处显示分隔线
+            end 结尾处显示分隔线
+            none 不显示
+            -->
+        <LinearLayout
+            android:id="@+id/ll_divider_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:divider="@drawable/shape_linear_divider_line"
+            android:showDividers="middle"
+            android:animateLayoutChanges="true"
+            app:layout_constraintTop_toBottomOf="@id/btn_add_view">
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

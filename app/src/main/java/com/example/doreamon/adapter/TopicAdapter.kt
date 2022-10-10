@@ -3,7 +3,7 @@ package com.example.doreamon.adapter
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.example.doreamon.R
-import com.example.doreamon.ui.StudyTopic
+import com.example.doreamon.StudyTopic
 import com.example.doreamon.ui.PracticeActivity
 
 /**

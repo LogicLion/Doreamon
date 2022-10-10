@@ -1,4 +1,4 @@
-package com.example.doreamon.ui.simple
+package com.example.doreamon.ui.topic
 
 import android.animation.ValueAnimator
 import android.os.Bundle
@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.doreamon.R
 import com.example.doreamon.base.BaseFragment
 import com.example.doreamon.databinding.FragmentCollapseBinding
+import com.example.doreamon.ui.simple.MenuAdapter
+import com.example.doreamon.ui.simple.MyLifeCycleObserver
 import com.example.doreamon.viewmodel.TestViewModel
 
 

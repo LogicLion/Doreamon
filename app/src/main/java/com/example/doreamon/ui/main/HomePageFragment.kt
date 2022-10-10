@@ -8,7 +8,7 @@ import com.example.doreamon.R
 import com.example.doreamon.base.BaseFragment
 import com.example.doreamon.databinding.FragmentHomePageBinding
 import com.example.doreamon.entity.Pager
-import com.example.doreamon.ui.simple.CollapseFragment
+import com.example.doreamon.ui.topic.CollapseFragment
 import com.example.doreamon.ui.topic.*
 import com.example.doreamon.viewmodel.HomePageViewModel
 import com.google.android.material.tabs.TabLayoutMediator

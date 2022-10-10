@@ -15,6 +15,8 @@ class LoginViewModel : BaseViewModel() {
 
     val password = MutableLiveData("123456")
 
+    val nickName = MutableLiveData("测试显示昵称")
+
     /** 密码登录*/
     fun loginByPassword(onAction: () -> Unit = {}) =
         launchRequest {

@@ -6,10 +6,10 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.doreamon.R
+import com.example.doreamon.StudyTopic
 import com.example.doreamon.base.BaseActivity
 import com.example.doreamon.base.BaseViewModel
 import com.example.doreamon.databinding.ActivityMainBinding
-import com.example.doreamon.ext.toast
 import com.example.doreamon.ui.main.MineFragment
 import com.example.doreamon.ui.main.TopicListFragment
 

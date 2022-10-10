@@ -6,7 +6,6 @@ import com.example.doreamon.R
 import com.example.doreamon.base.BaseFragment
 import com.example.doreamon.base.BaseViewModel
 import com.example.doreamon.databinding.FragmentViewpger2DemoBinding
-import com.example.doreamon.ui.simple.CollapseFragment
 import com.example.doreamon.ui.simple.TextSimple
 import com.google.android.material.tabs.TabLayoutMediator
 
