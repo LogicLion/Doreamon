@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <com.example.doreamon.widget.DraggableContainerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_simple"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_image"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:shapeAppearanceOverlay="@style/roundCornerStyle"
+            app:strokeColor="@color/color_primary"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="500dp"
+            android:tag="draggable"
+            app:strokeWidth="3dp"
+            android:padding="1.5dp"
+            android:src="@drawable/pic_ganyu"/>
+
+    </com.example.doreamon.widget.DraggableContainerView>
+</layout>

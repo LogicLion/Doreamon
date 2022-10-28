@@ -17,6 +17,9 @@ class StudyTopic(
     companion object{
 
         val List = listOf(
+            StudyTopic("可任意拖拽View实践", DraggableViewDemoFragment::class.java.name),
+            StudyTopic("ViewDragHelper实践", ViewDragHelperDemoFragment::class.java.name),
+            StudyTopic("嵌套滑动实践", NestedScrollDemoFragment::class.java.name),
             StudyTopic("Bitmap的基础信息", BitmapInfoDemoFragment::class.java.name),
             StudyTopic("实现View添加和移除时的动画", LayoutTransitionDemoFragment::class.java.name),
             StudyTopic("ViewStub的简单使用", ViewStubDemoFragment::class.java.name),

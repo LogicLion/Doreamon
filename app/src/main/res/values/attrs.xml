@@ -30,4 +30,8 @@
         <attr name="indicator_padding" format="dimension"/>
 
     </declare-styleable>
+
+    <declare-styleable name="DraggableContainerView">
+        <attr name="draggable_flag" format="boolean"/>
+    </declare-styleable>
 </resources>
