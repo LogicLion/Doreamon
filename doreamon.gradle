@@ -1,6 +1,6 @@
 project.ext {
     //是否允许module单独调试
-    isModuleDebug = true
+    isModuleDebug = false
     moduleName = "moduletest"//单独调试module名
     //基础信息配置
     compileSdkVersion = 30

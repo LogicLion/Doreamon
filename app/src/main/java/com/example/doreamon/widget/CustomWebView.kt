@@ -47,7 +47,7 @@ class CustomWebView @JvmOverloads constructor(
                 if (absX > touchSlop || absY > touchSlop) {
                     if (absX < absY) {
                         parent.requestDisallowInterceptTouchEvent(true)
-                    }else{
+                    } else {
                         parent.requestDisallowInterceptTouchEvent(false)
                     }
                 }

@@ -34,4 +34,13 @@
     <declare-styleable name="DraggableContainerView">
         <attr name="draggable_flag" format="boolean"/>
     </declare-styleable>
+
+
+    <declare-styleable name="StudyChartView">
+
+        <attr name="chart_style">
+            <enum name="study_video" value="0" />
+            <enum name="study_exam" value="1" />
+        </attr>
+    </declare-styleable>
 </resources>

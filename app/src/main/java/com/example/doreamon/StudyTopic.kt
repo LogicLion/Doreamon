@@ -17,6 +17,8 @@ class StudyTopic(
     companion object{
 
         val List = listOf(
+            StudyTopic("Chart图表", ChartDemoFragment::class.java.name),
+            StudyTopic("ScrollerView定制", ScrollViewStateFragment::class.java.name),
             StudyTopic("可任意拖拽View实践", DraggableViewDemoFragment::class.java.name),
             StudyTopic("ViewDragHelper实践", ViewDragHelperDemoFragment::class.java.name),
             StudyTopic("嵌套滑动实践", NestedScrollDemoFragment::class.java.name),
