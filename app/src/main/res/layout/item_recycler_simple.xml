@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.AppCompatTextView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="40dp"
-    android:textColor="@color/color_black_333333"
-    android:id="@+id/tv_text">
+    android:layout_height="160dp"
+    android:orientation="vertical">
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:textColor="@color/color_black_333333"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:id="@+id/tv_text">
+    </androidx.appcompat.widget.AppCompatTextView>
 
-</androidx.appcompat.widget.AppCompatTextView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_gray_999999"/>
+</LinearLayout>

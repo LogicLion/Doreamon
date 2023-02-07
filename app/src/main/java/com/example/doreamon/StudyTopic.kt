@@ -17,9 +17,12 @@ class StudyTopic(
     companion object{
 
         val List = listOf(
+            StudyTopic("可任意拖拽View实践", DraggableViewDemoFragment::class.java.name),
+            StudyTopic("RecyclerView原理研究", RecyclerViewDemoFragment::class.java.name),
+            StudyTopic("封装倒计时", CountDownTimerDemoFragment::class.java.name),
             StudyTopic("Chart图表", ChartDemoFragment::class.java.name),
             StudyTopic("ScrollerView定制", ScrollViewStateFragment::class.java.name),
-            StudyTopic("可任意拖拽View实践", DraggableViewDemoFragment::class.java.name),
+
             StudyTopic("ViewDragHelper实践", ViewDragHelperDemoFragment::class.java.name),
             StudyTopic("嵌套滑动实践", NestedScrollDemoFragment::class.java.name),
             StudyTopic("Bitmap的基础信息", BitmapInfoDemoFragment::class.java.name),

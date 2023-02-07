@@ -46,6 +46,7 @@ class DraggableContainerView @JvmOverloads constructor(
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
+        //让viewDragHelper接管滑动事件
         viewDragHelper.processTouchEvent(event)
         return true
     }

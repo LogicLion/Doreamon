@@ -45,24 +45,24 @@ public class PullUpDrawerLayout extends ViewGroup implements View.OnClickListene
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int meaureWidth = MeasureSpec.getSize(widthMeasureSpec);
-        int mesureHeight = MeasureSpec.getSize(heightMeasureSpec);
+        int measureWidth = MeasureSpec.getSize(widthMeasureSpec);
+        int measureHeight = MeasureSpec.getSize(heightMeasureSpec);
 
-        setMeasuredDimension(meaureWidth, mesureHeight);
+        setMeasuredDimension(measureWidth, measureHeight);
 
         //测量背景图层的尺寸
         mContentView = getChildAt(0);
         MarginLayoutParams params = (MarginLayoutParams) mContentView.getLayoutParams();
-        int childSpecWidth = MeasureSpec.makeMeasureSpec(meaureWidth - (params.leftMargin + params.rightMargin), MeasureSpec.EXACTLY);
-        int childSpecHeight = MeasureSpec.makeMeasureSpec(mesureHeight - (params.topMargin + params.bottomMargin), MeasureSpec.EXACTLY);
+        int childSpecWidth = MeasureSpec.makeMeasureSpec(measureWidth - (params.leftMargin + params.rightMargin), MeasureSpec.EXACTLY);
+        int childSpecHeight = MeasureSpec.makeMeasureSpec(measureHeight - (params.topMargin + params.bottomMargin), MeasureSpec.EXACTLY);
         mContentView.measure(childSpecWidth, childSpecHeight);
 
         //测量上拉布局的尺寸
         mPullView = getChildAt(1);
 
         MarginLayoutParams pullViewParams = (MarginLayoutParams) mPullView.getLayoutParams();
-        int pullViewSpecWidth = MeasureSpec.makeMeasureSpec(meaureWidth - (pullViewParams.leftMargin + pullViewParams.rightMargin), MeasureSpec.EXACTLY);
-        int pullViewSpecHeight = MeasureSpec.makeMeasureSpec(mesureHeight - (pullViewParams.topMargin + pullViewParams.bottomMargin), MeasureSpec.AT_MOST);
+        int pullViewSpecWidth = MeasureSpec.makeMeasureSpec(measureWidth - (pullViewParams.leftMargin + pullViewParams.rightMargin), MeasureSpec.EXACTLY);
+        int pullViewSpecHeight = MeasureSpec.makeMeasureSpec(measureHeight - (pullViewParams.topMargin + pullViewParams.bottomMargin), MeasureSpec.AT_MOST);
 
         mPullView.measure(pullViewSpecWidth, pullViewSpecHeight);
 

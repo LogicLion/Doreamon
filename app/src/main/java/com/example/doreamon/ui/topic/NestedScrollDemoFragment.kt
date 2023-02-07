@@ -1,7 +1,5 @@
 package com.example.doreamon.ui.topic
 
-import android.util.TypedValue
-import android.view.View
 import android.webkit.WebChromeClient
 import android.webkit.WebViewClient
 import androidx.recyclerview.widget.LinearLayoutManager
