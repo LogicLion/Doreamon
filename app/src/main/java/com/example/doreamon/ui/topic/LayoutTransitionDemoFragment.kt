@@ -5,10 +5,10 @@ import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
 import android.widget.Button
 import com.example.doreamon.R
-import com.example.doreamon.base.BaseFragment
-import com.example.doreamon.base.BaseViewModel
+import com.doreamon.treasure.base.BaseFragment
+import com.doreamon.treasure.base.BaseViewModel
 import com.example.doreamon.databinding.FragmentLayoutTransitionDemoBinding
-import com.example.doreamon.ext.toast
+import com.doreamon.treasure.ext.toast
 
 /**
  * 演示用LayoutTransition实现在添加view和移除view时的动画效果

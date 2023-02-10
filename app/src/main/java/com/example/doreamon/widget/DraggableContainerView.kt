@@ -7,7 +7,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.FrameLayout
 import androidx.customview.widget.ViewDragHelper
-import com.example.doreamon.ext.toast
+import com.doreamon.treasure.ext.toast
 import kotlin.math.max
 import kotlin.math.min
 

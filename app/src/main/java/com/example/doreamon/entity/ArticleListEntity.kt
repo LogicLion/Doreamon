@@ -1,6 +1,6 @@
 package com.example.doreamon.entity
 
-import com.example.doreamon.ext.orFalse
+import com.doreamon.treasure.ext.orFalse
 import java.io.Serializable
 
 /**

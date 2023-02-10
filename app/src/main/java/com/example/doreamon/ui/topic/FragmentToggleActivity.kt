@@ -5,10 +5,9 @@ import android.util.Log
 import androidx.core.view.WindowCompat
 import androidx.fragment.app.Fragment
 import com.example.doreamon.R
-import com.example.doreamon.base.BaseActivity
+import com.doreamon.treasure.base.BaseActivity
 import com.example.doreamon.databinding.ActivityFragmentToggleBinding
 import com.example.doreamon.ui.main.HomePageFragment
-import com.example.doreamon.ui.main.MineFragment
 import com.example.doreamon.ui.main.TopicListFragment
 import com.example.doreamon.viewmodel.MainViewModel
 
@@ -22,7 +21,6 @@ class FragmentToggleActivity : BaseActivity<MainViewModel>() {
 
     private lateinit var mHomePageFragment: HomePageFragment
     private lateinit var mTopicListFragment: TopicListFragment
-    private lateinit var mMineFragment: MineFragment
     override fun setupLayoutId() = R.layout.activity_fragment_toggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,16 +40,12 @@ class FragmentToggleActivity : BaseActivity<MainViewModel>() {
             supportFragmentManager.findFragmentByTag(TopicListFragment::class.java.simpleName) as TopicListFragment?
                 ?: TopicListFragment()
 
-        mMineFragment =
-            supportFragmentManager.findFragmentByTag(MineFragment::class.java.simpleName) as MineFragment?
-                ?: MineFragment()
 
         val binding = getViewBinding<ActivityFragmentToggleBinding>()
         binding.navView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.menu_homepage -> showFragment(mHomePageFragment)
-//                R.id.menu_topic -> showFragment(mTopicListFragment)
-                R.id.menu_my -> showFragment(mMineFragment)
+                R.id.menu_topic -> showFragment(mTopicListFragment)
             }
             true
         }
@@ -61,7 +55,6 @@ class FragmentToggleActivity : BaseActivity<MainViewModel>() {
             when (savedInstanceState.getString(currentFragmentTagKey, "")) {
                 HomePageFragment::class.java.simpleName -> currentFragment = mHomePageFragment
                 TopicListFragment::class.java.simpleName -> currentFragment = mTopicListFragment
-                MineFragment::class.java.simpleName -> currentFragment = mMineFragment
             }
         } else {
             showFragment(mHomePageFragment)

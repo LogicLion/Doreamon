@@ -1,8 +1,8 @@
 package com.example.doreamon.viewmodel
 
 import androidx.lifecycle.MutableLiveData
-import com.example.doreamon.base.BaseViewModel
-import com.example.doreamon.ext.toast
+import com.doreamon.treasure.base.BaseViewModel
+import com.doreamon.treasure.ext.toast
 import com.example.doreamon.net.DataRepository
 
 /**

@@ -1,10 +1,9 @@
 package com.example.doreamon.ui.topic
 
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import com.example.doreamon.R
-import com.example.doreamon.base.BaseFragment
-import com.example.doreamon.base.BaseViewModel
+import com.doreamon.treasure.base.BaseFragment
+import com.doreamon.treasure.base.BaseViewModel
 import com.example.doreamon.databinding.FragmentBitmapInfoDemoBinding
 
 /**

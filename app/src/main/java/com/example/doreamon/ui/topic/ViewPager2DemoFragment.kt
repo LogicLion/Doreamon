@@ -3,8 +3,8 @@ package com.example.doreamon.ui.topic
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.doreamon.R
-import com.example.doreamon.base.BaseFragment
-import com.example.doreamon.base.BaseViewModel
+import com.doreamon.treasure.base.BaseFragment
+import com.doreamon.treasure.base.BaseViewModel
 import com.example.doreamon.databinding.FragmentViewpger2DemoBinding
 import com.example.doreamon.ui.simple.TextSimple
 import com.google.android.material.tabs.TabLayoutMediator

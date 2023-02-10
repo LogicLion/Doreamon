@@ -140,8 +140,8 @@
 
 # 数据 Entity 类
 -keepclassmembernames class com.example.doreamon.entity.** { *; }
--keepclassmembernames class com.example.doreamon.net.NetResult { *; }
--keepclassmembernames class com.example.doreamon.net.ListNetResult { *; }
+-keepclassmembernames class com.doreamon.treasure.net.NetResult { *; }
+-keepclassmembernames class com.doreamon.treasure.net.ListNetResult { *; }
 
 #####################################################
 #                        三方配置                    #

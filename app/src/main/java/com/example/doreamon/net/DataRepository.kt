@@ -1,18 +1,15 @@
 package com.example.doreamon.net
 
-import com.example.doreamon.base.AppI
-import com.example.doreamon.ext.netRequest
+import com.doreamon.treasure.ext.netRequest
+import com.doreamon.treasure.net.RetrofitManager
 
 /**
  * @author wzh
  * @date 2021/12/13
  */
 object DataRepository {
-    var context = AppI.instance
-    private val netService: NetService
-        get() {
-            return RetrofitFactory.createRetrofit()
-        }
+
+    private val netService by lazy { RetrofitManager.getService(NetService::class.java, "") }
 
 
     /**

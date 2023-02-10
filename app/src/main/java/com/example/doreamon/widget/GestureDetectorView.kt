@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
-import com.example.doreamon.ext.toast
+import com.doreamon.treasure.ext.toast
 
 /**
  * @author wzh

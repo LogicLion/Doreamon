@@ -7,10 +7,10 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.doreamon.R
 import com.example.doreamon.StudyTopic
-import com.example.doreamon.base.BaseActivity
-import com.example.doreamon.base.BaseViewModel
+import com.doreamon.treasure.base.BaseActivity
+import com.doreamon.treasure.base.BaseViewModel
+import com.doreamon.treasure.export.ModuleMineApi
 import com.example.doreamon.databinding.ActivityMainBinding
-import com.example.doreamon.ui.main.MineFragment
 import com.example.doreamon.ui.main.TopicListFragment
 
 /**
@@ -42,7 +42,7 @@ class MainActivity : BaseActivity<BaseViewModel>() {
                     }
 
                     1 -> TopicListFragment()
-                    2 -> MineFragment()
+                    2 -> ModuleMineApi.getMineFragment()
 
                     else -> throw IllegalArgumentException("fragment in position $position doesn't exit")
                 }

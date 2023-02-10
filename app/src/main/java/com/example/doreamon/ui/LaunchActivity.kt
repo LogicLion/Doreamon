@@ -5,9 +5,9 @@ import android.os.Bundle
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.doreamon.R
-import com.example.doreamon.base.BaseActivity
-import com.example.doreamon.base.BaseViewModel
-import com.example.doreamon.ext.startTargetActivity
+import com.doreamon.treasure.base.BaseActivity
+import com.doreamon.treasure.base.BaseViewModel
+import com.doreamon.treasure.ext.startTargetActivity
 import com.doreamon.treasure.utils.dip2px
 import com.example.doreamon.base.AppI
 import com.google.android.material.imageview.ShapeableImageView

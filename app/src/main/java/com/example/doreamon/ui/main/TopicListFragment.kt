@@ -3,8 +3,8 @@ package com.example.doreamon.ui.main
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.doreamon.R
 import com.example.doreamon.adapter.TopicAdapter
-import com.example.doreamon.base.BaseFragment
-import com.example.doreamon.base.BaseViewModel
+import com.doreamon.treasure.base.BaseFragment
+import com.doreamon.treasure.base.BaseViewModel
 import com.example.doreamon.databinding.CommonRecyclerviewBinding
 import com.example.doreamon.StudyTopic
 

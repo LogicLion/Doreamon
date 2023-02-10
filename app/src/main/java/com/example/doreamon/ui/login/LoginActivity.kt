@@ -8,9 +8,9 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import com.example.doreamon.R
-import com.example.doreamon.base.BaseActivity
+import com.doreamon.treasure.base.BaseActivity
 import com.example.doreamon.databinding.ActivityLoginBinding
-import com.example.doreamon.ext.startTargetActivity
+import com.doreamon.treasure.ext.startTargetActivity
 import com.example.doreamon.global.UserInfoData
 import com.example.doreamon.ui.topic.FragmentToggleActivity
 import com.doreamon.treasure.utils.AppManager

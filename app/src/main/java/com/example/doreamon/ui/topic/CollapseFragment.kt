@@ -9,7 +9,7 @@ import androidx.core.animation.addListener
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.doreamon.R
-import com.example.doreamon.base.BaseFragment
+import com.doreamon.treasure.base.BaseFragment
 import com.example.doreamon.databinding.FragmentCollapseBinding
 import com.example.doreamon.ui.simple.MenuAdapter
 import com.example.doreamon.ui.simple.MyLifeCycleObserver

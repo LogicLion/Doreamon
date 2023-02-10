@@ -3,8 +3,8 @@ package com.example.doreamon.ui
 import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.example.doreamon.R
-import com.example.doreamon.base.BaseActivity
-import com.example.doreamon.base.BaseViewModel
+import com.doreamon.treasure.base.BaseActivity
+import com.doreamon.treasure.base.BaseViewModel
 import com.example.doreamon.databinding.ActivityTestBinding
 import com.example.doreamon.entity.User
 

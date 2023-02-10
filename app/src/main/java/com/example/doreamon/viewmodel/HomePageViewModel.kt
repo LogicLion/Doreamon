@@ -1,6 +1,6 @@
 package com.example.doreamon.viewmodel
 
-import com.example.doreamon.base.BaseViewModel
+import com.doreamon.treasure.base.BaseViewModel
 import com.example.doreamon.net.DataRepository
 
 /**

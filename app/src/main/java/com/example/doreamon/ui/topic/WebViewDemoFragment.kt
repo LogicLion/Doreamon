@@ -5,8 +5,8 @@ import android.util.Log
 import android.view.View
 import android.webkit.*
 import com.example.doreamon.R
-import com.example.doreamon.base.BaseFragment
-import com.example.doreamon.base.BaseViewModel
+import com.doreamon.treasure.base.BaseFragment
+import com.doreamon.treasure.base.BaseViewModel
 import com.example.doreamon.databinding.FragmentWebviewDemoBinding
 
 /**
@@ -15,7 +15,7 @@ import com.example.doreamon.databinding.FragmentWebviewDemoBinding
  * @author wzh
  * @date 2022/4/26
  */
-class WebViewDemoFragment :BaseFragment<BaseViewModel>(){
+class WebViewDemoFragment : BaseFragment<BaseViewModel>(){
 
     var isLoadFinish = false
     var isLoadError = false

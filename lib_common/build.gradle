@@ -1,0 +1,117 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+
+        kapt {
+            arguments {
+                arg("AROUTER_MODULE_NAME", project.getName())
+            }
+        }
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        dataBinding = true
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    api 'androidx.core:core-ktx:1.6.0'
+    api 'androidx.appcompat:appcompat:1.3.1'
+    api 'com.google.android.material:material:1.4.0'
+    api 'androidx.constraintlayout:constraintlayout:2.0.4'
+    api "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    //retrofit
+    api 'com.squareup.okhttp3:logging-interceptor:4.9.3'
+    api 'com.squareup.retrofit2:retrofit:2.9.0'
+    api 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    //gson
+    api 'com.google.code.gson:gson:2.8.6'
+
+    //coroutines
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0"
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0'
+    api 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+    api "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
+    api "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
+
+    //mmkv
+    api 'com.tencent:mmkv-static:1.2.9'
+
+    //immersionbar
+    api 'com.gyf.immersionbar:immersionbar:3.0.0'
+
+    //bravh
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.6'
+
+
+    api 'com.haibin:calendarview:3.7.1'
+
+    //一个工具类合集
+    api 'com.blankj:utilcodex:1.31.0'
+
+    //glide
+    api 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+
+
+    //Rxjava
+    api 'io.reactivex.rxjava2:rxjava:2.2.21'
+    api 'io.reactivex.rxjava2:rxandroid:2.1.1'
+
+
+    //流式布局，支持layoutManager(within RecyclerView)和普通布局layout
+    api 'com.google.android.flexbox:flexbox:3.0.0'
+
+    //图片预览
+    api 'com.github.chrisbanes:PhotoView:2.3.0'
+
+    api 'com.binioter:guideview:1.0.0'
+
+    api 'com.isanwenyu.highlight:highlight:1.8.0'
+
+    api 'com.github.huburt-Hu:NewbieGuide:v2.4.0'
+
+
+    api 'com.alibaba:arouter-api:1.5.2'
+    kapt 'com.alibaba:arouter-compiler:1.5.2'
+
+
+
+
+}

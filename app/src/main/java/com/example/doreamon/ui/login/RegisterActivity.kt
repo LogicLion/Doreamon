@@ -2,7 +2,7 @@ package com.example.doreamon.ui.login
 
 import android.os.Bundle
 import com.example.doreamon.R
-import com.example.doreamon.base.BaseActivity
+import com.doreamon.treasure.base.BaseActivity
 import com.example.doreamon.viewmodel.RegisterViewModel
 
 /**

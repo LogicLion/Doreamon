@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.doreamon.R
-import com.example.doreamon.base.BaseFragment
+import com.doreamon.treasure.base.BaseFragment
 import com.example.doreamon.databinding.FragmentHomePageBinding
 import com.example.doreamon.entity.Pager
 import com.example.doreamon.ui.topic.CollapseFragment

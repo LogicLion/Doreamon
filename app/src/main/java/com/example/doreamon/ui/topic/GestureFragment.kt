@@ -5,8 +5,8 @@ import android.util.Log
 import android.view.GestureDetector
 import android.view.MotionEvent
 import com.example.doreamon.R
-import com.example.doreamon.base.BaseFragment
-import com.example.doreamon.base.BaseViewModel
+import com.doreamon.treasure.base.BaseFragment
+import com.doreamon.treasure.base.BaseViewModel
 import com.example.doreamon.databinding.FragmentGestureBinding
 
 /**

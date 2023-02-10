@@ -4,12 +4,10 @@ import android.graphics.drawable.TransitionDrawable
 import android.view.View
 import com.example.doreamon.BR
 import com.example.doreamon.R
-import com.example.doreamon.base.BaseFragment
-import com.example.doreamon.base.BaseViewModel
+import com.doreamon.treasure.base.BaseFragment
 import com.example.doreamon.databinding.FragmentViewStubDemoBinding
 import com.example.doreamon.databinding.LayoutViewStubTestBinding
-import com.example.doreamon.entity.User
-import com.example.doreamon.ext.toast
+import com.doreamon.treasure.ext.toast
 import com.example.doreamon.viewmodel.LoginViewModel
 
 /**

@@ -1,10 +1,10 @@
 package com.example.doreamon.ui.topic
 
 import com.example.doreamon.R
-import com.example.doreamon.base.BaseFragment
-import com.example.doreamon.base.BaseViewModel
+import com.doreamon.treasure.base.BaseFragment
+import com.doreamon.treasure.base.BaseViewModel
 import com.example.doreamon.databinding.FragmentScrollViewStateBinding
-import com.example.doreamon.ext.toast
+import com.doreamon.treasure.ext.toast
 
 /**
  * scrollview定制

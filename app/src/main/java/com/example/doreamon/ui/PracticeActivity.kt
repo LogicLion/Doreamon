@@ -6,8 +6,8 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.doreamon.R
 import com.example.doreamon.StudyTopic
-import com.example.doreamon.base.BaseActivity
-import com.example.doreamon.base.BaseViewModel
+import com.doreamon.treasure.base.BaseActivity
+import com.doreamon.treasure.base.BaseViewModel
 import com.example.doreamon.databinding.ActivityPracticeBinding
 
 /**

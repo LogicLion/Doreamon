@@ -6,7 +6,7 @@ import android.util.AttributeSet
 import android.view.View
 import com.example.doreamon.R
 import com.example.doreamon.entity.ChartData
-import com.example.doreamon.ext.dp
+import com.doreamon.treasure.ext.dp
 import java.util.ArrayList
 
 /**

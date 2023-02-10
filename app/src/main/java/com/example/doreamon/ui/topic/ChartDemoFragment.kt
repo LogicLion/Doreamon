@@ -1,8 +1,8 @@
 package com.example.doreamon.ui.topic
 
 import com.example.doreamon.R
-import com.example.doreamon.base.BaseFragment
-import com.example.doreamon.base.BaseViewModel
+import com.doreamon.treasure.base.BaseFragment
+import com.doreamon.treasure.base.BaseViewModel
 import com.example.doreamon.databinding.FragmentChartDemoBinding
 import com.example.doreamon.entity.ChartData
 
@@ -11,7 +11,7 @@ import com.example.doreamon.entity.ChartData
  * @author wzh
  * @date 2023/1/3
  */
-class ChartDemoFragment :BaseFragment<BaseViewModel>() {
+class ChartDemoFragment : BaseFragment<BaseViewModel>() {
     override fun setupLayoutId()= R.layout.fragment_chart_demo
 
     override fun initView() {

@@ -5,8 +5,8 @@ import android.webkit.WebViewClient
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.doreamon.R
 import com.example.doreamon.adapter.RvAdapter
-import com.example.doreamon.base.BaseFragment
-import com.example.doreamon.base.BaseViewModel
+import com.doreamon.treasure.base.BaseFragment
+import com.doreamon.treasure.base.BaseViewModel
 import com.example.doreamon.databinding.FragmentNestedscrollDemoBinding
 import com.example.doreamon.entity.InfoBean
 
