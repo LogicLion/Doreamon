@@ -18,7 +18,7 @@ class StudyTopic(
 
         val List = listOf(
             StudyTopic("Chart图表", ChartDemoFragment::class.java.name),
-            StudyTopic("自定义LayoutManager", RecyclerViewDemoFragment::class.java.name),
+            StudyTopic("自定义LayoutManager", LayoutManagerDemoFragment::class.java.name),
             StudyTopic("RecyclerView原理研究", RecyclerViewDemoFragment::class.java.name),
             StudyTopic("可任意拖拽View实践", DraggableViewDemoFragment::class.java.name),
             StudyTopic("封装倒计时", CountDownTimerDemoFragment::class.java.name),

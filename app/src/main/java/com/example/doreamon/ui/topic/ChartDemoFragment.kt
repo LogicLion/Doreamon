@@ -43,7 +43,7 @@ class ChartDemoFragment : BaseFragment<BaseViewModel>() {
         val adapter = RingChartAdapter()
         binding.rv.layoutManager = GridLayoutManager(requireActivity(), 2)
         binding.rv.adapter = adapter
-        val list = listOf("", "", "", "", "")
+        val list = listOf("#2AC1AE", "#FEAE54", "#FF86A6", "#FED667", "#63ACF5")
         adapter.setList(list)
 
         binding.ivUpdate.setOnClickListener {
@@ -65,7 +65,7 @@ class ChartDemoFragment : BaseFragment<BaseViewModel>() {
             chartList1.add(ChartData("周日", getRandomData(), "分钟"))
             binding.brokenLineView.setChartList(chartList1)
 
-            adapter.notifyItemChanged(0)
+            adapter.notifyDataSetChanged()
 
         }
 

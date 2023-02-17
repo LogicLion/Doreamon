@@ -11,6 +11,7 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.annotation.Keep
 import com.doreamon.treasure.ext.dp
+import com.example.doreamon.R
 
 /**
  * 环状图
@@ -39,6 +40,7 @@ class RingChartView @JvmOverloads constructor(
         paint.isAntiAlias = true
         paint.textSize = 22f.dp
         paint.isFakeBoldText = true
+        initAttrs(context, attrs)
     }
 
     @Keep
@@ -61,6 +63,22 @@ class RingChartView @JvmOverloads constructor(
         }
         this.percent = percent
         animator.start()
+    }
+
+
+    private fun initAttrs(context: Context, attrs: AttributeSet?) {
+
+        val attributes = context.obtainStyledAttributes(attrs, R.styleable.RingChartView)
+        paint.color = attributes.getColor(
+            R.styleable.RingChartView_ring_bar_color,
+            Color.parseColor("#2ac1ae")
+        )
+        attributes.recycle()
+    }
+
+    fun setProgressBarColor(color: Int) {
+        paint.color = color
+        invalidate()
     }
 
 
@@ -102,7 +120,6 @@ class RingChartView @JvmOverloads constructor(
 
 
         paint.style = Paint.Style.FILL
-        paint.color = Color.parseColor("#FEAE54")
         canvas.drawArc(
             4f.dp,
             4f.dp,

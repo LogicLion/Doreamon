@@ -1,5 +1,6 @@
 package com.example.doreamon.adapter
 
+import android.graphics.Color
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.example.doreamon.R
@@ -14,6 +15,7 @@ class RingChartAdapter : BaseQuickAdapter<String, BaseViewHolder>(R.layout.item_
     override fun convert(holder: BaseViewHolder, item: String) {
 
         val ringChartView = holder.getView<RingChartView>(R.id.ring_chart_view)
+        ringChartView.setProgressBarColor(Color.parseColor(item))
         ringChartView.setPercent(getRandomData())
     }
 

@@ -23,16 +23,6 @@
             android:focusableInTouchMode="true"
             android:focusable="true">
 
-            <TextView
-                android:id="@+id/tv_update"
-                android:layout_width="50dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="30dp"
-                android:gravity="center"
-                android:text="@string/update"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <com.example.doreamon.widget.HistogramChartView
                 android:id="@+id/histogram_view"
@@ -41,7 +31,7 @@
                 android:layout_marginHorizontal="35dp"
                 android:layout_marginTop="30dp"
                 app:histogram_bar_color="#2AC1AE"
-                app:layout_constraintTop_toBottomOf="@id/tv_update" />
+                app:layout_constraintTop_toTopOf="parent" />
 
 
             <com.example.doreamon.widget.BrokenLineChartView

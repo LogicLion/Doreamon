@@ -7,6 +7,9 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.FrameLayout
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.marginLeft
+import androidx.core.view.marginStart
+import androidx.core.view.marginTop
 import androidx.customview.widget.ViewDragHelper
 import com.doreamon.treasure.ext.toast
 import kotlin.math.max
@@ -29,20 +32,24 @@ class DraggableContainerView @JvmOverloads constructor(
 
     private var isScroll: Boolean = false
 
+
+    private var mXOffset: Int = -1
+    private var mYOffset: Int = -1
+
     init {
         viewDragHelper = ViewDragHelper.create(this, 1.0f, ViewDragCallBack())
     }
 
 
-
     override fun onFinishInflate() {
         super.onFinishInflate()
+
+        Log.v(TAG, "onFinishInflate")
 
         for (i in 0 until childCount) {
             val child = getChildAt(i)
             if (child.tag == "draggable") {
                 childView = child
-                requestFocus()
                 return
             }
         }
@@ -72,7 +79,15 @@ class DraggableContainerView @JvmOverloads constructor(
 
     override fun computeScroll() {
         if (viewDragHelper.continueSettling(true)) {
+            Log.v(TAG, "continueSettling")
             invalidate()
+        } else {
+            //这里记录最终拖动后view的偏移量
+            mXOffset = childView.left
+            mYOffset = childView.top
+            Log.v(TAG, "mXOffset:${mXOffset}")
+            Log.v(TAG, "mYOffset:${mYOffset}")
+
         }
     }
 
@@ -80,6 +95,28 @@ class DraggableContainerView @JvmOverloads constructor(
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
         super.onLayout(changed, left, top, right, bottom)
         Log.v(TAG, "onLayout")
+
+        //在使用ViewDragHelper时，在更新ViewDragHelper内部的view状态时候，都会走requestLayout（），
+        //导致viewroot树重新 mesure/onlayout/draw ，在layout的时候会把ViewDragHelper的view重新排版
+        //所以必须初始化上次拖动后view的偏移位置
+
+        Log.v(TAG, "onLayout:mXOffset:${mXOffset}")
+        Log.v(TAG, "onLayout:mYOffset:${mYOffset}")
+//        childView.offsetLeftAndRight(mXOffset)
+//        childView.offsetTopAndBottom(mYOffset)
+        if (mXOffset == -1) {
+            mXOffset = childView.left
+        }
+        if (mYOffset == -1) {
+            mYOffset = childView.top
+        }
+        childView.layout(
+            mXOffset,
+            mYOffset,
+            mXOffset + childView.width,
+            mYOffset + childView.height
+        )
+
     }
 
 
@@ -135,7 +172,7 @@ class DraggableContainerView @JvmOverloads constructor(
             Log.v(TAG, "onViewReleased")
             if (!isScroll) {
                 childView.callOnClick()
-                return
+//                return
             }
 
             if (releasedChild.left < (width - childView.width) / 2) {
@@ -154,7 +191,6 @@ class DraggableContainerView @JvmOverloads constructor(
         }
 
     }
-
 
 
     /**
