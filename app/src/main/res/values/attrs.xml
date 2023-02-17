@@ -43,4 +43,8 @@
             <enum name="study_exam" value="1" />
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="HistogramChartView">
+        <attr name="histogram_bar_color" format="color"/>
+    </declare-styleable>
 </resources>

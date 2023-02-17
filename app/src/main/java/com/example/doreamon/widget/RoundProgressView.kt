@@ -57,6 +57,8 @@ class RoundProgressView : View {
     private var progressLength = 0
 
 
+
+
     constructor(context: Context?) : super(context) {
         init()
     }
@@ -185,7 +187,6 @@ class RoundProgressView : View {
         } else {
             progressLength = width * progress / total
         }
-
     }
 
 

@@ -17,7 +17,6 @@
             android:focusable="false"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="vertical">
-
         </androidx.recyclerview.widget.RecyclerView>
 
         <com.google.android.material.imageview.ShapeableImageView
@@ -27,7 +26,7 @@
             app:shapeAppearanceOverlay="@style/roundCornerStyle"
             app:strokeColor="@color/color_primary"
             android:scaleType="centerCrop"
-            android:layout_marginTop="500dp"
+            app:layout_constraintRight_toRightOf="parent"
             android:tag="draggable"
             app:strokeWidth="3dp"
             android:padding="1.5dp"

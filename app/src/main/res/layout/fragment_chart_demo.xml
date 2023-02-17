@@ -6,16 +6,80 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.example.doreamon.widget.DraggableContainerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/draggable_view">
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.example.doreamon.widget.HistogramView
-            android:id="@+id/histogram_view"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_margin="50dp"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_gray_f8f8f8"
+            android:orientation="vertical"
+            android:focusableInTouchMode="true"
+            android:focusable="true">
+
+            <TextView
+                android:id="@+id/tv_update"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="@string/update"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.example.doreamon.widget.HistogramChartView
+                android:id="@+id/histogram_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="35dp"
+                android:layout_marginTop="30dp"
+                app:histogram_bar_color="#2AC1AE"
+                app:layout_constraintTop_toBottomOf="@id/tv_update" />
+
+
+            <com.example.doreamon.widget.BrokenLineChartView
+                android:id="@+id/broken_line_view"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginHorizontal="35dp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintTop_toBottomOf="@id/histogram_view" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:layout_marginTop="30dp"
+                app:layout_constraintTop_toBottomOf="@id/broken_line_view" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_update"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:shapeAppearanceOverlay="@style/roundCornerStyle"
+            app:strokeColor="@color/color_primary"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="500dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:tag="draggable"
+            app:strokeWidth="3dp"
+            android:padding="1.5dp"
+            android:src="@drawable/pic_ganyu"/>
+
+    </com.example.doreamon.widget.DraggableContainerView>
 </layout>

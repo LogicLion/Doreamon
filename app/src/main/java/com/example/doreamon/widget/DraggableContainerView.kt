@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.widget.FrameLayout
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.customview.widget.ViewDragHelper
 import com.doreamon.treasure.ext.toast
 import kotlin.math.max
@@ -20,7 +21,7 @@ class DraggableContainerView @JvmOverloads constructor(
     private val mContext: Context,
     private val attr: AttributeSet? = null,
     val defStyle: Int = 0
-) : FrameLayout(mContext, attr) {
+) : ConstraintLayout(mContext, attr) {
 
     private val TAG = "DraggableContainerView"
     private lateinit var childView: View
@@ -33,6 +34,7 @@ class DraggableContainerView @JvmOverloads constructor(
     }
 
 
+
     override fun onFinishInflate() {
         super.onFinishInflate()
 
@@ -40,6 +42,7 @@ class DraggableContainerView @JvmOverloads constructor(
             val child = getChildAt(i)
             if (child.tag == "draggable") {
                 childView = child
+                requestFocus()
                 return
             }
         }
@@ -131,7 +134,7 @@ class DraggableContainerView @JvmOverloads constructor(
             super.onViewReleased(releasedChild, xvel, yvel)
             Log.v(TAG, "onViewReleased")
             if (!isScroll) {
-                "这是点击事件".toast()
+                childView.callOnClick()
                 return
             }
 
@@ -151,6 +154,8 @@ class DraggableContainerView @JvmOverloads constructor(
         }
 
     }
+
+
 
     /**
      *判断可捕获view是否在点击范围内

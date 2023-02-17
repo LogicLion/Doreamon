@@ -18,6 +18,16 @@ class LoopLayoutManager :RecyclerView.LayoutManager() {
         return true
     }
 
+
+    override fun onMeasure(
+        recycler: RecyclerView.Recycler,
+        state: RecyclerView.State,
+        widthSpec: Int,
+        heightSpec: Int
+    ) {
+        super.onMeasure(recycler, state, widthSpec, heightSpec)
+    }
+
     override fun onLayoutChildren(recycler: RecyclerView.Recycler, state: RecyclerView.State) {
         super.onLayoutChildren(recycler, state)
     }

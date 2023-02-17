@@ -11,6 +11,8 @@
     <string name="unknown_error">未知错误%1$s</string>
     <string name="loading">加载中</string>
 
+    <string name="update">更新</string>
+
 
     <string name="app_homepage">首页</string>
     <string name="app_system">专题</string>
