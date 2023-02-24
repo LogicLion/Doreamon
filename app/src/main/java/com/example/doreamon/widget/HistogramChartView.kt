@@ -216,10 +216,11 @@ class HistogramChartView @JvmOverloads constructor(
             paint.color = Color.parseColor("#666666")
             //x轴文字
             val xData = list[i]
-            val xTextWidth = markPaint.measureText(xData.x)
+            val xText = xData.x.trim()
+            val xTextWidth = markPaint.measureText(xText)
             val currX = xList[i]
             canvas.drawText(
-                xData.x,
+                xText,
                 (currX - xTextWidth / 2),
                 (viewHeight - 10f.dp),
                 paint

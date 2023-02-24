@@ -12,5 +12,6 @@ class ImageSimpleAdapter :
     BaseQuickAdapter<String, BaseViewHolder>(R.layout.item_recycler_image_simple) {
     override fun convert(holder: BaseViewHolder, item: String) {
 
+        holder.setText(R.id.tv_index, holder.adapterPosition.toString())
     }
 }

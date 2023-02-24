@@ -23,8 +23,16 @@ class RingChartView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : View(context, attrs) {
 
-    val bgPaint = Paint()
-    private val paint = Paint()
+    private val fontMetrics = Paint.FontMetrics()
+    private val bgPaint = Paint().apply {
+        isAntiAlias = true
+    }
+    private val paint = Paint().apply {
+        isAntiAlias = true
+        textSize = 22f.dp
+        isFakeBoldText = true
+        textAlign = Paint.Align.CENTER
+    }
 
     var centerPointX: Float = 0f
     var centerPointY: Float = 0f
@@ -36,10 +44,6 @@ class RingChartView @JvmOverloads constructor(
     val rect = Rect()
 
     init {
-        bgPaint.isAntiAlias = true
-        paint.isAntiAlias = true
-        paint.textSize = 22f.dp
-        paint.isFakeBoldText = true
         initAttrs(context, attrs)
     }
 
@@ -55,7 +59,7 @@ class RingChartView @JvmOverloads constructor(
     }
 
     /**
-     * 设置百分比
+     * 设置百分比(0-100)
      */
     fun setPercent(percent: Int) {
         if (percent < 0 || percent > 100) {
@@ -118,30 +122,30 @@ class RingChartView @JvmOverloads constructor(
         bgPaint.color = Color.parseColor("#EBEEFE")
         canvas.drawCircle(centerPointX, centerPointY, viewHeight / 2 - 2f.dp, bgPaint)
 
-
-        paint.style = Paint.Style.FILL
         canvas.drawArc(
             4f.dp,
             4f.dp,
             viewWidth - 4f.dp,
-            viewHeight - 4f.dp,
+            viewHeight -4f.dp,
             -90f,
             360f * percent / 100 * progressRate / 100,
             true,
             paint
         )
 
-
         bgPaint.style = Paint.Style.FILL
         bgPaint.color = Color.WHITE
         canvas.drawCircle(centerPointX, centerPointY, viewHeight / 2 - 15f.dp, bgPaint)
 
-
         val text = "${percent * progressRate / 100}%"
-        val textWidth = paint.measureText(text)
         paint.getTextBounds(text, 0, text.length, rect)
-        val textHeight = rect.bottom - rect.top
-        canvas.drawText(text, centerPointX - textWidth / 2, centerPointY + textHeight / 2, paint)
+        paint.getFontMetrics(fontMetrics)
+        canvas.drawText(
+            text,
+            centerPointX,
+            centerPointY - (fontMetrics.descent + fontMetrics.ascent) / 2,
+            paint
+        )
 
     }
 }

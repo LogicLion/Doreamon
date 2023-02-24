@@ -30,7 +30,11 @@ class DraggableContainerView @JvmOverloads constructor(
     private lateinit var childView: View
     var viewDragHelper: ViewDragHelper
 
+    /**
+     * 是否产生了拖拽
+     */
     private var isScroll: Boolean = false
+
 
 
     private var mXOffset: Int = -1

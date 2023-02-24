@@ -1,20 +1,18 @@
 package com.example.doreamon.widget
 
 import android.graphics.PointF
-import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
 
 /**
- * 横向无限循环layoutManager
+ * 实现一个横向的linearLayoutManager效果
  * @author wzh
  * @date 2022/4/6
  */
-class LoopLayoutManager : RecyclerView.LayoutManager(),
+class LikeLinearLayoutManager : RecyclerView.LayoutManager(),
     RecyclerView.SmoothScroller.ScrollVectorProvider {
 
-    val TAG = "LoopLayoutManager"
 
     /**
      * 初始位置
@@ -46,7 +44,6 @@ class LoopLayoutManager : RecyclerView.LayoutManager(),
     override fun onLayoutChildren(recycler: RecyclerView.Recycler, state: RecyclerView.State) {
         super.onLayoutChildren(recycler, state)
 
-        Log.v(TAG, "onLayoutChildren")
         if (state.itemCount == 0) {
             removeAndRecycleAllViews(recycler)
             return
@@ -82,10 +79,9 @@ class LoopLayoutManager : RecyclerView.LayoutManager(),
         var right: Int
         var bottom: Int
 
+        while (totalSpace > 0 && currentPosition < state.itemCount) {
 
-        while (totalSpace > 0) {
-
-            val view = recycler.getViewForPosition(currentPosition % itemCount)
+            val view = recycler.getViewForPosition(currentPosition)
             //1.添加
             addView(view)
 
@@ -202,17 +198,17 @@ class LoopLayoutManager : RecyclerView.LayoutManager(),
             val anchorRight = getDecoratedRight(anchorView)
             left = anchorRight
 
-            fillPosition = (position + 1) % itemCount
+            fillPosition = position + 1
 
-//            if (anchorRight < width) {
-//                return 0
-//            }
+            if (anchorRight < width) {
+                return 0
+            }
 
             //是最后一个了，并且超出了可滑动范围，修正滑动距离
-//            if (fillPosition >= itemCount && anchorRight - absDelta < width) {
-//                val fixScrolled = anchorRight - width
-//                return fixScrolled
-//            }
+            if (fillPosition >= itemCount && anchorRight - absDelta < width) {
+                val fixScrolled = anchorRight - width
+                return fixScrolled
+            }
 
             //当前还不需要填充，直接return
             if (anchorRight - absDelta > width) {
@@ -229,11 +225,13 @@ class LoopLayoutManager : RecyclerView.LayoutManager(),
             val anchorLeft = getDecoratedLeft(anchorView)
             right = anchorLeft
 
-            fillPosition = (position - 1) % itemCount
-            if (fillPosition < 0) {
-                fillPosition += itemCount
-            }
+            fillPosition = position - 1
 
+            //是第一个了，并且超出了可滑动范围，修正滑动距离
+            if (fillPosition < 0 && anchorLeft + absDelta > 0) {
+                val fixScrolled = anchorLeft
+                return fixScrolled
+            }
 
             //当前还不需要填充，直接return
             if (anchorLeft + absDelta < 0) {
