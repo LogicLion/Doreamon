@@ -1,11 +1,10 @@
 package com.example.doreamon.ui.topic
 
-import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.doreamon.R
 import com.doreamon.treasure.base.BaseFragment
 import com.doreamon.treasure.base.BaseViewModel
-import com.example.doreamon.adapter.RingChartAdapter
+import com.example.doreamon.adapter.CircleChartAdapter
 import com.example.doreamon.databinding.FragmentChartDemoBinding
 import com.example.doreamon.entity.ChartData
 import kotlin.random.Random
@@ -40,13 +39,13 @@ class ChartDemoFragment : BaseFragment<BaseViewModel>() {
         binding.brokenLineView.setChartList(chartList1)
 
 
-        val adapter = RingChartAdapter()
+        val adapter = CircleChartAdapter()
         binding.rv.layoutManager = GridLayoutManager(requireActivity(), 2)
         binding.rv.adapter = adapter
         val list = listOf("#2AC1AE", "#FEAE54", "#FF86A6", "#FED667", "#63ACF5")
         adapter.setList(list)
 
-        binding.ivUpdate.setOnClickListener {
+        binding.tvUpdate.setOnClickListener {
             val chartList = arrayListOf<ChartData>()
             chartList.add(ChartData("每日10题", getRandomData(), "分钟"))
             chartList.add(ChartData("智能测评", getRandomData(), "分钟"))

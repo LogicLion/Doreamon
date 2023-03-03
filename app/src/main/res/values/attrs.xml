@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="RoundProgressView">
-        <attr name="progress_bar_color" format="color"/>
-        <attr name="progress_background_color" format="color"/>
-        <attr name="progress_total" format="integer"/>
-        <attr name="progress" format="integer"/>
-        <attr name="round_corner_radius" format="dimension"/>
+        <attr name="progress_bar_color" format="color" />
+        <attr name="progress_background_color" format="color" />
+        <attr name="progress_total" format="integer" />
+        <attr name="progress" format="integer" />
+        <attr name="round_corner_radius" format="dimension" />
 
         <attr name="progress_bar_orientation">
             <!-- Defines an horizontal widget. -->
@@ -16,23 +16,23 @@
     </declare-styleable>
 
     <declare-styleable name="IndicatorView">
-        <attr name="indicator_selected_color" format="color"/>
-        <attr name="indicator_unselected_color" format="color"/>
-        <attr name="indicator_sum" format="integer"/>
-        <attr name="indicator_select_index" format="integer"/>
-        <attr name="indicator_selected_width" format="dimension"/>
-        <attr name="indicator_selected_height" format="dimension"/>
-        <attr name="indicator_selected_radius" format="dimension"/>
+        <attr name="indicator_selected_color" format="color" />
+        <attr name="indicator_unselected_color" format="color" />
+        <attr name="indicator_sum" format="integer" />
+        <attr name="indicator_select_index" format="integer" />
+        <attr name="indicator_selected_width" format="dimension" />
+        <attr name="indicator_selected_height" format="dimension" />
+        <attr name="indicator_selected_radius" format="dimension" />
 
-        <attr name="indicator_unselected_width" format="dimension"/>
-        <attr name="indicator_unselected_height" format="dimension"/>
-        <attr name="indicator_unselected_radius" format="dimension"/>
-        <attr name="indicator_padding" format="dimension"/>
+        <attr name="indicator_unselected_width" format="dimension" />
+        <attr name="indicator_unselected_height" format="dimension" />
+        <attr name="indicator_unselected_radius" format="dimension" />
+        <attr name="indicator_padding" format="dimension" />
 
     </declare-styleable>
 
     <declare-styleable name="DraggableContainerView">
-        <attr name="draggable_flag" format="boolean"/>
+        <attr name="draggable_flag" format="boolean" />
     </declare-styleable>
 
 
@@ -45,10 +45,15 @@
     </declare-styleable>
 
     <declare-styleable name="HistogramChartView">
-        <attr name="histogram_bar_color" format="color"/>
+        <attr name="histogram_bar_color" format="color" />
     </declare-styleable>
 
-    <declare-styleable name="RingChartView">
-        <attr name="ring_bar_color" format="color"/>
+    <declare-styleable name="CircleProgressView">
+        <attr name="ring_bar_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="TargetProgressView">
+        <attr name="target_bg_color" format="color" />
+        <attr name="target_bar_color" format="color" />
     </declare-styleable>
 </resources>

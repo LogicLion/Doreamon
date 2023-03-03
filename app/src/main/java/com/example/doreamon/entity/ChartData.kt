@@ -4,7 +4,6 @@ import java.io.Serializable
 
 /**
  * @author wzh
- * @date 2022/3/24
  */
 class ChartData(
     var x: String = "",
