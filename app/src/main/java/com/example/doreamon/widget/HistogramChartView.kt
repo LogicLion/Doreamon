@@ -27,7 +27,7 @@ class HistogramChartView @JvmOverloads constructor(
     private val guideLinePaint = Paint()
     var list: List<ChartData> = ArrayList()
 
-    private val chartBarWidth = 20f.dp
+    private var chartBarWidth = 5f.dp
     private val chartMarginBottom = 30f.dp
     private val barMarginTop = 30f.dp
     private val barMarginBottom = 10f.dp
@@ -69,6 +69,8 @@ class HistogramChartView @JvmOverloads constructor(
             R.styleable.HistogramChartView_histogram_bar_color,
             Color.parseColor("#5FC0FF")
         )
+        chartBarWidth =
+            attributes.getDimension(R.styleable.HistogramChartView_histogram_bar_width, 5f.dp)
         attributes.recycle()
     }
 
@@ -111,6 +113,7 @@ class HistogramChartView @JvmOverloads constructor(
         yHeightList.clear()
         pathList.clear()
         val size = list.size
+        if (size == 0) return
         val xSpace = viewWidth / size
         val availableChartHeight = yStart - barMarginTop
 

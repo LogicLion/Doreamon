@@ -24,14 +24,17 @@ class BrokenLineChartView @JvmOverloads constructor(
 ) : View(context, attrs) {
     val paint = Paint()
     private val yPaint = Paint()
-    private val markPaint = Paint()
+    private val textPaint = Paint().apply {
+        color = Color.parseColor("#333333")
+        textAlign = Paint.Align.CENTER
+        textSize = 12f.dp
+        typeface = Typeface.SANS_SERIF
+    }
     var list: List<ChartData> = ArrayList()
 
-    private val chartMarginBottom = 30f.dp
+    private var chartMarginBottom = 30f.dp
     private val barMarginTop = 30f.dp
     private val barMarginBottom = 30f.dp
-    private val xTextSize = 12f.dp
-    private val markTextSize = 10f.dp
 
     //图表可绘制区域最高高度
     private var yMaxHeight: Float = 0f
@@ -39,9 +42,12 @@ class BrokenLineChartView @JvmOverloads constructor(
     private var viewWidth: Float = 0f
     private var viewHeight: Float = 0f
 
+    private var shouldDrawXDes = false
+
     //以左上角为（0,0）点
     //x坐标
     var xList: MutableList<Float> = ArrayList()
+
     //y坐标
     var yList: MutableList<Float> = ArrayList()
 
@@ -67,7 +73,9 @@ class BrokenLineChartView @JvmOverloads constructor(
 
 
     private fun initAttrs(context: Context, attrs: AttributeSet?) {
-        val attributes = context.obtainStyledAttributes(attrs, R.styleable.StudyChartView)
+        val attributes = context.obtainStyledAttributes(attrs, R.styleable.BrokenLineChartView)
+        shouldDrawXDes =
+            attributes.getBoolean(R.styleable.BrokenLineChartView_draw_x_des_mode, false)
         attributes.recycle()
     }
 
@@ -76,9 +84,7 @@ class BrokenLineChartView @JvmOverloads constructor(
         yPaint.color = Color.parseColor("#FFD889")
         yPaint.style = Paint.Style.STROKE
         yPaint.strokeWidth = 3f.dp
-        markPaint.isAntiAlias = true
-        markPaint.textSize = markTextSize
-        markPaint.typeface = Typeface.SANS_SERIF
+
 
         initAttrs(context, attrs)
     }
@@ -96,6 +102,8 @@ class BrokenLineChartView @JvmOverloads constructor(
 
         viewWidth = w.toFloat()
         viewHeight = h.toFloat()
+        chartMarginBottom = if (shouldDrawXDes) 50f.dp else 30f.dp
+
         yMaxHeight = viewHeight - chartMarginBottom - barMarginBottom
         updateXY()
     }
@@ -104,6 +112,7 @@ class BrokenLineChartView @JvmOverloads constructor(
         if (viewHeight == 0f || viewHeight == 0f) {
             return
         }
+
 
         val size = list.size
 
@@ -120,6 +129,8 @@ class BrokenLineChartView @JvmOverloads constructor(
 
         xList.clear()
         yList.clear()
+
+        if (size == 0) return
 
         val xSpace = viewWidth / size
         val availableChartHeight = yMaxHeight - barMarginTop
@@ -165,7 +176,7 @@ class BrokenLineChartView @JvmOverloads constructor(
             if (heightMode == MeasureSpec.EXACTLY) {
                 heightSize
             } else {
-               150.dp
+                150.dp
             }
 
         setMeasuredDimension(measuredWidth, measureHeight)
@@ -174,7 +185,6 @@ class BrokenLineChartView @JvmOverloads constructor(
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
-        Log.v("HistogramChartView", "onDraw:" + height)
         if (list.isEmpty()) {
             return
         }
@@ -194,25 +204,44 @@ class BrokenLineChartView @JvmOverloads constructor(
         )
 
 
-        paint.textSize = xTextSize
-
         linePath.reset()
         for (i in 0 until size) {
-            paint.color = Color.parseColor("#666666")
+            textPaint.color = Color.parseColor("#666666")
             //x轴文字
             val xData = list[i]
             val xText = xData.x.trim()
-            val xTextWidth = markPaint.measureText(xText)
+            val xDesText = xData.xDes ?: ""
             val currX = xList[i]
 
             val yDelta = yList[i] - yAnimStartList[i]
             val currY = yList[i] - (yDelta - yDelta * progressRate / 100)
-            canvas.drawText(
-                xText,
-                (currX - xTextWidth / 2),
-                (viewHeight - 10f.dp),
-                paint
-            )
+            if (shouldDrawXDes) {
+                textPaint.color = Color.parseColor("#666666")
+                textPaint.textSize = 12f.dp
+                canvas.drawText(
+                    xText,
+                    xList[i],
+                    (viewHeight - 30f.dp),
+                    textPaint
+                )
+
+                textPaint.color = Color.parseColor("#999999")
+                textPaint.textSize = 10f.dp
+                canvas.drawText(
+                    xDesText,
+                    xList[i],
+                    (viewHeight - 12f.dp),
+                    textPaint
+                )
+            } else {
+                canvas.drawText(
+                    xText,
+                    xList[i],
+                    (viewHeight - 10f.dp),
+                    textPaint
+                )
+            }
+
 
             if (i == 0) {
                 linePath.moveTo(currX, currY)
@@ -250,8 +279,6 @@ class BrokenLineChartView @JvmOverloads constructor(
                 //y轴标记文字
                 val chartData = list[i]
                 val markText = chartData.y.toString() + chartData.yUnit
-                val textWidth = markPaint.measureText(markText)
-                val markLeftX = xList[i] - textWidth / 2
 
                 val y = if (i == 0) {
                     yList[i] - 10f.dp
@@ -260,12 +287,13 @@ class BrokenLineChartView @JvmOverloads constructor(
                 } else {
                     yList[i] + 15f.dp
                 }
-                markPaint.color = Color.parseColor("#333333")
+                textPaint.color = Color.parseColor("#333333")
+                textPaint.textSize = 10f.dp
                 canvas.drawText(
                     markText,
-                    markLeftX,
+                    xList[i],
                     y,
-                    markPaint
+                    textPaint
                 )
             }
         }

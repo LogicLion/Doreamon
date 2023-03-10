@@ -5,6 +5,7 @@ import com.doreamon.module_mine.R
 import com.doreamon.module_mine.databinding.MineFragmentMineBinding
 import com.doreamon.treasure.base.BaseFragment
 import com.doreamon.treasure.export.ModuleMineApi
+import com.doreamon.treasure.ext.dp
 import com.doreamon.treasure.utils.AppManager
 
 /**
@@ -21,8 +22,12 @@ class MineFragment : BaseFragment<MineViewModel>() {
         binding.tvText.text="dp系数：${AppManager.getContext().resources.displayMetrics.density}" +
                 "\ndpi：${AppManager.getContext().resources.displayMetrics.densityDpi}" +
                 "\n" +
-                "宽度（像素）：${AppManager.getContext().resources.displayMetrics.widthPixels}" +"\n" +
-        "高度（像素）：${AppManager.getContext().resources.displayMetrics.heightPixels}"
+                "屏幕宽度（像素）：${AppManager.getContext().resources.displayMetrics.widthPixels}" +"\n" +
+        "屏幕高度（像素）：${AppManager.getContext().resources.displayMetrics.heightPixels}"
 
+        binding.tvWidthTest.post {
+            binding.tvText.append("\n360dp换算的像素是：${360.dp}")
+            binding.tvText.append("\n360dp宽度的view实际像素是：${binding.tvWidthTest.width}")
+        }
     }
 }

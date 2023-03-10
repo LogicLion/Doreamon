@@ -61,7 +61,7 @@ dependencies {
     api 'com.squareup.retrofit2:converter-gson:2.9.0'
 
     //gson
-    api 'com.google.code.gson:gson:2.8.6'
+    api 'com.google.code.gson:gson:2.8.9'
 
     //coroutines
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0"
@@ -77,7 +77,7 @@ dependencies {
     api 'com.gyf.immersionbar:immersionbar:3.0.0'
 
     //bravh
-    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.6'
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.7'
 
 
     api 'com.haibin:calendarview:3.7.1'

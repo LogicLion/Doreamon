@@ -36,16 +36,14 @@
     </declare-styleable>
 
 
-    <declare-styleable name="StudyChartView">
+    <declare-styleable name="BrokenLineChartView">
 
-        <attr name="chart_style">
-            <enum name="study_video" value="0" />
-            <enum name="study_exam" value="1" />
-        </attr>
+        <attr name="draw_x_des_mode" format="boolean"/>
     </declare-styleable>
 
     <declare-styleable name="HistogramChartView">
         <attr name="histogram_bar_color" format="color" />
+        <attr name="histogram_bar_width" format="dimension" />
     </declare-styleable>
 
     <declare-styleable name="CircleProgressView">
@@ -55,5 +53,10 @@
     <declare-styleable name="TargetProgressView">
         <attr name="target_bg_color" format="color" />
         <attr name="target_bar_color" format="color" />
+        <attr name="target_bar_style">
+            <enum name="vertical" value="0" />
+            <enum name="horizontal" value="1" />
+            <enum name="horizontal_percent" value="2" />
+        </attr>
     </declare-styleable>
 </resources>

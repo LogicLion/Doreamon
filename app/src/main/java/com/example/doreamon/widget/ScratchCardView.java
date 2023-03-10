@@ -18,19 +18,16 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
 import com.example.doreamon.R;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Stack;
 
 /**
- * 刮刮卡(完善版)
+ * 写一个橡皮檫功能，可回退、前进
  * Create by: chenwei.li
  * Date: 2017/7/22
  * Time: 下午7:25
@@ -48,15 +45,25 @@ public class ScratchCardView extends View {
     private Canvas mForeCanvas;//前景图Canvas
     private Bitmap mForeBitmap;//前景图Bitmap
 
-    private List<Path> pathList;
 
-    private int step = -1;
+    /**
+     * “回退”栈
+     */
+    private Stack<Path> pathRollbackStack;
+
+    /**
+     * “前进”栈
+     */
+    private Stack<Path> pathForwardStack;
+
+    private boolean isRollBackEnable = false;
+    private boolean isForwardEnable = false;
+    private boolean isWriting = false;
 
     //记录位置
     private int mLastX;
     private int mLastY;
 
-    private volatile boolean isClear;//标志是否被清除
 
     private String TAG = "ScratchCardView";
 
@@ -77,9 +84,10 @@ public class ScratchCardView extends View {
 
     private void init() {
 
+        pathRollbackStack = new Stack<>();
+        pathForwardStack = new Stack<>();
         mRect = new Rect();
         mPath = new Path();
-        pathList = new ArrayList<>();
 
         //擦除画笔
         mForePaint = new Paint();
@@ -93,6 +101,7 @@ public class ScratchCardView extends View {
 
         //通过资源文件创建Bitmap对象
         mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.qishituan);
+        //创建一个大小一样的空画布
         mForeBitmap = Bitmap.createBitmap(mBitmap.getWidth(), mBitmap.getHeight(), Bitmap.Config.ARGB_8888);
         //双缓冲,装载画布
         mForeCanvas = new Canvas(mForeBitmap);
@@ -103,9 +112,7 @@ public class ScratchCardView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        if (!isClear) {
-            canvas.drawBitmap(mForeBitmap, 0, 0, null);
-        }
+        canvas.drawBitmap(mForeBitmap, 0, 0, null);
     }
 
 
@@ -113,10 +120,16 @@ public class ScratchCardView extends View {
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
+                isWriting = true;
                 mLastX = (int) event.getX();
                 mLastY = (int) event.getY();
                 mPath.moveTo(mLastX, mLastY);
+
+                if (!pathForwardStack.empty()) {
+                    pathForwardStack.clear();
+                }
                 mPath = new Path(mPath);
+
                 break;
             case MotionEvent.ACTION_MOVE:
                 mLastX = (int) event.getX();
@@ -124,9 +137,9 @@ public class ScratchCardView extends View {
                 mPath.lineTo(mLastX, mLastY);
                 break;
             case MotionEvent.ACTION_UP:
-                pathList.add(mPath);
-                step++;
-                Log.v(TAG, "" + step);
+                pathRollbackStack.push(mPath);
+                checkStackEnable();
+                isWriting = false;
                 break;
             default:
                 break;
@@ -139,31 +152,95 @@ public class ScratchCardView extends View {
 
 
     /**
-     * 撤销
+     * 回退
      */
     public void rollback() {
-
-        step--;
-        if (step < 0) {
+        if (isWriting) return;
+        if (pathRollbackStack.empty()) {
             Toast.makeText(getContext(), "没有了", Toast.LENGTH_SHORT).show();
             return;
         }
-        mPath = pathList.get(step);
 
-        mBitmap.recycle();
+        if (pathRollbackStack.size() > 0) {
+            pathForwardStack.push(pathRollbackStack.pop());
+        }
+
+        if (pathRollbackStack.size() > 0) {
+            mPath = pathRollbackStack.peek();
+        } else {
+            mPath = new Path();
+            if (stackStateChangeListener != null && isRollBackEnable) {
+                isRollBackEnable = false;
+                stackStateChangeListener.onRollBackEnable(false);
+            }
+        }
+
         mForeBitmap.recycle();
-        mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.qishituan);
         mForeBitmap = Bitmap.createBitmap(mBitmap.getWidth(), mBitmap.getHeight(), Bitmap.Config.ARGB_8888);
         mForeCanvas = new Canvas(mForeBitmap);
         mForeCanvas.drawBitmap(mBitmap, 0, 0, null);
         mForeCanvas.drawPath(mPath, mForePaint);
         invalidate();
+
+        checkStackEnable();
     }
 
     /**
      * 前进
      */
     public void forward() {
+        if (isWriting) return;
+        if (pathForwardStack.empty()) {
+            Toast.makeText(getContext(), "没有了", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
+        if (pathForwardStack.size() > 0) {
+            Path path = pathForwardStack.pop();
+            pathRollbackStack.push(path);
+            mPath = path;
+        }
+
+        mForeBitmap.recycle();
+        mForeBitmap = Bitmap.createBitmap(mBitmap.getWidth(), mBitmap.getHeight(), Bitmap.Config.ARGB_8888);
+        mForeCanvas = new Canvas(mForeBitmap);
+        mForeCanvas.drawBitmap(mBitmap, 0, 0, null);
+        mForeCanvas.drawPath(mPath, mForePaint);
+        invalidate();
+
+        checkStackEnable();
+    }
+
+
+    private StackStateListener stackStateChangeListener;
+
+    public void setStackStateChangeListener(StackStateListener listener) {
+        stackStateChangeListener = listener;
+    }
+
+    public interface StackStateListener {
+        void onRollBackEnable(Boolean enable);
+
+        void onForwardEnable(Boolean enable);
+    }
+
+
+    /**
+     * 校验当前栈状态
+     */
+    private void checkStackEnable() {
+        if (pathRollbackStack.empty() == isRollBackEnable) {
+            isRollBackEnable = !isRollBackEnable;
+            if (stackStateChangeListener != null) {
+                stackStateChangeListener.onRollBackEnable(isRollBackEnable);
+            }
+        }
+
+        if (pathForwardStack.empty() == isForwardEnable) {
+            isForwardEnable = !isForwardEnable;
+            if (stackStateChangeListener != null) {
+                stackStateChangeListener.onForwardEnable(isForwardEnable);
+            }
+        }
     }
 }

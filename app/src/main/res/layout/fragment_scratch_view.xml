@@ -23,21 +23,28 @@
 
         <TextView
             android:id="@+id/tv_rollback"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
             android:padding="8dp"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_forward"
             app:layout_constraintTop_toBottomOf="@id/iv"
+            android:background="@drawable/selector_primary_eeeeee_radius_10"
             android:textSize="18sp"
             android:text="上一步"/>
 
         <TextView
             android:id="@+id/tv_forward"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
             android:padding="8dp"
+            android:gravity="center"
             app:layout_constraintStart_toEndOf="@id/tv_rollback"
-            app:layout_constraintTop_toBottomOf="@id/iv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_rollback"
+            android:background="@drawable/selector_primary_eeeeee_radius_10"
             android:textSize="18sp"
             android:text="下一步"/>
 
