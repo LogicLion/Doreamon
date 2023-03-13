@@ -143,6 +143,10 @@
 -keepclassmembernames class com.doreamon.treasure.net.NetResult { *; }
 -keepclassmembernames class com.doreamon.treasure.net.ListNetResult { *; }
 
+# ApplicationDelegate的子类
+-keep public class * extends com.doreamon.treasure.base.ApplicationDelegate
+
+
 #####################################################
 #                        三方配置                    #
 #####################################################
@@ -181,11 +185,6 @@
 -keep,allowobfuscation interface <1>
 
 
-###Lebo
--keep class com.hpplay.**{*;}
--keep class com.hpplay.**$*{*;}
--dontwarn com.hpplay.**
-
 
 #x5webview
 -dontwarn dalvik.**
@@ -198,4 +197,16 @@
 -keep class com.tencent.tbs.** {
     *;
 }
+
+
+# ARouter混淆
+-keep public class com.alibaba.android.arouter.routes.**{*;}
+-keep public class com.alibaba.android.arouter.facade.**{*;}
+-keep class * implements com.alibaba.android.arouter.facade.template.ISyringe{*;}
+
+# 如果使用了 byType 的方式获取 Service，需添加下面规则，保护接口
+-keep interface * implements com.alibaba.android.arouter.facade.template.IProvider
+
+# 如果使用了 单类注入，即不定义接口实现 IProvider，需添加下面规则，保护实现
+# -keep class * implements com.alibaba.android.arouter.facade.template.IProvider
 
