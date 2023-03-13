@@ -8,13 +8,12 @@ plugins {
 
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    compileSdk rootProject.ext.android.compileSdkVersion
 
     defaultConfig {
         applicationId "com.example.doreamon"
-        minSdkVersion 26
-        targetSdkVersion 30
+        minSdk rootProject.ext.android.minSdkVersion
+        targetSdk rootProject.ext.android.targetSdkVersion
         versionCode 1
         versionName "1.0"
 

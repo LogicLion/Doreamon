@@ -37,6 +37,9 @@ class MyLifeCycleObserver : LifecycleEventObserver {
             Lifecycle.Event.ON_DESTROY -> {
                 Log.v(TAG, "ON_DESTROY")
             }
+            else->{
+
+            }
         }
 
     }

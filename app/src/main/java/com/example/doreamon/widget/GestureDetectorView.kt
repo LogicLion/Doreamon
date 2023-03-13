@@ -21,13 +21,13 @@ class GestureDetectorView @JvmOverloads constructor(
     }
 
     val gestureListener = object : GestureDetector.SimpleOnGestureListener(){
-        override fun onLongPress(e: MotionEvent?) {
+        override fun onLongPress(e: MotionEvent) {
             super.onLongPress(e)
 
             "长按".toast()
         }
 
-        override fun onDoubleTap(e: MotionEvent?): Boolean {
+        override fun onDoubleTap(e: MotionEvent): Boolean {
             return super.onDoubleTap(e)
         }
     }

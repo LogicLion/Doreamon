@@ -44,7 +44,7 @@ object AppManager {
         }
 
         override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) {
-            Log.i("AppManager", "Activity: ${activity?.javaClass.simpleName} ----> onActivitySaveInstanceState")
+            Log.i("AppManager", "Activity: ${activity?.javaClass?.simpleName} ----> onActivitySaveInstanceState")
         }
 
         override fun onActivityStarted(activity: Activity) {

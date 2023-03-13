@@ -77,7 +77,7 @@ abstract class DataBindingActivity<VM : BaseViewModel> : AppCompatActivity() {
     }
 
 
-    protected open fun <T : ViewModel?> getViewModel(modelClass: Class<T>): T {
+    protected open fun <T : ViewModel> getViewModel(modelClass: Class<T>): T {
         if (!::mActivityProvider.isInitialized) {
             mActivityProvider = ViewModelProvider(this)
         }

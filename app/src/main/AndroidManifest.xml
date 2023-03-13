@@ -14,6 +14,7 @@
         android:resizeableActivity="true"
         android:theme="@style/Theme.Doreamon">
         <activity android:name=".ui.LaunchActivity"
+            android:exported="true"
             android:theme="@style/AppTheme.Full">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

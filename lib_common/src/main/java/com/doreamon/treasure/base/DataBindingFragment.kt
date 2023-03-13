@@ -79,7 +79,7 @@ abstract class DataBindingFragment<VM : BaseViewModel> :Fragment() {
         return vm
     }
 
-    protected open fun <T : ViewModel?> getViewModel(modelClass: Class<T>): T {
+    protected open fun <T : ViewModel> getViewModel(modelClass: Class<T>): T {
         if (!::mActivityProvider.isInitialized) {
             mActivityProvider = ViewModelProvider(this)
         }

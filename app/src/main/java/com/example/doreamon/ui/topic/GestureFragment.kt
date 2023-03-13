@@ -86,8 +86,8 @@ class GestureFragment : BaseFragment<BaseViewModel>() {
             }
 
             override fun onFling(
-                e1: MotionEvent?,
-                e2: MotionEvent?,
+                e1: MotionEvent,
+                e2: MotionEvent,
                 velocityX: Float,
                 velocityY: Float
             ): Boolean {
@@ -102,17 +102,18 @@ class GestureFragment : BaseFragment<BaseViewModel>() {
                 //velocityY:在 Y 轴上的运动速度(像素／秒)
                 return super.onFling(e1, e2, velocityX, velocityY)
             }
-
-
             override fun onScroll(
-                e1: MotionEvent?,
-                e2: MotionEvent?,
+                e1: MotionEvent,
+                e2: MotionEvent,
                 distanceX: Float,
                 distanceY: Float
             ): Boolean {
                 //onScroll 就是监听滚动事件的，它看起来和 onFling 比较像，不同的是，onSrcoll 后两个参数不是速度，而是滚动的距离。
                 return super.onScroll(e1, e2, distanceX, distanceY)
             }
+
+
+
 
 
             override fun onDown(e: MotionEvent): Boolean {
