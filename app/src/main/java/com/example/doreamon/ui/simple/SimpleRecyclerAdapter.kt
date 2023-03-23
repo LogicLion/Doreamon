@@ -53,6 +53,7 @@ class SimpleRecyclerAdapter : RecyclerView.Adapter<SimpleViewHolder>(), Draggabl
 
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
         super.onAttachedToRecyclerView(recyclerView)
+        //ItemTouchHelper绑定Recyclerview
         val itemTouchHelper = ItemTouchHelper(MyItemTouchHelper(this))
         itemTouchHelper.attachToRecyclerView(recyclerView)
     }

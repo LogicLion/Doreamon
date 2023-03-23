@@ -17,9 +17,10 @@ class StudyTopic(
     companion object{
 
         val List = listOf(
+            StudyTopic("可展开收起TextView", ExpandableTextViewDemoFragment::class.java.name),
+            StudyTopic("RecyclerView原理研究", RecyclerViewDemoFragment::class.java.name),
             StudyTopic("Chart图表", ChartDemoFragment::class.java.name),
             StudyTopic("刮刮卡效果",ScratchViewDemoFragment::class.java.name),
-            StudyTopic("RecyclerView原理研究", RecyclerViewDemoFragment::class.java.name),
             StudyTopic("自定义LayoutManager", LayoutManagerDemoFragment::class.java.name),
             StudyTopic("文本宽度自适应的TextView", AutoFitWidthTextViewDemoFragment::class.java.name),
             StudyTopic("可任意拖拽View实践", DraggableViewDemoFragment::class.java.name),

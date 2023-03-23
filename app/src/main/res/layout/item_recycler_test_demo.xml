@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="60dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginEnd="60dp"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="留言信息："
+        android:textColor="#2AC1AE"
+        android:textSize="14sp" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.example.doreamon.widget.expandabletext.ExpandTextView
+            android:id="@+id/tv_quote_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="5dp"
+            android:ellipsize="end"
+            android:text="留言信息内容留言信息内容留言信息内容留言信息内容留言信息内容留言信息内容留言信息内容留言信息内容留言信息内容留言信息内容留言信息内容留言信息内容留言信息内容留言信息内容"
+            android:textColor="@color/color_black_333333"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_quote_msg_copy"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="5dp"
+            android:visibility="invisible"
+            android:textColor="@color/color_black_333333"
+            android:textSize="14sp" />
+    </FrameLayout>
+
+
+    <TextView
+        android:id="@+id/tv_fold_unfold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="5dp"
+        android:text="展开"
+        android:textColor="#2AC1AE"
+        android:textSize="14sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="5dp"
+        android:background="#e6e6e6" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="留言信息："
+        android:textColor="#2AC1AE"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_receive_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:text="回复信息内容回复信息内容回复信息内容回复信息内容回复信息内容回复信息内容回复信息内容回复信息内容回复信息内容回复信息内容回复信息内容回复信息内容"
+        android:textColor="@color/color_black_333333"
+        android:textSize="14sp" />
+
+
+</LinearLayout>

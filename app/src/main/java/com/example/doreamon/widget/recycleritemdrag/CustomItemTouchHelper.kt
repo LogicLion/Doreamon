@@ -2,12 +2,13 @@ package com.example.doreamon.widget.recycleritemdrag
 
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import java.util.*
 
 /**
  * @author wzh
  * @date 2023/2/28
  */
-class MyItemTouchHelper(val mAdapter: DraggableOrSwipeAdapter) : ItemTouchHelper.Callback() {
+class CustomItemTouchHelper(val mAdapter: DraggableOrSwipeAdapter) : ItemTouchHelper.Callback() {
 
 
     //返回可拖拽的方向
@@ -17,10 +18,10 @@ class MyItemTouchHelper(val mAdapter: DraggableOrSwipeAdapter) : ItemTouchHelper
     ): Int {
         // 返回可滑动方向，通过使用一个int，在各个bit位标记来记录。
         // 这里drag支持上下方向，swipe支持左右方向。
-        val dragFlag = ItemTouchHelper.UP or ItemTouchHelper.DOWN
+        val dragFlag = ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
 
         //向左侧滑，若有其他需求同理
-        val swipeFlag = ItemTouchHelper.LEFT
+        val swipeFlag = ItemTouchHelper.UP or ItemTouchHelper.DOWN
 
         return makeMovementFlags(dragFlag, swipeFlag)
     }

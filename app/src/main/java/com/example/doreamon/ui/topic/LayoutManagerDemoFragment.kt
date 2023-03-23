@@ -5,6 +5,7 @@ import com.doreamon.treasure.base.BaseViewModel
 import com.example.doreamon.R
 import com.example.doreamon.adapter.ImageSimpleAdapter
 import com.example.doreamon.databinding.FragmentLayoutManagerDemoBinding
+import com.example.doreamon.widget.LikeLinearLayoutManager
 import com.example.doreamon.widget.LoopLayoutManager
 
 /**
@@ -27,7 +28,7 @@ class LayoutManagerDemoFragment : BaseFragment<BaseViewModel>() {
             list.add("")
         }
         adapter.setList(list)
-        binding.rv.layoutManager = LoopLayoutManager()
+        binding.rv.layoutManager = LikeLinearLayoutManager()
         binding.rv.adapter = adapter
 
         binding.tvJump.setOnClickListener {
