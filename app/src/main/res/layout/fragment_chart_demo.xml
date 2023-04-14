@@ -21,10 +21,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
                 android:background="@color/color_gray_f8f8f8"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 android:orientation="vertical">
+
+                <com.example.doreamon.widget.CirclePercentView
+                    android:id="@+id/circle_percent_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -108,8 +114,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="35dp"
                     android:layout_marginTop="30dp"
-                    app:histogram_bar_width="20dp"
                     app:histogram_bar_color="#2AC1AE"
+                    app:histogram_bar_width="20dp"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <com.example.doreamon.widget.HistogramChartView
@@ -118,8 +124,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="35dp"
                     android:layout_marginTop="30dp"
-                    app:histogram_bar_width="15dp"
                     app:histogram_bar_color="#5FC0FF"
+                    app:histogram_bar_width="15dp"
                     app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -150,6 +156,7 @@
                     android:focusableInTouchMode="false"
                     android:nestedScrollingEnabled="false"
                     app:layout_constraintTop_toBottomOf="@id/broken_line_view" />
+
 
             </LinearLayout>
 

@@ -64,6 +64,9 @@ public class ScratchCardView extends View {
     private int mLastX;
     private int mLastY;
 
+    private int viewWidth;
+    private int viewHeight;
+
 
     private String TAG = "ScratchCardView";
 
@@ -101,14 +104,16 @@ public class ScratchCardView extends View {
 
         //通过资源文件创建Bitmap对象
         mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.qishituan);
-        //创建一个大小一样的空画布
-        mForeBitmap = Bitmap.createBitmap(mBitmap.getWidth(), mBitmap.getHeight(), Bitmap.Config.ARGB_8888);
-        //双缓冲,装载画布
-        mForeCanvas = new Canvas(mForeBitmap);
-        mForeCanvas.drawBitmap(mBitmap, 0, 0, null);
-
     }
 
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        viewWidth = w;
+        viewHeight = h;
+
+        resetOriginCanvas();
+    }
 
     @Override
     protected void onDraw(Canvas canvas) {
@@ -175,10 +180,7 @@ public class ScratchCardView extends View {
             }
         }
 
-        mForeBitmap.recycle();
-        mForeBitmap = Bitmap.createBitmap(mBitmap.getWidth(), mBitmap.getHeight(), Bitmap.Config.ARGB_8888);
-        mForeCanvas = new Canvas(mForeBitmap);
-        mForeCanvas.drawBitmap(mBitmap, 0, 0, null);
+        resetOriginCanvas();
         mForeCanvas.drawPath(mPath, mForePaint);
         invalidate();
 
@@ -201,16 +203,29 @@ public class ScratchCardView extends View {
             mPath = path;
         }
 
-        mForeBitmap.recycle();
-        mForeBitmap = Bitmap.createBitmap(mBitmap.getWidth(), mBitmap.getHeight(), Bitmap.Config.ARGB_8888);
-        mForeCanvas = new Canvas(mForeBitmap);
-        mForeCanvas.drawBitmap(mBitmap, 0, 0, null);
+
+        resetOriginCanvas();
         mForeCanvas.drawPath(mPath, mForePaint);
         invalidate();
 
         checkStackEnable();
     }
 
+    /**
+     * 重置成最初的画板
+     */
+    private void resetOriginCanvas() {
+        if (mForeBitmap != null) {
+            mForeBitmap.recycle();
+        }
+        //创建一个空bitmap对象,此bitmap对象为mForeCanvas上的操作对象
+        mForeBitmap = Bitmap.createBitmap(mBitmap.getWidth(), mBitmap.getHeight(), Bitmap.Config.ARGB_8888);
+        //双缓冲,装载画布
+        mForeCanvas = new Canvas(mForeBitmap);
+
+        mForeCanvas.drawBitmap(mBitmap, new Rect(0, 0, mBitmap.getWidth(), mBitmap.getHeight())
+                , new Rect(0, 0, viewWidth, viewHeight), null);
+    }
 
     private StackStateListener stackStateChangeListener;
 

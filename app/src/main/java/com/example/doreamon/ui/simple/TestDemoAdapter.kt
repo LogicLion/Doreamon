@@ -1,5 +1,6 @@
 package com.example.doreamon.ui.simple
 
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import com.chad.library.adapter.base.BaseQuickAdapter
@@ -21,7 +22,6 @@ class TestDemoAdapter :
         val tvQuoteMsg = holder.getView<ExpandTextView>(R.id.tv_quote_msg)
         val tvQuoteMsgCopy = holder.getView<TextView>(R.id.tv_quote_msg_copy)
 
-        tvQuoteMsg.isSuggestionsEnabled
         tvQuoteMsg.setText(item.quoteMsg, item.isExpand, object : ExpandTextView.Callback {
             override fun onExpand() {
                 tvFold.visibility = View.VISIBLE

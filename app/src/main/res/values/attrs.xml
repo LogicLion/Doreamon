@@ -37,7 +37,6 @@
 
 
     <declare-styleable name="BrokenLineChartView">
-
         <attr name="draw_x_des_mode" format="boolean"/>
     </declare-styleable>
 
@@ -48,6 +47,12 @@
 
     <declare-styleable name="CircleProgressView">
         <attr name="ring_bar_color" format="color" />
+        <attr name="circle_bar_style">
+            <enum name="bar_default" value="0" />
+            <enum name="fill_percent" value="1" />
+            <enum name="fill_title" value="2" />
+        </attr>
+
     </declare-styleable>
 
     <declare-styleable name="TargetProgressView">

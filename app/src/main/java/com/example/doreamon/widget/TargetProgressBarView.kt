@@ -66,14 +66,14 @@ class TargetProgressBarView @JvmOverloads constructor(
     private var progress = 0
     private var target = 100
 
-    val rect = Rect()
+    private val rect = Rect()
 
     init {
         initAttrs(context, attrs)
     }
 
     @Keep
-    var animRate = 0
+    private var animRate = 0
         set(rate) {
             field = rate
             invalidate()
@@ -87,7 +87,7 @@ class TargetProgressBarView @JvmOverloads constructor(
     /**
      * 设置进度值与目标值
      * @param progress 进度值
-     * @param target 目标值
+     * @param target 目标值,必须大于0
      */
     fun setRate(progress: Int, target: Int) {
         if (target <= 0 || progress < 0) {
@@ -98,9 +98,6 @@ class TargetProgressBarView @JvmOverloads constructor(
             this.progress = target
         }
         this.target = target
-        if (target <= 0) {
-            this.target = 100
-        }
         animator.start()
     }
 
@@ -135,26 +132,9 @@ class TargetProgressBarView @JvmOverloads constructor(
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-
-        val widthMode = MeasureSpec.getMode(widthMeasureSpec)
-        val widthSize = MeasureSpec.getSize(widthMeasureSpec)
-
-        val heightMode = MeasureSpec.getMode(heightMeasureSpec)
-        val heightSize = MeasureSpec.getSize(heightMeasureSpec)
-
-        val measuredWidth = if (widthMode == MeasureSpec.EXACTLY) {
-            widthSize
-        } else {
-            20.dp
-        }
-
-        val measureHeight = if (heightMode == MeasureSpec.EXACTLY) {
-            heightSize
-        } else {
-            20.dp
-        }
-
-        setMeasuredDimension(measuredWidth, measureHeight)
+        val width = resolveSize(20.dp, widthMeasureSpec)
+        val height = resolveSize(20.dp, heightMeasureSpec)
+        setMeasuredDimension(width, height)
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {

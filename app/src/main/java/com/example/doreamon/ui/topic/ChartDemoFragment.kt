@@ -25,13 +25,15 @@ class ChartDemoFragment : BaseFragment<BaseViewModel>() {
         val adapter = CircleChartAdapter()
         binding.rv.layoutManager = GridLayoutManager(requireActivity(), 2)
         binding.rv.adapter = adapter
-        val list = listOf("#2AC1AE", "#FEAE54", "#FF86A6", "#FED667", "#63ACF5")
+        val list =
+            listOf("#2AC1AE", "#2AC1AE", "#2AC1AE", "#FEAE54", "#FF86A6", "#FED667")
         adapter.setList(list)
 
         binding.tvUpdate.setOnClickListener {
             setChartData()
             adapter.notifyDataSetChanged()
         }
+
 
     }
 
@@ -87,6 +89,11 @@ class ChartDemoFragment : BaseFragment<BaseViewModel>() {
         binding.targetProgressBar5.setRate(getRandomData(), 100)
         binding.targetProgressBar6.setRate(getRandomData(), 100)
         binding.targetProgressBar7.setRate(getRandomData(), 100)
+
+
+        val randomData = getRandomData()
+        binding.circlePercentView.setProportion(randomData, "闯关答题", 100 - randomData, "观看视频")
+
     }
 
 

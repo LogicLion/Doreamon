@@ -1,8 +1,9 @@
 package com.example.doreamon.ui.topic
 
-import com.example.doreamon.R
+import android.graphics.BitmapFactory
 import com.doreamon.treasure.base.BaseFragment
 import com.doreamon.treasure.base.BaseViewModel
+import com.example.doreamon.R
 import com.example.doreamon.databinding.FragmentScratchViewBinding
 import com.example.doreamon.widget.ScratchCardView
 
@@ -12,6 +13,8 @@ import com.example.doreamon.widget.ScratchCardView
  * @date 2022/4/26
  */
 class ScratchViewDemoFragment : BaseFragment<BaseViewModel>() {
+
+
     override fun setupLayoutId() = R.layout.fragment_scratch_view
 
     override fun initView() {
@@ -42,5 +45,7 @@ class ScratchViewDemoFragment : BaseFragment<BaseViewModel>() {
             }
 
         })
+
+
     }
 }

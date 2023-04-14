@@ -17,11 +17,17 @@ class CircleChartAdapter :
 
         val circleProgressView = holder.getView<CircleProgressView>(R.id.circle_progress_view)
 
-        if (holder.adapterPosition == 0) {
-            circleProgressView.chartType = CircleProgressView.Type.FILL_1
-        }else{
-            circleProgressView.setProgressBarColor(Color.parseColor(item))
-
+        when (holder.absoluteAdapterPosition) {
+            0 -> {
+                circleProgressView.chartType = CircleProgressView.Type.FILL_PERCENT
+            }
+            1 -> {
+                circleProgressView.chartType = CircleProgressView.Type.FILL_TITLE
+            }
+            else -> {
+                circleProgressView.chartType = CircleProgressView.Type.DEFAULT
+                circleProgressView.setProgressBarColor(Color.parseColor(item))
+            }
         }
 
         circleProgressView.setPercent(getRandomData())

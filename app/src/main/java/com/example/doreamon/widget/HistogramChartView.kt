@@ -5,7 +5,6 @@ import android.animation.ObjectAnimator
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import androidx.annotation.Keep
 import com.doreamon.treasure.ext.dp
@@ -21,11 +20,11 @@ class HistogramChartView @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : View(context, attrs) {
-    val paint = Paint()
+    private val paint = Paint()
     private val yPaint = Paint()
     private val markPaint = Paint()
     private val guideLinePaint = Paint()
-    var list: List<ChartData> = ArrayList()
+    private var list: List<ChartData> = ArrayList()
 
     private var chartBarWidth = 5f.dp
     private val chartMarginBottom = 30f.dp
@@ -41,16 +40,18 @@ class HistogramChartView @JvmOverloads constructor(
     private var viewHeight: Float = 0f
 
     //x坐标
-    var xList: MutableList<Float> = ArrayList()
+    private var xList: MutableList<Float> = ArrayList()
 
     //y高度
-    var yHeightList: MutableList<Float> = ArrayList()
+    private var yHeightList: MutableList<Float> = ArrayList()
+
+    private var xyPointList: MutableList<Point> = ArrayList()
 
     //柱体path
-    var pathList: MutableList<Path> = ArrayList()
+    private var pathList: MutableList<Path> = ArrayList()
 
     @Keep
-    var progressRate = 0
+    private var animRate = 0
         set(rate) {
             field = rate
             invalidate()
@@ -58,7 +59,7 @@ class HistogramChartView @JvmOverloads constructor(
 
 
     private val animator: Animator by lazy {
-        ObjectAnimator.ofInt(this, "progressRate", 0, 100).setDuration(500)
+        ObjectAnimator.ofInt(this, "animRate", 0, 100).setDuration(500)
     }
 
 
@@ -80,6 +81,7 @@ class HistogramChartView @JvmOverloads constructor(
         yPaint.style = Paint.Style.FILL
         markPaint.isAntiAlias = true
         markPaint.textSize = markTextSize
+        markPaint.textAlign = Paint.Align.CENTER
         markPaint.typeface = Typeface.SANS_SERIF
 
         guideLinePaint.style = Paint.Style.STROKE
@@ -96,7 +98,6 @@ class HistogramChartView @JvmOverloads constructor(
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
-        Log.v("HistogramChartView", "onSizeChanged:" + h)
 
         viewWidth = w.toFloat()
         viewHeight = h.toFloat()
@@ -105,7 +106,7 @@ class HistogramChartView @JvmOverloads constructor(
     }
 
     private fun updateXY() {
-        if (viewHeight == 0f || viewHeight == 0f) {
+        if (viewWidth == 0f || viewHeight == 0f) {
             return
         }
 
@@ -143,32 +144,14 @@ class HistogramChartView @JvmOverloads constructor(
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-
-        val widthMode = MeasureSpec.getMode(widthMeasureSpec)
-        val widthSize = MeasureSpec.getSize(widthMeasureSpec)
-        val heightMode = MeasureSpec.getMode(heightMeasureSpec)
-        val heightSize = MeasureSpec.getSize(heightMeasureSpec)
-
-        val measuredWidth = if (widthMode == MeasureSpec.EXACTLY) {
-            widthSize
-        } else {
-            300.dp
-        }
-
-        val measureHeight =
-            if (heightMode == MeasureSpec.EXACTLY) {
-                heightSize
-            } else {
-                200.dp
-            }
-
-        setMeasuredDimension(measuredWidth, measureHeight)
+        val width = resolveSize(300.dp, widthMeasureSpec)
+        val height = resolveSize(200.dp, heightMeasureSpec)
+        setMeasuredDimension(width, height)
     }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
-        Log.v("HistogramChartView", "onDraw:" + height)
         if (list.isEmpty()) {
             return
         }
@@ -213,7 +196,6 @@ class HistogramChartView @JvmOverloads constructor(
         }
 
 
-
         paint.textSize = xTextSize
         for (i in 0 until size) {
             paint.color = Color.parseColor("#666666")
@@ -232,7 +214,7 @@ class HistogramChartView @JvmOverloads constructor(
             //柱状体
             val yPath = pathList[i]
 
-            val yRate = yHeightList[i] * progressRate / 100
+            val yRate = yHeightList[i] * animRate / 100
             if (yHeightList[i] > 0) {
                 yPath.moveTo(
                     (currX - chartBarWidth / 2),
@@ -240,7 +222,7 @@ class HistogramChartView @JvmOverloads constructor(
                 )
                 yPath.lineTo(
                     (currX - chartBarWidth / 2),
-                    (viewHeight - chartMarginBottom - y)
+                    (viewHeight - chartMarginBottom - yRate)
                 )
                 yPath.arcTo(
                     (currX - chartBarWidth / 2),
@@ -257,21 +239,20 @@ class HistogramChartView @JvmOverloads constructor(
                 )
                 yPath.close()
                 canvas.drawPath(yPath, yPaint)
+
             }
         }
 
         //y轴标记文字
-        if (progressRate == 100) {
+        if (animRate == 100) {
             for (i in 0 until size) {
                 val chartData = list[i]
                 val markText = chartData.y.toString() + chartData.yUnit
-                val textWidth = markPaint.measureText(markText)
-                val markLeftX = xList[i] - textWidth / 2
                 val y = viewHeight - chartMarginBottom - yHeightList[i] - 24f.dp
                 markPaint.color = Color.parseColor("#333333")
                 canvas.drawText(
                     markText,
-                    markLeftX,
+                    xList[i],
                     y,
                     markPaint
                 )

@@ -19,6 +19,5 @@ class SimpleActivity : BaseActivity<BaseViewModel>() {
         super.onCreate(savedInstanceState)
 
         val binding = getViewBinding<ActivityTestBinding>()
-        binding.tvTest.text="测试页面2"
     }
 }

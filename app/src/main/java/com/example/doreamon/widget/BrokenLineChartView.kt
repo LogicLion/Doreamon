@@ -22,7 +22,7 @@ class BrokenLineChartView @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : View(context, attrs) {
-    val paint = Paint()
+    private val paint = Paint()
     private val yPaint = Paint()
     private val textPaint = Paint().apply {
         color = Color.parseColor("#333333")
@@ -30,7 +30,7 @@ class BrokenLineChartView @JvmOverloads constructor(
         textSize = 12f.dp
         typeface = Typeface.SANS_SERIF
     }
-    var list: List<ChartData> = ArrayList()
+    private var list: List<ChartData> = ArrayList()
 
     private var chartMarginBottom = 30f.dp
     private val barMarginTop = 30f.dp
@@ -46,21 +46,21 @@ class BrokenLineChartView @JvmOverloads constructor(
 
     //以左上角为（0,0）点
     //x坐标
-    var xList: MutableList<Float> = ArrayList()
+    private var xList: MutableList<Float> = ArrayList()
 
     //y坐标
-    var yList: MutableList<Float> = ArrayList()
+    private var yList: MutableList<Float> = ArrayList()
 
     //折线
     private val linePath = Path()
 
 
     //每个折点动画执行的起始位置(默认在可绘制区域的中间)
-    var yAnimStartList: MutableList<Float> = ArrayList()
+    private var yAnimStartList: MutableList<Float> = ArrayList()
 
 
     @Keep
-    var progressRate = 0
+    private var animRate = 0
         set(rate) {
             field = rate
             invalidate()
@@ -68,7 +68,7 @@ class BrokenLineChartView @JvmOverloads constructor(
 
 
     private val animator: Animator by lazy {
-        ObjectAnimator.ofInt(this, "progressRate", 0, 100).setDuration(500)
+        ObjectAnimator.ofInt(this, "animRate", 0, 100).setDuration(500)
     }
 
 
@@ -98,7 +98,6 @@ class BrokenLineChartView @JvmOverloads constructor(
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
-        Log.v("HistogramChartView", "onSizeChanged:" + h)
 
         viewWidth = w.toFloat()
         viewHeight = h.toFloat()
@@ -109,7 +108,7 @@ class BrokenLineChartView @JvmOverloads constructor(
     }
 
     private fun updateXY() {
-        if (viewHeight == 0f || viewHeight == 0f) {
+        if (viewWidth == 0f || viewHeight == 0f) {
             return
         }
 
@@ -160,26 +159,9 @@ class BrokenLineChartView @JvmOverloads constructor(
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-
-        val widthMode = MeasureSpec.getMode(widthMeasureSpec)
-        val widthSize = MeasureSpec.getSize(widthMeasureSpec)
-        val heightMode = MeasureSpec.getMode(heightMeasureSpec)
-        val heightSize = MeasureSpec.getSize(heightMeasureSpec)
-
-        val measuredWidth = if (widthMode == MeasureSpec.EXACTLY) {
-            widthSize
-        } else {
-            300.dp
-        }
-
-        val measureHeight =
-            if (heightMode == MeasureSpec.EXACTLY) {
-                heightSize
-            } else {
-                150.dp
-            }
-
-        setMeasuredDimension(measuredWidth, measureHeight)
+        val width = resolveSize(300.dp, widthMeasureSpec)
+        val height = resolveSize(150.dp, heightMeasureSpec)
+        setMeasuredDimension(width, height)
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -214,7 +196,7 @@ class BrokenLineChartView @JvmOverloads constructor(
             val currX = xList[i]
 
             val yDelta = yList[i] - yAnimStartList[i]
-            val currY = yList[i] - (yDelta - yDelta * progressRate / 100)
+            val currY = yList[i] - (yDelta - yDelta * animRate / 100)
             if (shouldDrawXDes) {
                 textPaint.color = Color.parseColor("#666666")
                 textPaint.textSize = 12f.dp
@@ -234,6 +216,7 @@ class BrokenLineChartView @JvmOverloads constructor(
                     textPaint
                 )
             } else {
+                textPaint.textSize = 12f.dp
                 canvas.drawText(
                     xText,
                     xList[i],
@@ -256,7 +239,7 @@ class BrokenLineChartView @JvmOverloads constructor(
         for (i in 0 until size) {
 
             val yDelta = yList[i] - yAnimStartList[i]
-            val currY = yList[i] - (yDelta - yDelta * progressRate / 100)
+            val currY = yList[i] - (yDelta - yDelta * animRate / 100)
 
             paint.color = Color.WHITE
             paint.style = Paint.Style.FILL
@@ -273,7 +256,7 @@ class BrokenLineChartView @JvmOverloads constructor(
         }
 
 
-        if (progressRate == 100) {
+        if (animRate == 100) {
             for (i in 0 until size) {
 
                 //y轴标记文字

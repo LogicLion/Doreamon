@@ -20,6 +20,5 @@ class TestActivity : BaseActivity<BaseViewModel>() {
         super.onCreate(savedInstanceState)
         val extra = intent.getSerializableExtra("testArg") as User?
         val binding = getViewBinding<ActivityTestBinding>()
-        binding.tvTest.text=extra.toString()
     }
 }

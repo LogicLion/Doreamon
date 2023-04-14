@@ -48,6 +48,12 @@ class PracticeActivity : BaseActivity<BaseViewModel>() {
         outState.putString(fragmentTagKey, fragmentTag)
     }
 
+    
+
+
+    override fun setScreenOrientation() {
+    }
+
     companion object {
         fun actionStart(context: Context, studyTopic: StudyTopic) {
             val intent = Intent(context, PracticeActivity::class.java)
