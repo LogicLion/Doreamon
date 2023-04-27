@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <com.example.doreamon.widget.ScratchCardView
-            android:id="@+id/iv"
+            android:id="@+id/scratch_card_view"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_margin="30dp"
@@ -32,7 +32,7 @@
             android:textSize="18sp"
             app:layout_constraintEnd_toStartOf="@id/tv_forward"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv" />
+            app:layout_constraintTop_toBottomOf="@id/scratch_card_view" />
 
         <TextView
             android:id="@+id/tv_forward"
@@ -48,7 +48,7 @@
             app:layout_constraintTop_toTopOf="@id/tv_rollback" />
 
 
-        <com.example.doreamon.widget.NinePathPictureDemoView
+        <View
             android:id="@+id/nine_path_pic_view"
             android:layout_width="match_parent"
             android:layout_height="5dp"
@@ -64,6 +64,18 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_margin="20dp"/>
 
+
+
+        <com.example.doreamon.widget.TimeTextView
+            android:id="@+id/time_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:background="@color/color_002ea6"
+            app:layout_constraintTop_toBottomOf="@id/tv_bitmap"
+            app:layout_constraintStart_toStartOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

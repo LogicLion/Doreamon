@@ -19,7 +19,8 @@ import com.example.doreamon.R
  */
 class NinePathPictureDemoView @JvmOverloads constructor(
     context: Context,
-    attrs: AttributeSet? = null
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
 ) : View(context, attrs) {
 
     @Keep
@@ -32,7 +33,7 @@ class NinePathPictureDemoView @JvmOverloads constructor(
     val rect = Rect()
 
     private val ninePatch: NinePatch by lazy {
-        val bitmap = BitmapFactory.decodeResource(resources, R.drawable.icon_progress_bar_2)
+        val bitmap = BitmapFactory.decodeResource(resources, R.drawable.bg_progress_bar_233)
         return@lazy NinePatch(bitmap, bitmap.ninePatchChunk, null)
     }
 

@@ -4,7 +4,7 @@ ext {
 
     android = [
             compileSdkVersion: 32,
-            minSdkVersion    : 26,
+            minSdkVersion    : 21,
             targetSdkVersion : 32
 
     ]

@@ -16,7 +16,8 @@ import kotlin.math.max
 import kotlin.math.min
 
 /**
- * 可任意拖拽view，释放自动贴边
+ * 可任意拖拽view，释放自动贴边，并处理上层滑动和下层滑动的滑动冲突
+ * 目标view加上“tag == "draggable"即可被捕获
  * @author wzh
  * @date 2022/10/25
  */
@@ -70,13 +71,17 @@ class DraggableContainerView @JvmOverloads constructor(
         //当子view中含有recyclerView时，将执行不到onTouchEvent，方案之一是手动调用
 //        viewDragHelper.processTouchEvent(ev)
 
-        //方案二是处理一下拦截逻辑,判断在点击范围内，直接拦截，交由onTouchEvent
+        //方案二是处理一下拦截逻辑,判断在点击范围内，直接拦截，交由自己的onTouchEvent
         val shouldInterceptTouchEvent = viewDragHelper.shouldInterceptTouchEvent(ev)
-        if (findTopChildUnder(ev.x.toInt(), ev.y.toInt())) {
-            //点击范围内有可捕获控件时，拦截掉点击事件，这样onTouchEvent就能调用
-            return true
+        return if (findTopChildUnder(ev.x.toInt(), ev.y.toInt())) {
+
+            //请求上层控件不要拦截
+            requestDisallowInterceptTouchEvent(true)
+
+            //true，点击范围内有可捕获控件时，拦截掉点击事件，这样onTouchEvent就能调用，否则下层控件可能会拿走
+            true
         } else {
-            return shouldInterceptTouchEvent
+            shouldInterceptTouchEvent
         }
     }
 
@@ -91,7 +96,6 @@ class DraggableContainerView @JvmOverloads constructor(
             mYOffset = childView.top
             Log.v(TAG, "mXOffset:${mXOffset}")
             Log.v(TAG, "mYOffset:${mYOffset}")
-
         }
     }
 
@@ -204,7 +208,6 @@ class DraggableContainerView @JvmOverloads constructor(
         if (x > childView.left && x < childView.right
             && y > childView.top && y < childView.bottom
         ) {
-
             return true
         }
 

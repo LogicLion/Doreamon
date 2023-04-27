@@ -5,13 +5,11 @@ import android.animation.ObjectAnimator
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import androidx.annotation.Keep
+import com.doreamon.treasure.ext.dp
 import com.example.doreamon.R
 import com.example.doreamon.entity.ChartData
-import com.doreamon.treasure.ext.dp
-import java.util.ArrayList
 
 
 /**
@@ -25,6 +23,7 @@ class BrokenLineChartView @JvmOverloads constructor(
     private val paint = Paint()
     private val yPaint = Paint()
     private val textPaint = Paint().apply {
+        this.isAntiAlias = true
         color = Color.parseColor("#333333")
         textAlign = Paint.Align.CENTER
         textSize = 12f.dp
@@ -84,6 +83,7 @@ class BrokenLineChartView @JvmOverloads constructor(
         yPaint.color = Color.parseColor("#FFD889")
         yPaint.style = Paint.Style.STROKE
         yPaint.strokeWidth = 3f.dp
+        yPaint.isAntiAlias = true
 
 
         initAttrs(context, attrs)
@@ -151,7 +151,7 @@ class BrokenLineChartView @JvmOverloads constructor(
             if (maximumY > 0) {
                 yList.add(yMaxHeight - availableChartHeight * data / maximumY)
             } else {
-                yList.add(0f)
+                yList.add(yMaxHeight)
             }
         }
     }
@@ -265,7 +265,7 @@ class BrokenLineChartView @JvmOverloads constructor(
 
                 val y = if (i == 0) {
                     yList[i] - 10f.dp
-                } else if (yList[i] < yList[i - 1]) {
+                } else if (yList[i] <= yList[i - 1]) {
                     yList[i] - 10f.dp
                 } else {
                     yList[i] + 15f.dp

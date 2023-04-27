@@ -1,9 +1,9 @@
 package com.example.doreamon.ui.topic
 
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.doreamon.R
 import com.doreamon.treasure.base.BaseFragment
 import com.doreamon.treasure.base.BaseViewModel
+import com.example.doreamon.R
 import com.example.doreamon.adapter.CircleChartAdapter
 import com.example.doreamon.databinding.FragmentChartDemoBinding
 import com.example.doreamon.entity.ChartData

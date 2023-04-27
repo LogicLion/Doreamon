@@ -37,7 +37,7 @@ class ViewPager2DemoFragment : BaseFragment<BaseViewModel>() {
         }
 
         //设置viewpager能否滑动，false表示不能滑
-        viewPager.isUserInputEnabled = false
+        viewPager.isUserInputEnabled = true
 
 
         //设置离屏显示数量,默认值为-1，即默认就是懒加载
@@ -52,7 +52,7 @@ class ViewPager2DemoFragment : BaseFragment<BaseViewModel>() {
         //  这个平滑移动可能会影响切换途经的Fragment的生命周期onCreate,onStart,但onResume不影响
         //  如果不希望影响，改为false
         TabLayoutMediator(
-            binding.tabLayout, viewPager, true, false
+            binding.tabLayout, viewPager, true, true
         ) { tab, position ->
             tab.text = pagers[position]
         }.attach()

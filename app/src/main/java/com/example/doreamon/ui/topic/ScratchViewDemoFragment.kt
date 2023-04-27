@@ -1,6 +1,10 @@
 package com.example.doreamon.ui.topic
 
-import android.graphics.BitmapFactory
+import android.content.res.Resources
+import android.graphics.Canvas
+import android.graphics.Paint
+import android.text.*
+import android.text.style.*
 import com.doreamon.treasure.base.BaseFragment
 import com.doreamon.treasure.base.BaseViewModel
 import com.example.doreamon.R
@@ -21,7 +25,7 @@ class ScratchViewDemoFragment : BaseFragment<BaseViewModel>() {
 
         val binding = getViewBinding<FragmentScratchViewBinding>()
 
-        val scratchCardView = binding.iv
+        val scratchCardView = binding.scratchCardView
         binding.tvRollback.setOnClickListener {
             scratchCardView.rollback()
             binding.tvForward.isEnabled = true
@@ -47,5 +51,13 @@ class ScratchViewDemoFragment : BaseFragment<BaseViewModel>() {
         })
 
 
+
+        binding.timeTextView.setTime(107562)
+
+
+
     }
+
+
+
 }

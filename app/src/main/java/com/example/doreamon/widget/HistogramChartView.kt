@@ -79,6 +79,7 @@ class HistogramChartView @JvmOverloads constructor(
         paint.isAntiAlias = true
         yPaint.color = Color.parseColor("#5FC0FF")
         yPaint.style = Paint.Style.FILL
+        yPaint.isAntiAlias = true
         markPaint.isAntiAlias = true
         markPaint.textSize = markTextSize
         markPaint.textAlign = Paint.Align.CENTER

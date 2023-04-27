@@ -43,8 +43,7 @@ class CirclePercentView @JvmOverloads constructor(
     }
     private val paint = Paint().apply {
         isAntiAlias = true
-        style = Paint.Style.STROKE
-        strokeWidth = ringWidth
+        style = Paint.Style.FILL
     }
 
 
@@ -126,47 +125,51 @@ class CirclePercentView @JvmOverloads constructor(
 
         canvas.drawCircle(centerPointX, centerPointY, circleRadius, bgPaint)
 
-        val ringRadius = circleRadius - rangeStrokeWidth - ringWidth / 2
+        val outerRadius = circleRadius - rangeStrokeWidth
 
         paint.color = Color.parseColor("#FFC146")
         val sweepAngle = percent1 * 360f / 100
 
+        //这里采用useCenter为true的闭合扇形处理，而不是使用圆弧+paint描边的处理方式（实测android低版本会出现描边的角度会对不上的情况）
         if (animRate <= percent1) {
             canvas.drawArc(
-                centerPointX - ringRadius,
-                centerPointY - ringRadius,
-                centerPointX + ringRadius,
-                centerPointY + ringRadius,
+                centerPointX - outerRadius,
+                centerPointY - outerRadius,
+                centerPointX + outerRadius,
+                centerPointY + outerRadius,
                 -90f,
                 sweepAngle * animRate / percent1,
-                false,
+                true,
                 paint
             )
         } else {
             canvas.drawArc(
-                centerPointX - ringRadius,
-                centerPointY - ringRadius,
-                centerPointX + ringRadius,
-                centerPointY + ringRadius,
+                centerPointX - outerRadius,
+                centerPointY - outerRadius,
+                centerPointX + outerRadius,
+                centerPointY + outerRadius,
                 -90f,
                 sweepAngle,
-                false,
+                true,
                 paint
             )
 
             paint.color = Color.parseColor("#2AC1AE")
 
             canvas.drawArc(
-                centerPointX - ringRadius,
-                centerPointY - ringRadius,
-                centerPointX + ringRadius,
-                centerPointY + ringRadius,
+                centerPointX - outerRadius,
+                centerPointY - outerRadius,
+                centerPointX + outerRadius,
+                centerPointY + outerRadius,
                 -90f + sweepAngle,
                 (360f - sweepAngle) * (animRate - percent1) / (100 - percent1),
-                false,
+                true,
                 paint
             )
         }
+
+        val innerRadius = outerRadius - ringWidth
+        canvas.drawCircle(centerPointX, centerPointY, innerRadius, bgPaint)
 
 
         textPaint.color = Color.parseColor("#FFC146")
