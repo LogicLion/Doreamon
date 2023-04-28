@@ -130,7 +130,8 @@ class CirclePercentView @JvmOverloads constructor(
         paint.color = Color.parseColor("#FFC146")
         val sweepAngle = percent1 * 360f / 100
 
-        //这里采用useCenter为true的闭合扇形处理，而不是使用圆弧+paint描边的处理方式（实测android低版本会出现描边的角度会对不上的情况）
+        //这里采用useCenter为true的闭合扇形处理，而不是使用圆弧+paint描粗的处理方式
+        // （实测android低版本会出现描粗后，描粗端口的角度会对不上的情况）
         if (animRate <= percent1) {
             canvas.drawArc(
                 centerPointX - outerRadius,
