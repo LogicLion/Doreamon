@@ -28,7 +28,6 @@ class FragmentToggleActivity : BaseActivity<MainViewModel>() {
 
         Log.v(TAG, "onCreate")
 
-        changeStatusFountColor(true)
 
         //关闭根布局的fitSystemWindow偏移
         WindowCompat.setDecorFitsSystemWindows(window, false)

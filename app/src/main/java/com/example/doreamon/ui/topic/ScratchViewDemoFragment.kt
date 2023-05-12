@@ -1,14 +1,11 @@
 package com.example.doreamon.ui.topic
 
-import android.content.res.Resources
-import android.graphics.Canvas
-import android.graphics.Paint
-import android.text.*
-import android.text.style.*
 import com.doreamon.treasure.base.BaseFragment
 import com.doreamon.treasure.base.BaseViewModel
+import com.doreamon.treasure.ext.toast
 import com.example.doreamon.R
 import com.example.doreamon.databinding.FragmentScratchViewBinding
+import com.example.doreamon.ext.buildSpannableString
 import com.example.doreamon.widget.ScratchCardView
 
 /**
@@ -19,11 +16,12 @@ import com.example.doreamon.widget.ScratchCardView
 class ScratchViewDemoFragment : BaseFragment<BaseViewModel>() {
 
 
+    lateinit var binding: FragmentScratchViewBinding
     override fun setupLayoutId() = R.layout.fragment_scratch_view
 
     override fun initView() {
 
-        val binding = getViewBinding<FragmentScratchViewBinding>()
+        binding = getViewBinding()
 
         val scratchCardView = binding.scratchCardView
         binding.tvRollback.setOnClickListener {
@@ -52,11 +50,33 @@ class ScratchViewDemoFragment : BaseFragment<BaseViewModel>() {
 
 
 
+
         binding.timeTextView.setTime(107562)
 
 
 
+        binding.tvLearnDay.buildSpannableString {
+            addText("累计学习")
+            addText("20") {
+                setColor("#f55a5a")
+            }
+            addText("天")
+            addText("点击") {
+                setColor("#f55121")
+                onClick {
+                    "触发点击".toast()
+                }
+            }
+        }
+
+//        binding.customAnimationView.startAnimation(3000)
+//        binding.choreographerAnimationView.startAnimation()
+
+
+
+
     }
+
 
 
 

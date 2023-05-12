@@ -22,7 +22,20 @@ class TargetProgressBarView @JvmOverloads constructor(
 
 
     enum class Type {
-        VERTICAL, HORIZONTAL, HORIZONTAL_PERCENT
+        /**
+         * 垂直样式
+         */
+        VERTICAL,
+
+        /**
+         * 水平样式
+         */
+        HORIZONTAL,
+
+        /**
+         * 水平、百分比文字样式
+         */
+        HORIZONTAL_PERCENT_TEXT
     }
 
     private var chartType = Type.VERTICAL
@@ -50,6 +63,10 @@ class TargetProgressBarView @JvmOverloads constructor(
         textAlign = Paint.Align.CENTER
     }
 
+
+    private lateinit var progressBitmap: Bitmap
+
+
     private val fontMetrics = Paint.FontMetrics()
 
     //背景
@@ -66,7 +83,7 @@ class TargetProgressBarView @JvmOverloads constructor(
     private var progress = 0
     private var target = 100
 
-    private val rect = Rect()
+
 
     init {
         initAttrs(context, attrs)
@@ -118,7 +135,7 @@ class TargetProgressBarView @JvmOverloads constructor(
         when (attributes.getInt(R.styleable.TargetProgressView_target_bar_style, 0)) {
             0 -> chartType = Type.VERTICAL
             1 -> chartType = Type.HORIZONTAL
-            2 -> chartType = Type.HORIZONTAL_PERCENT
+            2 -> chartType = Type.HORIZONTAL_PERCENT_TEXT
         }
         attributes.recycle()
     }
@@ -141,6 +158,7 @@ class TargetProgressBarView @JvmOverloads constructor(
         super.onSizeChanged(w, h, oldw, oldh)
         viewWidth = w.toFloat()
         viewHeight = h.toFloat()
+
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -148,7 +166,7 @@ class TargetProgressBarView @JvmOverloads constructor(
         when (chartType) {
             Type.VERTICAL -> drawVertical(canvas)
             Type.HORIZONTAL -> drawHorizontal(canvas)
-            Type.HORIZONTAL_PERCENT -> drawHorizontalPercent(canvas)
+            Type.HORIZONTAL_PERCENT_TEXT -> drawHorizontalPercentText(canvas)
         }
     }
 
@@ -219,10 +237,11 @@ class TargetProgressBarView @JvmOverloads constructor(
 
     }
 
-    private fun drawHorizontalPercent(canvas: Canvas) {
+    private fun drawHorizontalPercentText(canvas: Canvas) {
 
         val radius = viewHeight / 2
 
+        //画背景
         bgPaint2.strokeCap = Paint.Cap.ROUND
         bgPaint2.strokeWidth = viewHeight
         canvas.drawLine(
@@ -245,6 +264,8 @@ class TargetProgressBarView @JvmOverloads constructor(
         path.arcTo(barLeft, barTop, barLeft + barRadius * 2, barBottom, 90f, 180f, false)
 
         canvas.save()
+
+        //裁切效果实现的无法做抗锯齿优化
         canvas.clipPath(path)
 
         bgPaint.strokeWidth = viewHeight
@@ -264,7 +285,6 @@ class TargetProgressBarView @JvmOverloads constructor(
         canvas.restore()
 
         val text = "${progress * animRate / 100}%"
-        textPaint.getTextBounds(text, 0, text.length, rect)
         textPaint.getFontMetrics(fontMetrics)
         canvas.drawText(
             text,
@@ -274,6 +294,8 @@ class TargetProgressBarView @JvmOverloads constructor(
         )
 
     }
+
+
 
 
 }

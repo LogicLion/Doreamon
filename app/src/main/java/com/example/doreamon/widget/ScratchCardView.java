@@ -108,6 +108,12 @@ public class ScratchCardView extends View {
 
 
     @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        getParent().requestDisallowInterceptTouchEvent(true);
+        return super.dispatchTouchEvent(event);
+    }
+
+    @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         viewWidth = w;
         viewHeight = h;
@@ -125,6 +131,7 @@ public class ScratchCardView extends View {
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
+
                 isWriting = true;
                 mLastX = (int) event.getX();
                 mLastY = (int) event.getY();

@@ -10,7 +10,7 @@ import android.widget.ScrollView
  * @author wzh
  * @date 2022/11/23
  */
-class CustomScrollView @JvmOverloads constructor(
+class ListenBottomScrollView @JvmOverloads constructor(
     private val mContext: Context,
     private val attr: AttributeSet? = null,
     val defStyle: Int = 0

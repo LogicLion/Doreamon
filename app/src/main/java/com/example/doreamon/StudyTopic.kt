@@ -17,6 +17,7 @@ class StudyTopic(
     companion object{
 
         val List = listOf(
+            StudyTopic("定制轨迹动画效果,不依赖ObjectAnimator",CustomAnimationViewDemoFragment::class.java.name),
             StudyTopic("刮刮卡效果",ScratchViewDemoFragment::class.java.name),
             StudyTopic("Chart图表", ChartDemoFragment::class.java.name),
             StudyTopic("可展开收起TextView", ExpandableTextViewDemoFragment::class.java.name),

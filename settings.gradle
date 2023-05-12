@@ -26,3 +26,4 @@ include ':wanandroid'
 include ':composedemo'
 
 include ':module_mine'
+include ':lib'

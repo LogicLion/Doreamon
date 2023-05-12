@@ -2,6 +2,7 @@ package com.example.doreamon.ui
 
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
@@ -11,7 +12,9 @@ import com.doreamon.treasure.base.BaseActivity
 import com.doreamon.treasure.base.BaseViewModel
 import com.doreamon.treasure.export.ModuleMineApi
 import com.example.doreamon.databinding.ActivityMainBinding
+import com.example.doreamon.event.KeyHomeEvent
 import com.example.doreamon.ui.main.TopicListFragment
+import org.greenrobot.eventbus.EventBus
 
 /**
  * @author wzh
@@ -25,9 +28,7 @@ class MainActivity : BaseActivity<BaseViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-//        setStatusBarTextLight()
-        setStatusBarTextDark()
-        setStatusBarNotPlaceHolder()
+
         binding = getViewBinding()
 
         binding.vp.isUserInputEnabled = false
@@ -84,6 +85,24 @@ class MainActivity : BaseActivity<BaseViewModel>() {
     override fun onResume() {
         super.onResume()
 
+    }
+
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        if (keyCode == KeyEvent.KEYCODE_HOME) {
+            // 在这里处理 Home 按钮的操作逻辑
+            Log.v(TAG, "onPressHomeKey")
+            EventBus.getDefault().post(KeyHomeEvent())
+            return true
+        }
+        return super.onKeyDown(keyCode, event)
+    }
+
+    override fun onUserLeaveHint() {
+        super.onUserLeaveHint()
+
+        // 在这里处理 Home 按钮的操作逻辑
+//        Log.v(TAG, "onPressHomeKey")
+        EventBus.getDefault().post(KeyHomeEvent())
     }
 
 
