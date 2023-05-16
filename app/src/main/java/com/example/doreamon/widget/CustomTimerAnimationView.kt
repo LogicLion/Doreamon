@@ -18,7 +18,7 @@ import kotlin.math.sin
  * @author wzh
  * @date 2023/5/8
  */
-class CustomAnimationView @JvmOverloads constructor(
+class CustomTimerAnimationView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0

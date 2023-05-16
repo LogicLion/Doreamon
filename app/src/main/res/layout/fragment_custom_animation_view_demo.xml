@@ -10,22 +10,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.example.doreamon.widget.CustomChoreographerAnimationView
-            android:id="@+id/choreographer_animation_view"
+        <com.example.doreamon.widget.custom_animator.CirclePathView
+            android:id="@+id/circle_path_view"
             android:layout_width="200dp"
             android:layout_height="200dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/tv_second"
+            android:id="@+id/tv_second_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            app:layout_constraintTop_toTopOf="@id/choreographer_animation_view"
-            app:layout_constraintBottom_toBottomOf="@id/choreographer_animation_view"
-            app:layout_constraintStart_toStartOf="@id/choreographer_animation_view"
-            app:layout_constraintEnd_toEndOf="@id/choreographer_animation_view"/>
+            app:layout_constraintTop_toTopOf="@id/circle_path_view"
+            app:layout_constraintBottom_toBottomOf="@id/circle_path_view"
+            app:layout_constraintStart_toStartOf="@id/circle_path_view"
+            app:layout_constraintEnd_toEndOf="@id/circle_path_view"/>
 
 
         <TextView
@@ -38,9 +38,9 @@
             android:paddingVertical="10dp"
             android:stateListAnimator="@animator/btn_press_animator"
             android:background="@drawable/selector_primary_eeeeee_radius_10"
-            app:layout_constraintTop_toTopOf="@id/choreographer_animation_view"
+            app:layout_constraintTop_toTopOf="@id/circle_path_view"
             app:layout_constraintBottom_toTopOf="@id/tv_stop_1"
-            app:layout_constraintStart_toEndOf="@id/choreographer_animation_view"
+            app:layout_constraintStart_toEndOf="@id/circle_path_view"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
@@ -55,8 +55,8 @@
             android:background="@drawable/selector_primary_eeeeee_radius_10"
             app:layout_constraintTop_toBottomOf="@id/tv_start_1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/choreographer_animation_view"
-            app:layout_constraintStart_toEndOf="@id/choreographer_animation_view" />
+            app:layout_constraintBottom_toBottomOf="@id/circle_path_view"
+            app:layout_constraintStart_toEndOf="@id/circle_path_view" />
 
 
 
@@ -65,7 +65,7 @@
             android:id="@+id/star_path_view"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            app:layout_constraintTop_toBottomOf="@id/choreographer_animation_view"
+            app:layout_constraintTop_toBottomOf="@id/circle_path_view"
             app:layout_constraintStart_toStartOf="parent"/>
 
 
@@ -98,6 +98,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="@id/star_path_view"
             app:layout_constraintStart_toEndOf="@id/star_path_view" />
+
+        <TextView
+            android:id="@+id/tv_second_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            app:layout_constraintTop_toTopOf="@id/star_path_view"
+            app:layout_constraintBottom_toBottomOf="@id/star_path_view"
+            app:layout_constraintStart_toStartOf="@id/star_path_view"
+            app:layout_constraintEnd_toEndOf="@id/star_path_view"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

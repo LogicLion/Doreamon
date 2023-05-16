@@ -22,19 +22,19 @@ class CustomAnimationViewDemoFragment : BaseFragment<BaseViewModel>() {
 
         binding.tvStart1.setOnClickListener {
 
-            if (binding.choreographerAnimationView.isAnimationRunning) {
-                binding.choreographerAnimationView.pauseAnimation()
+            if (binding.circlePathView.isAnimationRunning) {
+                binding.circlePathView.pauseAnimation()
             } else {
-                binding.choreographerAnimationView.startAnimation()
+                binding.circlePathView.startAnimation()
             }
         }
 
         binding.tvStop1.setOnClickListener {
-            binding.choreographerAnimationView.stopAnimation()
+            binding.circlePathView.stopAnimation()
         }
 
 
-        binding.choreographerAnimationView.animatorListener = object : CustomAnimatorListener {
+        binding.circlePathView.animatorListener = object : CustomAnimatorListener {
             override fun onAnimationStart() {
                 binding.tvStart1.text = "暂停"
             }
@@ -53,7 +53,46 @@ class CustomAnimationViewDemoFragment : BaseFragment<BaseViewModel>() {
 
             override fun onTimeCountDown(second: Int) {
                 Log.v("倒计时:", second.toString())
-                binding.tvSecond.text = second.toString()
+                binding.tvSecond1.text = second.toString()
+            }
+        }
+
+
+        binding.starPathView.animationDuration = 1000L
+        binding.tvStart2.setOnClickListener {
+
+            if (binding.starPathView.isAnimationRunning) {
+                binding.starPathView.pauseAnimation()
+            } else {
+                binding.starPathView.startAnimation()
+            }
+        }
+
+        binding.tvStop2.setOnClickListener {
+            binding.starPathView.stopAnimation()
+        }
+
+
+        binding.starPathView.animatorListener = object : CustomAnimatorListener {
+            override fun onAnimationStart() {
+                binding.tvStart2.text = "暂停"
+            }
+
+            override fun onAnimationPause() {
+                binding.tvStart2.text = "继续"
+            }
+
+            override fun onAnimationResume() {
+            }
+
+            override fun onAnimationEnd() {
+                binding.tvStart2.text = "开始"
+                binding.tvStop2.text = "停止"
+            }
+
+            override fun onTimeCountDown(second: Int) {
+                Log.v("倒计时:", second.toString())
+                binding.tvSecond2.text = second.toString()
             }
         }
 
@@ -65,8 +104,6 @@ class CustomAnimationViewDemoFragment : BaseFragment<BaseViewModel>() {
 
     override fun onPause() {
         super.onPause()
-
-
     }
 
 
