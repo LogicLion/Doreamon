@@ -1,0 +1,3 @@
+[submodule "lib_common"]
+	path = lib_common
+	url = https://github.com/LogicLion/lib_common.git
