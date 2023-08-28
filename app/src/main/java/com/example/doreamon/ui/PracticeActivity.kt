@@ -6,15 +6,15 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.doreamon.R
 import com.example.doreamon.StudyTopic
-import com.doreamon.treasure.base.BaseActivity
-import com.doreamon.treasure.base.BaseViewModel
+import com.example.module_base.base.BaseActivity
+import com.example.module_base.base.BaseViewModel
 import com.example.doreamon.databinding.ActivityPracticeBinding
 
 /**
  * @author wzh
  * @date 2022/5/7
  */
-class PracticeActivity : BaseActivity<BaseViewModel>() {
+class PracticeActivity : com.example.module_base.base.BaseActivity<com.example.module_base.base.BaseViewModel>() {
     var fragmentTag: String = ""
     private val fragmentTagKey = "FRAGMENT_TAG_KEY"
     override fun setupLayoutId() = R.layout.activity_practice

@@ -115,20 +115,20 @@ class RoundProgressView : View {
         animator.duration = 500
         animator.start()
 
-        animator.addListener(object :Animator.AnimatorListener{
-            override fun onAnimationStart(animation: Animator?) {
-            }
-
-            override fun onAnimationEnd(animation: Animator?) {
-            }
-
-            override fun onAnimationCancel(animation: Animator?) {
-            }
-
-            override fun onAnimationRepeat(animation: Animator?) {
-            }
-
-        })
+//        animator.addListener(object :Animator.AnimatorListener{
+//            override fun onAnimationStart(animation: Animator?) {
+//            }
+//
+//            override fun onAnimationEnd(animation: Animator?) {
+//            }
+//
+//            override fun onAnimationCancel(animation: Animator?) {
+//            }
+//
+//            override fun onAnimationRepeat(animation: Animator?) {
+//            }
+//
+//        })
     }
 
 

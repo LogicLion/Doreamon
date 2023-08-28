@@ -27,8 +27,6 @@
         <activity android:name=".ui.login.RegisterActivity"/>
         <activity android:name=".ui.topic.FragmentToggleActivity"/>
         <activity android:name=".ui.PracticeActivity"/>
-        <activity android:name=".ui.TestActivity"/>
-        <activity android:name=".ui.simple.SimpleActivity"/>
 
         <service android:name=".ui.simple.TestService"/>
 

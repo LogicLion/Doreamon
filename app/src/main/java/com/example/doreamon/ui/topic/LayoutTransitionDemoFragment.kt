@@ -5,8 +5,8 @@ import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
 import android.widget.Button
 import com.example.doreamon.R
-import com.doreamon.treasure.base.BaseFragment
-import com.doreamon.treasure.base.BaseViewModel
+import com.example.module_base.base.BaseFragment
+import com.example.module_base.base.BaseViewModel
 import com.example.doreamon.databinding.FragmentLayoutTransitionDemoBinding
 import com.doreamon.treasure.ext.toast
 
@@ -15,7 +15,7 @@ import com.doreamon.treasure.ext.toast
  * @author wzh
  * @date 2022/10/9
  */
-class LayoutTransitionDemoFragment : BaseFragment<BaseViewModel>() {
+class LayoutTransitionDemoFragment : com.example.module_base.base.BaseFragment<com.example.module_base.base.BaseViewModel>() {
     override fun setupLayoutId() = R.layout.fragment_layout_transition_demo
 
     override fun initView() {

@@ -1,8 +1,8 @@
 package com.example.doreamon.net
 
-import com.doreamon.treasure.net.NetResult
 import com.example.doreamon.entity.ArticleListEntity
 import com.example.doreamon.entity.User
+import com.example.module_base.entity.NetResult
 import retrofit2.http.*
 
 /**

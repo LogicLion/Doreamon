@@ -1,7 +1,7 @@
 package com.example.doreamon.viewmodel
 
 import androidx.lifecycle.MutableLiveData
-import com.doreamon.treasure.base.BaseViewModel
+import com.example.module_base.base.BaseViewModel
 import com.doreamon.treasure.ext.toast
 import com.example.doreamon.net.DataRepository
 
@@ -9,7 +9,7 @@ import com.example.doreamon.net.DataRepository
  * @author wzh
  * @date 2022/2/23
  */
-class RegisterViewModel : BaseViewModel() {
+class RegisterViewModel : com.example.module_base.base.BaseViewModel() {
 
     val account = MutableLiveData<String>()
     val password = MutableLiveData<String>()

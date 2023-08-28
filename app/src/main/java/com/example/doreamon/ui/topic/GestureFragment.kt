@@ -5,8 +5,8 @@ import android.util.Log
 import android.view.GestureDetector
 import android.view.MotionEvent
 import com.example.doreamon.R
-import com.doreamon.treasure.base.BaseFragment
-import com.doreamon.treasure.base.BaseViewModel
+import com.example.module_base.base.BaseFragment
+import com.example.module_base.base.BaseViewModel
 import com.example.doreamon.databinding.FragmentGestureBinding
 
 /**
@@ -15,7 +15,7 @@ import com.example.doreamon.databinding.FragmentGestureBinding
  * @date 2022/9/19
  * https://www.gcssloop.com/customview/gestruedector.html
  */
-class GestureFragment : BaseFragment<BaseViewModel>() {
+class GestureFragment : com.example.module_base.base.BaseFragment<com.example.module_base.base.BaseViewModel>() {
     override fun setupLayoutId() = R.layout.fragment_gesture
 
     @SuppressLint("ClickableViewAccessibility")

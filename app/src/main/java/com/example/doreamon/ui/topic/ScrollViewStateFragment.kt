@@ -1,8 +1,8 @@
 package com.example.doreamon.ui.topic
 
 import com.example.doreamon.R
-import com.doreamon.treasure.base.BaseFragment
-import com.doreamon.treasure.base.BaseViewModel
+import com.example.module_base.base.BaseFragment
+import com.example.module_base.base.BaseViewModel
 import com.example.doreamon.databinding.FragmentScrollViewStateBinding
 import com.doreamon.treasure.ext.toast
 
@@ -11,7 +11,7 @@ import com.doreamon.treasure.ext.toast
  * @author wzh
  * @date 2022/11/23
  */
-class ScrollViewStateFragment : BaseFragment<BaseViewModel>() {
+class ScrollViewStateFragment : com.example.module_base.base.BaseFragment<com.example.module_base.base.BaseViewModel>() {
     override fun setupLayoutId() = R.layout.fragment_scroll_view_state
 
     override fun initView() {

@@ -5,8 +5,8 @@ import android.webkit.WebViewClient
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.doreamon.R
 import com.example.doreamon.adapter.RvAdapter
-import com.doreamon.treasure.base.BaseFragment
-import com.doreamon.treasure.base.BaseViewModel
+import com.example.module_base.base.BaseFragment
+import com.example.module_base.base.BaseViewModel
 import com.example.doreamon.databinding.FragmentNestedscrollDemoBinding
 import com.example.doreamon.entity.InfoBean
 
@@ -14,7 +14,7 @@ import com.example.doreamon.entity.InfoBean
  * @author wzh
  * @date 2022/5/11
  */
-class NestedScrollDemoFragment : BaseFragment<BaseViewModel>() {
+class NestedScrollDemoFragment : com.example.module_base.base.BaseFragment<com.example.module_base.base.BaseViewModel>() {
 
     private lateinit var mainBinding:FragmentNestedscrollDemoBinding
     override fun setupLayoutId() = R.layout.fragment_nestedscroll_demo

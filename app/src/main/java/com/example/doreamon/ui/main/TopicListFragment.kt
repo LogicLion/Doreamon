@@ -1,8 +1,8 @@
 package com.example.doreamon.ui.main
 
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.doreamon.treasure.base.BaseFragment
-import com.doreamon.treasure.base.BaseViewModel
+import com.example.module_base.base.BaseFragment
+import com.example.module_base.base.BaseViewModel
 import com.example.doreamon.R
 import com.example.doreamon.StudyTopic
 import com.example.doreamon.adapter.TopicAdapter
@@ -13,7 +13,7 @@ import com.example.doreamon.databinding.CommonRecyclerviewBinding
  * @author wzh
  * @date 2022/5/9
  */
-class TopicListFragment : BaseFragment<BaseViewModel>() {
+class TopicListFragment : com.example.module_base.base.BaseFragment<com.example.module_base.base.BaseViewModel>() {
     override fun setupLayoutId() = R.layout.common_recyclerview
 
     override fun initView() {

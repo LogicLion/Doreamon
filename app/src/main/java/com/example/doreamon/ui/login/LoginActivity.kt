@@ -8,7 +8,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import com.example.doreamon.R
-import com.doreamon.treasure.base.BaseActivity
+import com.example.module_base.base.BaseActivity
 import com.example.doreamon.databinding.ActivityLoginBinding
 import com.doreamon.treasure.ext.startTargetActivity
 import com.example.doreamon.global.UserInfoData
@@ -20,7 +20,7 @@ import com.example.doreamon.viewmodel.LoginViewModel
  * @author wzh
  * @date 2022/1/21
  */
-class LoginActivity : BaseActivity<LoginViewModel>() {
+class LoginActivity : com.example.module_base.base.BaseActivity<LoginViewModel>() {
     override fun setupLayoutId() = R.layout.activity_login
 
     override fun onCreate(savedInstanceState: Bundle?) {

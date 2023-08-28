@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/rv"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+
+<!--    </androidx.recyclerview.widget.RecyclerView>-->
+        <TextView
+            android:id="@+id/tv_date_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="日期选择器"/>
+        <com.github.gzuliyujiang.wheelpicker.widget.DatimeWheelLayout
+            android:id="@+id/time_wheel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_date_picker"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginHorizontal="20dp"
+            app:wheel_indicatorColor="#EFEFEF"
+            app:wheel_itemSpace="55dp"
+            app:wheel_itemTextColorSelected="#2ac1ae"
+            app:wheel_itemTextColor="#999999"
+            app:wheel_itemTextBoldSelected="true"
+            app:wheel_itemTextSizeSelected="18sp"
+            app:wheel_timeMode="hour_24_no_second"
+            app:wheel_visibleItemCount="3"/>
+
+<!--        <com.github.gzuliyujiang.wheelpicker.widget.TimeWheelLayout-->
+<!--            android:id="@+id/time_wheel"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/tv_date_picker"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            app:wheel_indicatorColor="#eaeaea"-->
+<!--            app:wheel_itemSpace="55dp"-->
+<!--            app:wheel_itemTextBoldSelected="true"-->
+<!--            app:wheel_itemTextColor="#333"-->
+<!--            app:wheel_itemTextSizeSelected="16sp"-->
+<!--            app:wheel_timeMode="hour_24_no_second"-->
+<!--            app:wheel_visibleItemCount="3"/>-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

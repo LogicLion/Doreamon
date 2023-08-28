@@ -1,6 +1,6 @@
 package com.fzd.module_mine.ui
 
-import com.doreamon.treasure.base.BaseViewModel
+import com.example.module_base.base.BaseViewModel
 
 /**
  * @author wzh

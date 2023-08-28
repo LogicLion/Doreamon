@@ -4,8 +4,8 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
-import com.doreamon.treasure.base.BaseFragment
-import com.doreamon.treasure.base.BaseViewModel
+import com.example.module_base.base.BaseFragment
+import com.example.module_base.base.BaseViewModel
 import com.doreamon.treasure.ext.toast
 import com.example.doreamon.R
 import com.example.doreamon.databinding.FragmentDraggableViewDemoBinding
@@ -16,7 +16,7 @@ import com.google.android.material.tabs.TabLayoutMediator
  * @author wzh
  * @date 2022/10/25
  */
-class DraggableViewDemoFragment : BaseFragment<BaseViewModel>() {
+class DraggableViewDemoFragment : com.example.module_base.base.BaseFragment<com.example.module_base.base.BaseViewModel>() {
 
     override fun setupLayoutId() = R.layout.fragment_draggable_view_demo
 

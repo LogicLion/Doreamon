@@ -9,7 +9,7 @@ import androidx.core.animation.addListener
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.doreamon.R
-import com.doreamon.treasure.base.BaseFragment
+import com.example.module_base.base.BaseFragment
 import com.example.doreamon.databinding.FragmentCollapseBinding
 import com.example.doreamon.ui.simple.MenuAdapter
 import com.example.doreamon.ui.simple.MyLifeCycleObserver
@@ -21,7 +21,7 @@ import com.example.doreamon.viewmodel.TestViewModel
  * @author wzh
  * @date 2022/5/10
  */
-class CollapseFragment : BaseFragment<TestViewModel>() {
+class CollapseFragment : com.example.module_base.base.BaseFragment<TestViewModel>() {
     lateinit var title: String
     var isHide: Boolean = false
 

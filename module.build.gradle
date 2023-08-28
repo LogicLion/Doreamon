@@ -85,8 +85,11 @@ android {
 
 dependencies {
     implementation project(path: ':lib_common')
+    implementation project(path: ':module_base')
 
     // kapt无法像api那样穿透（从lib_common带过来），所以不能放在lib_common中，而是放在这里让每个组件都引入一份
     kapt 'com.alibaba:arouter-compiler:1.5.2'
+
+
 
 }

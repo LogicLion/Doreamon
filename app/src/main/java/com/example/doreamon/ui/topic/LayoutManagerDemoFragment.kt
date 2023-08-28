@@ -1,19 +1,18 @@
 package com.example.doreamon.ui.topic
 
-import com.doreamon.treasure.base.BaseFragment
-import com.doreamon.treasure.base.BaseViewModel
+import com.example.module_base.base.BaseFragment
+import com.example.module_base.base.BaseViewModel
 import com.example.doreamon.R
 import com.example.doreamon.adapter.ImageSimpleAdapter
 import com.example.doreamon.databinding.FragmentLayoutManagerDemoBinding
 import com.example.doreamon.widget.LikeLinearLayoutManager
-import com.example.doreamon.widget.LoopLayoutManager
 
 /**
  * 自定义layoutManager
  * @author wzh
  * @date 2023/2/10
  */
-class LayoutManagerDemoFragment : BaseFragment<BaseViewModel>() {
+class LayoutManagerDemoFragment : com.example.module_base.base.BaseFragment<com.example.module_base.base.BaseViewModel>() {
 
     override fun setupLayoutId() = R.layout.fragment_layout_manager_demo
 

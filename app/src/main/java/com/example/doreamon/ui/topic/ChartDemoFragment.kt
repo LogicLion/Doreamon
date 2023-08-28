@@ -1,12 +1,12 @@
 package com.example.doreamon.ui.topic
 
 import androidx.recyclerview.widget.GridLayoutManager
-import com.doreamon.treasure.base.BaseFragment
-import com.doreamon.treasure.base.BaseViewModel
 import com.example.doreamon.R
 import com.example.doreamon.adapter.CircleChartAdapter
 import com.example.doreamon.databinding.FragmentChartDemoBinding
 import com.example.doreamon.entity.ChartData
+import com.example.module_base.base.BaseFragment
+import com.example.module_base.base.BaseViewModel
 import kotlin.random.Random
 
 /**
@@ -41,6 +41,19 @@ class ChartDemoFragment : BaseFragment<BaseViewModel>() {
     private fun setChartData() {
         val binding = getViewBinding<FragmentChartDemoBinding>()
         val chartList = arrayListOf<ChartData>()
+
+
+        val chartList6 = arrayListOf<ChartData>()
+        chartList6.add(ChartData("2/22", 0, y1 = getRandomData()))
+        chartList6.add(ChartData("2/23", getRandomData(), y1 = getRandomData()))
+        chartList6.add(ChartData("2/24", 0, y1 = getRandomData()))
+        chartList6.add(ChartData("2/25", getRandomData(), y1 = getRandomData()))
+        chartList6.add(ChartData("2/26", getRandomData(), y1 = 0))
+        chartList6.add(ChartData("2/27", getRandomData(), y1 = getRandomData()))
+        chartList6.add(ChartData("2/28", 0, y1 = getRandomData()))
+        binding.doubleBrokenLineView.setChartList(chartList6)
+
+
         chartList.add(ChartData("每日10题", getRandomData(), "分钟"))
         chartList.add(ChartData("智能测评", getRandomData(), "分钟"))
         chartList.add(ChartData("同步练习", getRandomData(), "分钟"))

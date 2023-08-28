@@ -1,8 +1,8 @@
 package com.example.doreamon.ui.topic
 
 import com.example.doreamon.R
-import com.doreamon.treasure.base.BaseFragment
-import com.doreamon.treasure.base.BaseViewModel
+import com.example.module_base.base.BaseFragment
+import com.example.module_base.base.BaseViewModel
 import com.example.doreamon.databinding.FragmentCountDownTimerDemoBinding
 import com.example.doreamon.utils.CountDownTimer
 
@@ -11,7 +11,7 @@ import com.example.doreamon.utils.CountDownTimer
  * @author wzh
  * @date 2023/2/6
  */
-class CountDownTimerDemoFragment : BaseFragment<BaseViewModel>() {
+class CountDownTimerDemoFragment : com.example.module_base.base.BaseFragment<com.example.module_base.base.BaseViewModel>() {
 
     var timer: CountDownTimer? = null
     override fun setupLayoutId() = R.layout.fragment_count_down_timer_demo

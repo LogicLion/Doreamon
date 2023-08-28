@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.doreamon.R
-import com.doreamon.treasure.base.BaseFragment
+import com.example.module_base.base.BaseFragment
 import com.example.doreamon.databinding.FragmentHomePageBinding
 import com.example.doreamon.entity.Pager
 import com.example.doreamon.ui.topic.CollapseFragment
@@ -18,7 +18,7 @@ import com.google.android.material.tabs.TabLayoutMediator
  * @author wzh
  * @date 2022/2/23
  */
-class HomePageFragment : BaseFragment<HomePageViewModel>() {
+class HomePageFragment : com.example.module_base.base.BaseFragment<HomePageViewModel>() {
 
     lateinit var binding: FragmentHomePageBinding
     override fun setupLayoutId() = R.layout.fragment_home_page

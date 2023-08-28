@@ -12,3 +12,14 @@ android {
     //统一资源前缀，规范资源引用，会让编译器自动提示你不规范的命名
     resourcePrefix "mine_"
 }
+
+dependencies {
+    //core为Koin的核心
+    //-android是Koin为Android提供的一些扩展方法
+    //-compat是Koin为Android组件提供的一些扩展方法
+//    implementation 'io.insert-koin:koin-core:2.2.1'
+//    implementation 'io.insert-koin:koin-android:2.2.1'
+//    implementation 'io.insert-koin:koin-android-compat:2.2.1'
+    api 'io.insert-koin:koin-android:3.4.0'
+
+}

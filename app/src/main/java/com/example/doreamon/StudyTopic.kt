@@ -17,9 +17,12 @@ class StudyTopic(
     companion object{
 
         val List = listOf(
+            StudyTopic("Chart图表", ChartDemoFragment::class.java.name),
+            StudyTopic("9宫格控件",CustomGridViewDemoFragment::class.java.name),
+            StudyTopic("自定义图片进度条控件",ImageProgressViewDemoFragment::class.java.name),
+            StudyTopic("recyclerView设置间距",RecyclerViewDecorationDemoFragment::class.java.name),
             StudyTopic("定制轨迹动画效果,不依赖ObjectAnimator",CustomAnimationViewDemoFragment::class.java.name),
             StudyTopic("刮刮卡效果",ScratchViewDemoFragment::class.java.name),
-            StudyTopic("Chart图表", ChartDemoFragment::class.java.name),
             StudyTopic("可展开收起TextView", ExpandableTextViewDemoFragment::class.java.name),
             StudyTopic("RecyclerView原理研究", RecyclerViewDemoFragment::class.java.name),
             StudyTopic("自定义LayoutManager", LayoutManagerDemoFragment::class.java.name),

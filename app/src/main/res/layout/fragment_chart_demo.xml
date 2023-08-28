@@ -27,6 +27,14 @@
                 android:focusableInTouchMode="true"
                 android:orientation="vertical">
 
+
+                <com.example.doreamon.widget.DoubleBrokenLineChartView
+                    android:id="@+id/double_broken_line_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:layout_marginHorizontal="35dp"
+                    android:layout_marginTop="30dp"/>
+
                 <com.example.doreamon.widget.CirclePercentView
                     android:id="@+id/circle_percent_view"
                     android:layout_width="match_parent"

@@ -3,31 +3,29 @@ package com.example.doreamon.ui
 import android.os.Bundle
 import android.util.Log
 import android.view.KeyEvent
+import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.doreamon.R
 import com.example.doreamon.StudyTopic
-import com.doreamon.treasure.base.BaseActivity
-import com.doreamon.treasure.base.BaseViewModel
-import com.doreamon.treasure.export.ModuleMineApi
 import com.example.doreamon.databinding.ActivityMainBinding
 import com.example.doreamon.event.KeyHomeEvent
 import com.example.doreamon.ui.main.TopicListFragment
+import com.example.module_base.base.BaseActivity
 import org.greenrobot.eventbus.EventBus
 
 /**
  * @author wzh
  * @date 2022/6/2
  */
-class MainActivity : BaseActivity<BaseViewModel>() {
+class MainActivity : BaseActivity<com.example.module_base.base.BaseViewModel>() {
     lateinit var binding: ActivityMainBinding
     override fun setupLayoutId() = R.layout.activity_main
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
 
         binding = getViewBinding()
 
@@ -43,7 +41,7 @@ class MainActivity : BaseActivity<BaseViewModel>() {
                     }
 
                     1 -> TopicListFragment()
-                    2 -> ModuleMineApi.getMineFragment()
+                    2 -> TopicListFragment()
 
                     else -> throw IllegalArgumentException("fragment in position $position doesn't exit")
                 }
@@ -104,6 +102,8 @@ class MainActivity : BaseActivity<BaseViewModel>() {
 //        Log.v(TAG, "onPressHomeKey")
         EventBus.getDefault().post(KeyHomeEvent())
     }
+
+
 
 
 }

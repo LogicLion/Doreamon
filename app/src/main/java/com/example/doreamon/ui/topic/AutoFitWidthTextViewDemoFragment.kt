@@ -1,8 +1,8 @@
 package com.example.doreamon.ui.topic
 
 import android.util.TypedValue
-import com.doreamon.treasure.base.BaseFragment
-import com.doreamon.treasure.base.BaseViewModel
+import com.example.module_base.base.BaseFragment
+import com.example.module_base.base.BaseViewModel
 import com.example.doreamon.R
 import com.example.doreamon.databinding.FragmentAutoFitWidthTextViewDemoBinding
 

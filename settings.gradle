@@ -22,8 +22,8 @@ include ':app'
 rootProject.name = "Doreamon"
 include ':mylibrary'
 include ':lib_common'
-include ':wanandroid'
+include ':module_base'
 include ':composedemo'
-
 include ':module_mine'
 include ':lib'
+include ':module_fastread'

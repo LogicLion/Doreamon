@@ -5,8 +5,8 @@ import android.os.Bundle
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.doreamon.R
-import com.doreamon.treasure.base.BaseActivity
-import com.doreamon.treasure.base.BaseViewModel
+import com.example.module_base.base.BaseActivity
+import com.example.module_base.base.BaseViewModel
 import com.doreamon.treasure.ext.startTargetActivity
 import com.doreamon.treasure.utils.dip2px
 import com.example.doreamon.base.AppI

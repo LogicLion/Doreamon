@@ -4,7 +4,7 @@ apply plugin: 'kotlin-kapt'
 
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.doreamon"
@@ -70,13 +70,18 @@ android {
 
 dependencies {
     implementation project(path: ':lib_common')
-
+    implementation project(path: ':module_base')
 
     if (!rootProject.ext.isBuildModule) {
         implementation project(path: ':module_mine')
+        implementation project(path: ':module_fastread')
     }
 
     // kapt无法像api那样穿透（从lib_common带过来），所以不能放在lib_common中，而是放在这里让每个组件都引入一份
     kapt 'com.alibaba:arouter-compiler:1.5.2'
+
+    implementation 'com.github.gzu-liyujiang.AndroidPicker:Common:4.1.11'
+    implementation 'com.github.gzu-liyujiang.AndroidPicker:WheelPicker:4.1.11'
+    implementation 'com.github.gzu-liyujiang.AndroidPicker:WheelView:4.1.11'
 }
 

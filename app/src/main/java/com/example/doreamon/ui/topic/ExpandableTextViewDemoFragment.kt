@@ -1,17 +1,15 @@
 package com.example.doreamon.ui.topic
 
-import com.doreamon.treasure.base.BaseFragment
-import com.doreamon.treasure.base.BaseViewModel
+import com.example.module_base.base.BaseFragment
+import com.example.module_base.base.BaseViewModel
 import com.example.doreamon.R
-import com.example.doreamon.base.AppI
 import com.example.doreamon.databinding.FragmentExpandableTextViewDemoBinding
-import com.fzd.module_mine.utils.DisplayUtil
 
 /**
  * @author wzh
  * @date 2023/3/16
  */
-class ExpandableTextViewDemoFragment : BaseFragment<BaseViewModel>() {
+class ExpandableTextViewDemoFragment : com.example.module_base.base.BaseFragment<com.example.module_base.base.BaseViewModel>() {
     override fun setupLayoutId() = R.layout.fragment_expandable_text_view_demo
 
     override fun initView() {

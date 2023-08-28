@@ -1,8 +1,8 @@
 package com.example.doreamon.ui.topic
 
 import com.example.doreamon.R
-import com.doreamon.treasure.base.BaseFragment
-import com.doreamon.treasure.base.BaseViewModel
+import com.example.module_base.base.BaseFragment
+import com.example.module_base.base.BaseViewModel
 import com.example.doreamon.databinding.FragmentBannerBinding
 
 /**
@@ -10,7 +10,7 @@ import com.example.doreamon.databinding.FragmentBannerBinding
  * @author wzh
  * @date 2022/4/26
  */
-class BannerFragment : BaseFragment<BaseViewModel>(){
+class BannerFragment : com.example.module_base.base.BaseFragment<com.example.module_base.base.BaseViewModel>(){
     override fun setupLayoutId()= R.layout.fragment_banner
 
     override fun initView() {

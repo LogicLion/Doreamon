@@ -1,7 +1,7 @@
 package com.example.doreamon.ui.topic
 
-import com.doreamon.treasure.base.BaseFragment
-import com.doreamon.treasure.base.BaseViewModel
+import com.example.module_base.base.BaseFragment
+import com.example.module_base.base.BaseViewModel
 import com.doreamon.treasure.ext.toast
 import com.example.doreamon.R
 import com.example.doreamon.databinding.FragmentScratchViewBinding
@@ -13,7 +13,7 @@ import com.example.doreamon.widget.ScratchCardView
  * @author wzh
  * @date 2022/4/26
  */
-class ScratchViewDemoFragment : BaseFragment<BaseViewModel>() {
+class ScratchViewDemoFragment : com.example.module_base.base.BaseFragment<com.example.module_base.base.BaseViewModel>() {
 
 
     lateinit var binding: FragmentScratchViewBinding

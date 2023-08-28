@@ -94,6 +94,7 @@ class BrokenLineChartView @JvmOverloads constructor(
 
         updateXY()
         animator.start()
+        animator.isRunning
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {

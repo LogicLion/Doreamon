@@ -1,7 +1,7 @@
 package com.example.doreamon.net
 
-import com.doreamon.treasure.ext.netRequest
 import com.doreamon.treasure.net.RetrofitManager
+import com.example.module_base.ext.netRequest
 
 /**
  * @author wzh

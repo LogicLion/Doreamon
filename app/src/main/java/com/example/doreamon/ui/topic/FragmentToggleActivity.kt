@@ -5,7 +5,7 @@ import android.util.Log
 import androidx.core.view.WindowCompat
 import androidx.fragment.app.Fragment
 import com.example.doreamon.R
-import com.doreamon.treasure.base.BaseActivity
+import com.example.module_base.base.BaseActivity
 import com.example.doreamon.databinding.ActivityFragmentToggleBinding
 import com.example.doreamon.ui.main.HomePageFragment
 import com.example.doreamon.ui.main.TopicListFragment
@@ -15,7 +15,7 @@ import com.example.doreamon.viewmodel.MainViewModel
 /**
  * 演示fragment切换
  */
-class FragmentToggleActivity : BaseActivity<MainViewModel>() {
+class FragmentToggleActivity : com.example.module_base.base.BaseActivity<MainViewModel>() {
     private val currentFragmentTagKey = "CURR_FRAGMENT_KEY"
     private lateinit var currentFragment: Fragment
 

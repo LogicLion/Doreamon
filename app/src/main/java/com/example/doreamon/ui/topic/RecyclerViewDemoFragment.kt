@@ -3,8 +3,8 @@ package com.example.doreamon.ui.topic
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.blankj.utilcode.util.ScreenUtils
 import com.example.doreamon.R
-import com.doreamon.treasure.base.BaseFragment
-import com.doreamon.treasure.base.BaseViewModel
+import com.example.module_base.base.BaseFragment
+import com.example.module_base.base.BaseViewModel
 import com.example.doreamon.databinding.FragmentRecyclerviewDemoBinding
 import com.example.doreamon.entity.ChatMessage
 import com.example.doreamon.ui.simple.TestDemoAdapter
@@ -13,7 +13,7 @@ import com.example.doreamon.ui.simple.TestDemoAdapter
  * @author wzh
  * @date 2023/2/1
  */
-class RecyclerViewDemoFragment : BaseFragment<BaseViewModel>() {
+class RecyclerViewDemoFragment : com.example.module_base.base.BaseFragment<com.example.module_base.base.BaseViewModel>() {
     override fun setupLayoutId() = R.layout.fragment_recyclerview_demo
     override fun initView() {
 

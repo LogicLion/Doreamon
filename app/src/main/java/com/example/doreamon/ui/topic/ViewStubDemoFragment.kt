@@ -4,7 +4,7 @@ import android.graphics.drawable.TransitionDrawable
 import android.view.View
 import com.example.doreamon.BR
 import com.example.doreamon.R
-import com.doreamon.treasure.base.BaseFragment
+import com.example.module_base.base.BaseFragment
 import com.example.doreamon.databinding.FragmentViewStubDemoBinding
 import com.example.doreamon.databinding.LayoutViewStubTestBinding
 import com.doreamon.treasure.ext.toast
@@ -14,7 +14,7 @@ import com.example.doreamon.viewmodel.LoginViewModel
  * @author wzh
  * @date 2022/9/22
  */
-class ViewStubDemoFragment : BaseFragment<LoginViewModel>() {
+class ViewStubDemoFragment : com.example.module_base.base.BaseFragment<LoginViewModel>() {
 
     var viewInflate: View? = null
     override fun setupLayoutId() = R.layout.fragment_view_stub_demo

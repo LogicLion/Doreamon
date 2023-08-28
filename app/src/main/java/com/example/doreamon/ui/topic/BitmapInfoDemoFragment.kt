@@ -1,9 +1,8 @@
 package com.example.doreamon.ui.topic
 
 import android.graphics.BitmapFactory
-import android.graphics.Point
-import com.doreamon.treasure.base.BaseFragment
-import com.doreamon.treasure.base.BaseViewModel
+import com.example.module_base.base.BaseFragment
+import com.example.module_base.base.BaseViewModel
 import com.example.doreamon.R
 import com.example.doreamon.databinding.FragmentBitmapInfoDemoBinding
 
@@ -12,7 +11,7 @@ import com.example.doreamon.databinding.FragmentBitmapInfoDemoBinding
  * @author wzh
  * @date 2022/10/10
  */
-class BitmapInfoDemoFragment : BaseFragment<BaseViewModel>() {
+class BitmapInfoDemoFragment : com.example.module_base.base.BaseFragment<com.example.module_base.base.BaseViewModel>() {
     override fun setupLayoutId() = R.layout.fragment_bitmap_info_demo
 
     override fun initView() {
