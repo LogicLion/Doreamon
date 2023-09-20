@@ -23,8 +23,6 @@
         </activity>
 
         <activity android:name=".ui.MainActivity"/>
-        <activity android:name=".ui.login.LoginActivity"/>
-        <activity android:name=".ui.login.RegisterActivity"/>
         <activity android:name=".ui.topic.FragmentToggleActivity"/>
         <activity android:name=".ui.PracticeActivity"/>
 

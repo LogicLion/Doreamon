@@ -4,9 +4,6 @@
 
     <data>
 
-        <variable
-            name="vm"
-            type="com.example.doreamon.viewmodel.RegisterViewModel" />
     </data>
 
 
@@ -44,7 +41,6 @@
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="注册"
-                android:onClick="@{()->vm.register()}"
                 android:textColor="@color/white"
                 app:backgroundTint="@color/color_primary"
                 app:cornerRadius="6dp"
@@ -59,7 +55,6 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="40dp"
                 android:hint="请输入账号"
-                android:text="@={vm.account}"
                 app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
             <androidx.appcompat.widget.AppCompatEditText
@@ -69,7 +64,6 @@
                 android:layout_height="60dp"
                 android:hint="请输入密码"
                 android:inputType="textPassword"
-                android:text="@={vm.password}"
                 app:layout_constraintTop_toBottomOf="@id/et_account" />
 
             <androidx.appcompat.widget.AppCompatEditText
@@ -79,7 +73,6 @@
                 android:layout_height="60dp"
                 android:hint="请再次输入密码"
                 android:inputType="textPassword"
-                android:text="@={vm.passwordAgain}"
                 app:layout_constraintTop_toBottomOf="@id/et_password" />
 
 

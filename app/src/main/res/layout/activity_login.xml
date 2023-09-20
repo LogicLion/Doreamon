@@ -3,9 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <variable
-            name="vm"
-            type="com.example.doreamon.viewmodel.LoginViewModel" />
     </data>
 
 
@@ -64,7 +61,6 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             style="@style/LoginEditText"
-            android:text="@={vm.account}"
             android:layout_marginTop="40dp"
             android:hint="请输入账号"
             app:layout_constraintTop_toBottomOf="@id/tv_title" />
@@ -73,7 +69,6 @@
             android:id="@+id/et_password"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="@={vm.password}"
             style="@style/LoginEditText"
             android:hint="请输入密码"
             android:inputType="textPassword"

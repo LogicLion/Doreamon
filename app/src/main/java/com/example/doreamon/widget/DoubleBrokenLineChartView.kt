@@ -94,14 +94,14 @@ class DoubleBrokenLineChartView @JvmOverloads constructor(
     //y坐标
     private var y1List: MutableList<Float> = ArrayList()
 
-    //y坐标
+    //y1坐标
     private var y2List: MutableList<Float> = ArrayList()
 
     //1折线
     private val line1Path = Path()
 
 
-    //1折线
+    //2折线
     private val line2Path = Path()
 
 
@@ -151,7 +151,6 @@ class DoubleBrokenLineChartView @JvmOverloads constructor(
 
         //最大值
         var maximumY = 0
-        var maximumY1 = 0
         for (i in 0 until size) {
             val chartData = list[i]
             val data = chartData.y
@@ -163,8 +162,8 @@ class DoubleBrokenLineChartView @JvmOverloads constructor(
         for (i in 0 until size) {
             val chartData = list[i]
             val data1 = chartData.y1
-            if (data1 > maximumY1) {
-                maximumY1 = data1
+            if (data1 > maximumY) {
+                maximumY = data1
             }
         }
         for (i in 0 until size) {
@@ -179,8 +178,8 @@ class DoubleBrokenLineChartView @JvmOverloads constructor(
             }
 
             val data1 = chartData.y1
-            if (maximumY1 > 0) {
-                y2List.add(yMaxHeight - availableChartHeight * data1 / maximumY1)
+            if (maximumY > 0) {
+                y2List.add(yMaxHeight - availableChartHeight * data1 / maximumY)
             } else {
                 y2List.add(yMaxHeight)
             }

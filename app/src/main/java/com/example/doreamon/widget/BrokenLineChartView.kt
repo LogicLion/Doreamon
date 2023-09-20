@@ -34,6 +34,8 @@ class BrokenLineChartView @JvmOverloads constructor(
     private var chartMarginBottom = 30f.dp
     private val barMarginTop = 30f.dp
     private val barMarginBottom = 30f.dp
+    private val lineMarginBottom = 30f.dp
+
 
     //图表可绘制区域最高高度
     private var yMaxHeight: Float = 0f
@@ -104,7 +106,7 @@ class BrokenLineChartView @JvmOverloads constructor(
         viewHeight = h.toFloat()
         chartMarginBottom = if (shouldDrawXDes) 50f.dp else 30f.dp
 
-        yMaxHeight = viewHeight - chartMarginBottom - barMarginBottom
+        yMaxHeight = viewHeight - chartMarginBottom - barMarginBottom - lineMarginBottom
         updateXY()
     }
 

@@ -4,17 +4,16 @@ import android.graphics.drawable.TransitionDrawable
 import android.view.View
 import com.example.doreamon.BR
 import com.example.doreamon.R
-import com.example.module_base.base.BaseFragment
 import com.example.doreamon.databinding.FragmentViewStubDemoBinding
 import com.example.doreamon.databinding.LayoutViewStubTestBinding
 import com.doreamon.treasure.ext.toast
-import com.example.doreamon.viewmodel.LoginViewModel
+import com.example.module_base.base.BaseViewModel
 
 /**
  * @author wzh
  * @date 2022/9/22
  */
-class ViewStubDemoFragment : com.example.module_base.base.BaseFragment<LoginViewModel>() {
+class ViewStubDemoFragment : com.example.module_base.base.BaseFragment<BaseViewModel>() {
 
     var viewInflate: View? = null
     override fun setupLayoutId() = R.layout.fragment_view_stub_demo
@@ -41,17 +40,6 @@ class ViewStubDemoFragment : com.example.module_base.base.BaseFragment<LoginView
             (binding.btnViewHide.background as TransitionDrawable).reverseTransition(500)
         }
 
-        binding.vStub.setOnInflateListener { stub, inflated ->
-
-            //因为延迟初始化了
-            //延迟加载的那个布局的dataBinding可以在这里绑定
-            binding.vStub.binding.let {
-                "绑定测试".toast()
-                val testBinding = it as LayoutViewStubTestBinding
-                testBinding.lifecycleOwner=this
-                testBinding.setVariable(BR.vm, LoginViewModel())
-            }
-        }
 
     }
 }

@@ -15,7 +15,7 @@ import com.example.doreamon.viewmodel.MainViewModel
 /**
  * 演示fragment切换
  */
-class FragmentToggleActivity : com.example.module_base.base.BaseActivity<MainViewModel>() {
+class FragmentToggleActivity : BaseActivity<MainViewModel>() {
     private val currentFragmentTagKey = "CURR_FRAGMENT_KEY"
     private lateinit var currentFragment: Fragment
 
