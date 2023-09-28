@@ -1,9 +1,11 @@
 package com.example.lib;
 
 import java.util.Deque;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -368,5 +370,173 @@ class Solution4 {
         }
 
         return sumNumbers(root.left, pre) + sumNumbers(root.right, pre);
+    }
+
+
+    public int distMoney(int money, int children) {
+        if (money < children) {
+            return -1;
+        }
+        if (money < children + 7) {
+            return 0;
+        }
+
+        //先假定每个人分配了1美元
+        int i = money - children;
+        int i1 = i / 7;
+        int i2 = i % 7;
+        if (i1 == children && i2 > 0 || i1 > children) {
+            //每人分配了8美元依旧有溢出款,必然有一个人超过8美元
+            return children - 1;
+        }
+        if (i2 == 3 && i1 == children - 1) {
+            //最后一个人分配到了4美元
+            return i1 - 1;
+        } else {
+            return i1;
+        }
+    }
+
+
+    int n;
+    int m;
+
+    public void solve(char[][] board) {
+        //行数
+        n = board.length;
+        if (n == 0) {
+            return;
+        }
+
+        //列数
+        m = board[0].length;
+
+        for (int i = 0; i < n; i++) {
+            dfs(board, i, 0);
+            dfs(board, i, m - 1);
+        }
+
+        for (int j = 0; j < m; j++) {
+            dfs(board, 0, j);
+            dfs(board, n - 1, j);
+        }
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (board[i][j] == 'A') {
+                    board[i][j] = 'O';
+                } else if (board[i][j] == 'O') {
+                    board[i][j] = 'X';
+                }
+            }
+        }
+    }
+
+    public void dfs(char[][] board, int x, int y) {
+        if (x < 0 || x > n - 1 || y < 0 || y > m - 1 || board[x][y] != 'O') {
+            return;
+        }
+        board[x][y] = 'A';
+        dfs(board, x - 1, y);
+        dfs(board, x + 1, y);
+        dfs(board, x, y - 1);
+        dfs(board, x, y + 1);
+    }
+
+
+    public int singleNumber(int[] nums) {
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int num : nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+
+        for (Map.Entry<Integer, Integer> set : map.entrySet()) {
+            Integer key = set.getKey();
+            Integer value = set.getValue();
+
+            if (value == 1) {
+                return key;
+            }
+        }
+        return 0;
+    }
+
+
+    Map<Node, Node> map = new HashMap<>();
+
+    /**
+     * 138. 随机链表的复制
+     * 给你一个长度为 n 的链表，每个节点包含一个额外增加的随机指针 random ，该指针可以指向链表中的任何节点或空节点。
+     * <p>
+     * 构造这个链表的 深拷贝。 深拷贝应该正好由 n 个 全新 节点组成，其中每个新节点的值都设为其对应的原节点的值。
+     * 新节点的 next 指针和 random 指针也都应指向复制链表中的新节点，并使原链表和复制链表中的这些指针能够表示相同的链表状态。
+     * 复制链表中的指针都不应指向原链表中的节点 。
+     *
+     * @param head
+     * @return
+     */
+    public Node copyRandomList(Node head) {
+        if (head == null) {
+            return null;
+        }
+
+        if (!map.containsKey(head)) {
+            Node newNode = new Node(head.val);
+            map.put(head, newNode);
+
+            newNode.next = copyRandomList(head.next);
+            newNode.random = copyRandomList(head.random);
+        }
+
+        return map.get(head);
+    }
+
+
+    public Node copyRandomList1(Node head) {
+        if (head == null) {
+            return null;
+        }
+
+        for (Node node = head; node != null; node = node.next.next) {
+            Node newNode = new Node(node.val);
+            newNode.next = node.next;
+            node.next = newNode;
+        }
+
+        for (Node node = head; node != null; node = node.next.next) {
+            node.next.random = node.random == null ? null : node.random.next;
+        }
+
+        Node headNew = head.next;
+        for (Node node = head; node != null; node = node.next) {
+
+            Node nodeNew = node.next;
+            node.next = node.next.next;
+
+            nodeNew.next = (nodeNew.next != null) ? nodeNew.next.next : null;
+        }
+
+        return headNew;
+    }
+
+
+    public int removeDuplicates(int[] nums) {
+        int n = nums.length;
+        if (n <= 2) {
+            return n;
+        }
+        int slow = 2;
+        int fast = 2;
+
+        while (fast < n) {
+            if (nums[slow - 2] != nums[fast]) {
+                nums[slow] = nums[fast];
+                slow++;
+            }
+            fast++;
+        }
+
+        return slow;
     }
 }

@@ -13,7 +13,7 @@ import com.google.android.material.tabs.TabLayoutMediator
  * @author wzh
  * @date 2022/5/9
  */
-class ViewPager2DemoFragment : com.example.module_base.base.BaseFragment<com.example.module_base.base.BaseViewModel>() {
+class ViewPager2DemoFragment : BaseFragment<BaseViewModel>() {
     lateinit var binding: FragmentViewpger2DemoBinding
     override fun setupLayoutId() = R.layout.fragment_viewpger2_demo
 

@@ -17,6 +17,7 @@ class StudyTopic(
     companion object{
 
         val List = listOf(
+            StudyTopic("能够循环切换的viewpager", LoopViewPager2DemoFragment::class.java.name),
             StudyTopic("Chart图表", ChartDemoFragment::class.java.name),
             StudyTopic("9宫格控件",CustomGridViewDemoFragment::class.java.name),
             StudyTopic("自定义图片进度条控件",ImageProgressViewDemoFragment::class.java.name),
