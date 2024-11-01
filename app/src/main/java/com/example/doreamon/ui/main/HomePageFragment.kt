@@ -18,7 +18,7 @@ import com.google.android.material.tabs.TabLayoutMediator
  * @author wzh
  * @date 2022/2/23
  */
-class HomePageFragment : com.example.module_base.base.BaseFragment<HomePageViewModel>() {
+class HomePageFragment : BaseFragment<HomePageViewModel>() {
 
     lateinit var binding: FragmentHomePageBinding
     override fun setupLayoutId() = R.layout.fragment_home_page

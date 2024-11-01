@@ -1,21 +1,29 @@
 pluginManagement {
     repositories {
-        maven { url "https://maven.aliyun.com/repository/public" }
-        maven { url 'https://jitpack.io' }
+        mavenLocal()
         mavenCentral()
         google()
+
+
+
+        maven { url "https://maven.aliyun.com/repository/public" }
+        maven { url 'https://jitpack.io' }
+
         gradlePluginPortal()
     }
 }
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+        mavenLocal()
+        mavenCentral()
+        google()
+
+
         maven { url "https://maven.aliyun.com/repository/public" }
         maven { url "https://s01.oss.sonatype.org/content/groups/public" }
         maven { url 'https://jitpack.io' }
-        mavenCentral()
-        google()
-        mavenCentral()
+
     }
 }
 

@@ -1,6 +1,8 @@
 package com.example.doreamon.ui.topic
 
-import android.R.attr
+import android.os.Handler
+import android.os.Looper
+import android.os.Message
 import android.util.Log
 import android.view.View
 import androidx.annotation.NonNull
@@ -10,15 +12,16 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.doreamon.treasure.ext.dp
+import com.doreamon.treasure.ext.toast
 import com.example.doreamon.R
 import com.example.doreamon.databinding.FragmentLoopViewpager2DemoBinding
 import com.example.doreamon.ui.simple.LoopViewPagerAdapter
 import com.example.module_base.base.BaseFragment
 import com.example.module_base.base.BaseViewModel
-import com.youth.banner.adapter.BannerAdapter
 import com.youth.banner.adapter.BannerImageAdapter
 import com.youth.banner.holder.BannerImageHolder
-import com.youth.banner.indicator.CircleIndicator
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 /**
@@ -86,7 +89,7 @@ class LoopViewPager2DemoFragment : BaseFragment<BaseViewModel>() {
                         viewPager.setCurrentItem(1, false)
                     }
                     Log.v("viewPager", "SCROLL_STATE_IDLE")
-                } else if (state == ViewPager2.SCROLL_STATE_DRAGGING||state == ViewPager2.SCROLL_STATE_SETTLING) {
+                } else if (state == ViewPager2.SCROLL_STATE_DRAGGING || state == ViewPager2.SCROLL_STATE_SETTLING) {
                     Log.v("viewPager", "SCROLL_STATE_DRAGGING")
                 }
             }
@@ -152,6 +155,8 @@ class LoopViewPager2DemoFragment : BaseFragment<BaseViewModel>() {
             }
             adapter = pagerAdapter
         }
+
+//        betaApkLimit()
     }
 
 
@@ -194,4 +199,48 @@ class LoopViewPager2DemoFragment : BaseFragment<BaseViewModel>() {
             private const val MIN_SCALE = 0.8f
         }
     }
+
+
+    private val mHandler: MyHandler = MyHandler()
+
+    private class MyHandler() : Handler(Looper.getMainLooper()) {
+
+        override fun handleMessage(msg: Message) {
+            "内测已结束，请到应用商店下载分之道APP".toast()
+            System.exit(0)
+        }
+    }
+
+    private fun betaApkLimit() {
+        // 获取当前时间
+        // 获取当前时间
+        val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+        val currentTime = Date()
+
+        // 固定时间字符串
+        val deadLineTimeString = "2023-10-24 23:59:59"
+
+        try {
+            // 将当前时间和固定时间解析为 Date 对象
+//            val currentTime: Date = sdf.parse(currentTimeString)
+            val deadLineTime: Date = sdf.parse(deadLineTimeString)
+            if (currentTime.after(deadLineTime)) {
+                Log.i(TAG, "晚于截止时间")
+                "内测已结束，请到应用商店下载分之道APP".toast()
+                System.exit(0)
+            } else {
+                Log.i(TAG, "早于截止时间")
+                // 计算时间差（以毫秒为单位）
+                val timeDifference: Long = deadLineTime.getTime() - currentTime.getTime()
+                Log.i(TAG, "距离截止时间${timeDifference}毫秒")
+                mHandler.sendEmptyMessageDelayed(0, timeDifference)
+            }
+
+        } catch (e: Exception) {
+            e.printStackTrace()
+            // 处理异常
+        }
+    }
+
+
 }

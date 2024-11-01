@@ -24,6 +24,10 @@ class NestScrollDemoChildView :NestedScrollingChild3{
 
     /**
      * 开启滚动时候时候调用,用来通知parentView开始滚动,常在TouchEvent.ACTION_DOWN事件中调用
+     * @param axes: 滚动方向
+    SCROLL_AXIS_HORIZONTAL 水平
+    SCROLL_AXIS_VERTICAL 垂直
+    SCROLL_AXIS_NONE 没有方向
      */
     override fun startNestedScroll(axes: Int, type: Int): Boolean {
         TODO("Not yet implemented")

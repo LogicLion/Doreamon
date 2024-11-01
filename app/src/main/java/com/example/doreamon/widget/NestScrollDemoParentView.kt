@@ -2,6 +2,7 @@ package com.example.doreamon.widget
 
 import android.view.View
 import androidx.core.view.NestedScrollingParent3
+import androidx.core.view.ViewCompat
 
 /**
  * @author wzh
@@ -18,6 +19,7 @@ class NestScrollDemoParentView :NestedScrollingParent3 {
 
     override fun onStartNestedScroll(child: View, target: View, axes: Int): Boolean {
         TODO("Not yet implemented")
+
     }
 
 
@@ -80,6 +82,15 @@ class NestScrollDemoParentView :NestedScrollingParent3 {
         TODO("Not yet implemented")
     }
 
+    /**
+    当NestedScrollingChildHelper.dispatchNestedPreScroll()时候调用
+    @param target:childNestedScrollView
+    @param dx: x位置
+    @param dy: y位置
+    @param consumed: 表示parentView需要消费的距离 x = consumed[0]; y = consumed[1];
+    tips: 只有consumed 改变值才说明parentView消费了事件
+    那么 NestedScrollingChild.dispatchNestedPreScroll() 才会返回true
+     */
     override fun onNestedPreScroll(target: View, dx: Int, dy: Int, consumed: IntArray, type: Int) {
         TODO("Not yet implemented")
     }

@@ -73,4 +73,21 @@
         <!--切角或圆角大小,可以指定百分比，或者dp-->
         <item name="cornerSize">50%</item>
     </style>
+
+
+    <!-- 全透明弹框背景 -->
+    <style name="transparentBackgroundDiaolg" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item><!--边框-->
+        <item name="android:windowIsFloating">true</item><!--是否浮现在activity之上-->
+        <item name="android:windowIsTranslucent">false</item><!--半透明-->
+        <item name="android:windowNoTitle">true</item><!--无标题-->
+        <item name="android:windowBackground">@color/transparent</item><!--背景透明-->
+        <item name="android:backgroundDimEnabled">false</item><!--模糊-->
+    </style>
+
+
+    <style name="anim_dialog_slide_from_bottom" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/slide_bottom_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/slide_bottom_fade_out</item>
+    </style>
 </resources>

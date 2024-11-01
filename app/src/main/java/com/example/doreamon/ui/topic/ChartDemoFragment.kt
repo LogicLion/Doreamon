@@ -1,5 +1,6 @@
 package com.example.doreamon.ui.topic
 
+import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.doreamon.R
 import com.example.doreamon.adapter.CircleChartAdapter
@@ -44,13 +45,13 @@ class ChartDemoFragment : BaseFragment<BaseViewModel>() {
 
 
         val chartList6 = arrayListOf<ChartData>()
-        chartList6.add(ChartData("2/22", 5, y1 = 20))
-        chartList6.add(ChartData("2/23", 5, y1 = 20))
-        chartList6.add(ChartData("2/24", 5, y1 = 20))
-        chartList6.add(ChartData("2/25", 5, y1 = 20))
-        chartList6.add(ChartData("2/26", 5, y1 = 0))
-        chartList6.add(ChartData("2/27", 5, y1 = 20))
-        chartList6.add(ChartData("2/28", 0, y1 = 20))
+        chartList6.add(ChartData("2/22", 0, y1 = 0))
+        chartList6.add(ChartData("2/23", 9, y1 = 16))
+        chartList6.add(ChartData("2/24", 0, y1 = 0))
+        chartList6.add(ChartData("2/25", 0, y1 = 0))
+        chartList6.add(ChartData("2/26", 0, y1 = 0))
+        chartList6.add(ChartData("2/27", 0, y1 = 0))
+        chartList6.add(ChartData("2/28", 0, y1 = 0))
         binding.doubleBrokenLineView.setChartList(chartList6)
 
 

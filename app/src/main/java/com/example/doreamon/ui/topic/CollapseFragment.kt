@@ -21,7 +21,7 @@ import com.example.doreamon.viewmodel.TestViewModel
  * @author wzh
  * @date 2022/5/10
  */
-class CollapseFragment : com.example.module_base.base.BaseFragment<TestViewModel>() {
+class CollapseFragment : BaseFragment<TestViewModel>() {
     lateinit var title: String
     var isHide: Boolean = false
 

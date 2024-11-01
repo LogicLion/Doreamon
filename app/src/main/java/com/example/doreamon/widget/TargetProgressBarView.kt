@@ -4,8 +4,11 @@ import android.animation.Animator
 import android.animation.ObjectAnimator
 import android.content.Context
 import android.graphics.*
+import android.provider.Settings
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
+import android.view.animation.LinearInterpolator
 import androidx.annotation.Keep
 import com.doreamon.treasure.ext.dp
 import com.example.doreamon.R
@@ -84,9 +87,15 @@ class TargetProgressBarView @JvmOverloads constructor(
     private var target = 100
 
 
-
     init {
         initAttrs(context, attrs)
+
+        // 获取系统动画时长缩放比例
+        val systemAnimatorScale: Float = Settings.Global.getFloat(
+            context.contentResolver, Settings.Global.ANIMATOR_DURATION_SCALE, 1.0f
+        )
+
+        Log.v("TargetProgressBarView", "获取系统动画时长缩放比例：${systemAnimatorScale}")
     }
 
     @Keep
@@ -97,7 +106,10 @@ class TargetProgressBarView @JvmOverloads constructor(
         }
 
     private val animator: Animator by lazy {
-        ObjectAnimator.ofInt(this, "animRate", 0, 100).setDuration(500)
+        val animator1 = ObjectAnimator.ofInt(this, "animRate", 0, 100).setDuration(500)
+        animator1.interpolator = LinearInterpolator()
+        animator1
+
     }
 
 
@@ -294,8 +306,6 @@ class TargetProgressBarView @JvmOverloads constructor(
         )
 
     }
-
-
 
 
 }

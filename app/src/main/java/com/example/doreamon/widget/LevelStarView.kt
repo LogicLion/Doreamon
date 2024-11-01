@@ -7,6 +7,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
+import com.doreamon.treasure.ext.dp
 import com.example.doreamon.R
 import com.doreamon.treasure.utils.dip2px
 
@@ -21,13 +22,13 @@ public class LevelStarView @JvmOverloads constructor(
     val defStyle: Int = 0
 ) : View(mContext, attr) {
 
-    var bitmap1: Bitmap = BitmapFactory.decodeResource(resources, R.drawable.icon_yellow_star)
+    var bitmap1: Bitmap = BitmapFactory.decodeResource(resources, R.drawable.icon_difficulty)
     var paint = Paint(Paint.ANTI_ALIAS_FLAG)
 
     var starLevel: Int = 3
 
-    val starSize = dip2px(12).toInt()
-    val starMargin = dip2px(4).toInt()
+    val starSize = 11.dp
+    val starMargin = 3.dp
 
 
     /**

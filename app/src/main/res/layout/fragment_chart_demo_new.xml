@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/draggable_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_update"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/color_black_333333"
+            android:gravity="center"
+            android:text="刷新"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/tv_update"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@color/color_gray_f8f8f8"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
+
+
+                <com.example.doreamon.widget.MultiBrokenLineChartView
+                    android:id="@+id/broken_line_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginHorizontal="35dp"
+                    android:layout_marginTop="30dp" />
+
+
+                <com.example.doreamon.widget.ScoreBrokenLineChartView
+                    android:id="@+id/score_broken_line_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginHorizontal="35dp"
+                    android:layout_marginTop="30dp" />
+
+                <com.example.doreamon.widget.CorrectPercentView
+                    android:id="@+id/correct_percent_view"
+                    android:layout_width="205dp"
+                    android:layout_height="205dp"/>
+                
+                
+                <com.example.doreamon.widget.CircleRatioView
+                    android:id="@+id/circle_ratio_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="265dp"/>
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+    </data>
+</layout>

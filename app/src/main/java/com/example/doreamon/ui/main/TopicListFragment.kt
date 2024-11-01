@@ -13,7 +13,7 @@ import com.example.doreamon.databinding.CommonRecyclerviewBinding
  * @author wzh
  * @date 2022/5/9
  */
-class TopicListFragment : com.example.module_base.base.BaseFragment<com.example.module_base.base.BaseViewModel>() {
+class TopicListFragment : BaseFragment<BaseViewModel>() {
     override fun setupLayoutId() = R.layout.common_recyclerview
 
     override fun initView() {

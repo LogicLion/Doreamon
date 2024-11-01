@@ -63,9 +63,12 @@ class ScratchViewDemoFragment : com.example.module_base.base.BaseFragment<com.ex
             addText("天")
             addText("点击") {
                 setColor("#f55121")
+                setBold(true)
                 onClick {
+
                     "触发点击".toast()
                 }
+
             }
         }
 

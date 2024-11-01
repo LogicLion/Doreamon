@@ -5,6 +5,7 @@ import android.animation.ObjectAnimator
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
+import android.view.MotionEvent
 import android.view.View
 import androidx.annotation.Keep
 import com.doreamon.treasure.ext.dp
@@ -108,6 +109,10 @@ class BrokenLineChartView @JvmOverloads constructor(
 
         yMaxHeight = viewHeight - chartMarginBottom - barMarginBottom - lineMarginBottom
         updateXY()
+    }
+
+    override fun dispatchTouchEvent(event: MotionEvent?): Boolean {
+        return super.dispatchTouchEvent(event)
     }
 
     private fun updateXY() {

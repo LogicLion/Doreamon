@@ -16,7 +16,7 @@ import com.google.android.material.tabs.TabLayoutMediator
  * @author wzh
  * @date 2022/10/25
  */
-class DraggableViewDemoFragment : com.example.module_base.base.BaseFragment<com.example.module_base.base.BaseViewModel>() {
+class DraggableViewDemoFragment : BaseFragment<BaseViewModel>() {
 
     override fun setupLayoutId() = R.layout.fragment_draggable_view_demo
 
@@ -60,5 +60,10 @@ class DraggableViewDemoFragment : com.example.module_base.base.BaseFragment<com.
                 "点击了...".toast()
             }
         }
+    }
+
+
+    fun test() {
+
     }
 }

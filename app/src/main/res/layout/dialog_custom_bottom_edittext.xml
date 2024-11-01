@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/white">
+
+        <EditText
+            android:id="@+id/et_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:imeOptions="actionDone|flagNoExtractUi"
+            android:textColor="@color/color_black_333333"
+            android:layout_marginStart="20dp"
+            android:lines="1" />
+
+
+        <TextView
+            android:id="@+id/tv_ok"
+            android:layout_width="120dp"
+            android:layout_height="34dp"
+            android:gravity="center"
+            android:text="确认"
+            android:textColor="@color/color_80d1c8"
+            android:textSize="20sp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/color_gray_f8f8f8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </LinearLayout>
+</layout>

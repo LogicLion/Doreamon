@@ -79,10 +79,10 @@ class ImageProgressView(context: Context?, attrs: AttributeSet? = null) : View(c
         originalBitmap.recycle()
 
         // 设置源区域，截取左边的一半
-        srcRect = Rect(0, 0, w / 2, h)
+        srcRect = Rect(0, 0, w / 2, h/2)
 
         // 设置目标区域，绘制到整个View上
-        destRect = Rect(0, 0, w / 2, h)
+        destRect = Rect(0, 0, w / 2, h/2)
     }
 
     private fun createColorfulBitmap(w: Int, h: Int, isColorful: Boolean): Bitmap {

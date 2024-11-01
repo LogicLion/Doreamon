@@ -85,5 +85,22 @@ dependencies {
     implementation 'com.github.gzu-liyujiang.AndroidPicker:WheelView:4.1.11'
 
     implementation 'io.github.youth5201314:banner:2.2.2'
+
+
+    //引入这个库是为了解决cameraX库报错
+    //Cannot access class 'com.google.common.util.concurrent.ListenableFuture'.
+    // Check your module classpath for missing or conflicting dependencies
+    //https://github.com/android/camera-samples/issues/463
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-guava:1.6.2"
+
+    //cameraX,版本有些旧，考虑升级
+    def camerax_version = "1.2.0"
+//    implementation "androidx.camera:camera-core:${camerax_version}"
+    implementation "androidx.camera:camera-camera2:${camerax_version}"
+    implementation "androidx.camera:camera-lifecycle:${camerax_version}"
+    implementation "androidx.camera:camera-video:${camerax_version}"
+
+    implementation "androidx.camera:camera-view:${camerax_version}"
+//    implementation "androidx.camera:camera-extensions:${camerax_version}"
 }
 
