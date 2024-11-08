@@ -29,10 +29,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:background="@color/color_gray_f8f8f8"
+                android:background="@color/white"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 android:orientation="vertical">
+
+
+                <com.example.doreamon.widget.RingPieView
+                    android:id="@+id/ring_pie_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"/>
 
 
                 <com.example.doreamon.widget.MultiBrokenLineChartView

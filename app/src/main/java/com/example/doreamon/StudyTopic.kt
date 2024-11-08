@@ -17,10 +17,10 @@ class StudyTopic(
     companion object{
 
         val List = listOf(
-            StudyTopic("自定义图片进度条控件",ImageProgressViewDemoFragment::class.java.name),
-            StudyTopic("CameraX使用", CameraDemoFragment::class.java.name),
             StudyTopic("Chart图表1", ChartDemoNewFragment::class.java.name),
             StudyTopic("可拖拽改变宽高的layout",ElasticallyFragment::class.java.name),
+            StudyTopic("自定义图片进度条控件",ImageProgressViewDemoFragment::class.java.name),
+            StudyTopic("CameraX使用", CameraDemoFragment::class.java.name),
             StudyTopic("嵌套滑动实践",NestedScrollDemoFragment::class.java.name),
             StudyTopic("viewpager结合recyclerview嵌套",ViewPagerRecyclerViewDemoFragment::class.java.name),
             StudyTopic("ViewPager2实践",ViewPager2DemoFragment::class.java.name),

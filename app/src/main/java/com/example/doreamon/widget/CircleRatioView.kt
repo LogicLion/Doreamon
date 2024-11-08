@@ -265,6 +265,7 @@ class CircleRatioView @JvmOverloads constructor(
         progressPaint.shader = gradient
 
         val rotationAngle = percent * 360f / 100f
+
         canvas.drawArc(
             width / 2 - radius + progressMargin,
             centerPointY - radius + progressMargin,

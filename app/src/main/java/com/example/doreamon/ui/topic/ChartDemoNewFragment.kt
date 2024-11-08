@@ -4,6 +4,7 @@ import android.graphics.Color
 import com.example.doreamon.R
 import com.example.doreamon.databinding.FragmentChartDemoNewBinding
 import com.example.doreamon.entity.ChartData
+import com.example.doreamon.entity.PieData
 import com.example.module_base.base.BaseFragment
 import com.example.module_base.base.BaseViewModel
 import kotlin.random.Random
@@ -26,14 +27,20 @@ class ChartDemoNewFragment : BaseFragment<BaseViewModel>() {
             setChartData()
         }
 
-
     }
 
 
     private fun setChartData() {
         val binding = getViewBinding<FragmentChartDemoNewBinding>()
-        val chartList = arrayListOf<ChartData>()
 
+
+        val pieDataList = arrayListOf<PieData>()
+        pieDataList.add(PieData(value = getRandomData(), color = Color.parseColor("#5AC1F8"), ""))
+        pieDataList.add(PieData(value = getRandomData(), color = Color.parseColor("#0ED3D5"), ""))
+        pieDataList.add(PieData(value = getRandomData(), color = Color.parseColor("#FF7A8E"), ""))
+        pieDataList.add(PieData(value = getRandomData(), color = Color.parseColor("#FFD233"), ""))
+
+        binding.ringPieView.setPieDataList(pieDataList)
 
         val chartList2 = arrayListOf<ChartData>()
         chartList2.add(ChartData("周一", y = getRandomData(), y1 = getRandomData(), yUnit = "分钟"))
@@ -76,7 +83,7 @@ class ChartDemoNewFragment : BaseFragment<BaseViewModel>() {
                 Color.parseColor("#FFA933")
             )
         )
-        binding.circleRatioView.setRatio(3, 5)
+        binding.circleRatioView.setRatio(getRandomData(), getRandomData())
         binding.circleRatioView.setText("掌握率")
 
 

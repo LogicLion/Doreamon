@@ -6,16 +6,17 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.example.doreamon.widget.ElasticallyLayout
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+        <com.example.doreamon.widget.CustomLayout
+            android:layout_width="300dp"
+            android:layout_height="500dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:background="#999999"/>
+            android:background="#999999">
+        </com.example.doreamon.widget.CustomLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
 </layout>
