@@ -15,7 +15,7 @@ import com.google.android.material.tabs.TabLayoutMediator
  * @date 2022/5/9
  */
 class ViewPager2DemoFragment : BaseFragment<BaseViewModel>() {
-    val list = mutableListOf(1, 2, 3, 4, 5)
+    val list = mutableListOf(1, 2, 3, 4, 5, 6, 7, 8)
     lateinit var binding: FragmentViewpger2DemoBinding
     override fun setupLayoutId() = R.layout.fragment_viewpger2_demo
 

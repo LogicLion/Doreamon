@@ -7,11 +7,16 @@ package com.example.lib;
 class Test3 {
     public static void main(String[] args) {
 
-        Solution7 solution = new Solution7();
+//        Solution7 solution = new Solution7();
+//
+//
+//        int[] nums = {3, 1};
+//        solution.search(nums, 1);
 
+        KotlinDemo demo = new KotlinDemo();
+//        demo.test();
 
-        int[] nums = {3, 1};
-        solution.search(nums, 1);
+        System.out.println("sgdsfsgsa");
 
     }
 

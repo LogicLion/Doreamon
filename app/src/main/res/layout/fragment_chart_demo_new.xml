@@ -29,16 +29,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:background="@color/white"
+                android:background="@color/color_gray_f8f8f8"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 android:orientation="vertical">
 
 
+                <com.example.doreamon.widget.CustomSeekBar
+                    android:id="@+id/custom_seekBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="@color/color_gray_666666"
+                    android:max="100"
+                    android:progress="50" />
+
                 <com.example.doreamon.widget.RingPieView
                     android:id="@+id/ring_pie_view"
                     android:layout_width="match_parent"
-                    android:layout_height="400dp"/>
+                    android:layout_height="420dp"/>
 
 
                 <com.example.doreamon.widget.MultiBrokenLineChartView

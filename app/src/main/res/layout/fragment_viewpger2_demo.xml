@@ -17,7 +17,13 @@
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="300dp"
+            app:tabIndicatorHeight="0dp"
+            app:tabMinWidth="30dp"
+            app:tabMaxWidth="90dp"
+            app:tabRippleColor="@color/transparent"
             app:tabMode="scrollable"
+            style="@style/CustomTabLayout"
             app:layout_constraintTop_toTopOf="parent"/>
 
 

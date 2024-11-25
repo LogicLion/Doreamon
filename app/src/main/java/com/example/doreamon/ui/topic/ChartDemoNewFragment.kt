@@ -1,6 +1,7 @@
 package com.example.doreamon.ui.topic
 
 import android.graphics.Color
+import android.util.Log
 import com.example.doreamon.R
 import com.example.doreamon.databinding.FragmentChartDemoNewBinding
 import com.example.doreamon.entity.ChartData
@@ -33,12 +34,38 @@ class ChartDemoNewFragment : BaseFragment<BaseViewModel>() {
     private fun setChartData() {
         val binding = getViewBinding<FragmentChartDemoNewBinding>()
 
+        binding.customSeekBar.setProgressRange(0, 100)
+        binding.customSeekBar.setProgress(50)
+        binding.customSeekBar.onProgressChanged = { progress, fromUser ->
+            if (fromUser) {
+                Log.i("ChartDemoNewFragment", "progress:$progress")
+            }
+        }
 
+        binding.ringPieView.setTitle("各类型学习时长\n占比图 (%)")
         val pieDataList = arrayListOf<PieData>()
-        pieDataList.add(PieData(value = getRandomData(), color = Color.parseColor("#5AC1F8"), ""))
-        pieDataList.add(PieData(value = getRandomData(), color = Color.parseColor("#0ED3D5"), ""))
-        pieDataList.add(PieData(value = getRandomData(), color = Color.parseColor("#FF7A8E"), ""))
-        pieDataList.add(PieData(value = getRandomData(), color = Color.parseColor("#FFD233"), ""))
+        pieDataList.add(
+            PieData(
+                value = getRandomData(),
+                color = Color.parseColor("#5AC1F8"),
+                "智能测评"
+            )
+        )
+        pieDataList.add(
+            PieData(
+                value = getRandomData(),
+                color = Color.parseColor("#0ED3D5"),
+                "课程学习"
+            )
+        )
+        pieDataList.add(PieData(value = 2, color = Color.parseColor("#FF7A8E"), "精准练习"))
+        pieDataList.add(PieData(value = 1, color = Color.parseColor("#FFD233"), "其他"))
+
+        pieDataList.add(PieData(value = 30, color = Color.parseColor("#FF7ccc"), "精准练习"))
+        pieDataList.add(PieData(value = 5, color = Color.parseColor("#FF561c"), "其他"))
+
+        pieDataList.add(PieData(value = 30, color = Color.parseColor("#dc95dc"), "精准练习"))
+        pieDataList.add(PieData(value = 5, color = Color.parseColor("#09651c"), "其他"))
 
         binding.ringPieView.setPieDataList(pieDataList)
 
