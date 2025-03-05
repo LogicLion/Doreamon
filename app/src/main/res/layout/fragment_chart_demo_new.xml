@@ -18,6 +18,8 @@
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent" />
 
+
+
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -29,10 +31,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:background="@color/color_gray_f8f8f8"
+                android:background="#F1F1F1"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/iv_lock"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    />
+
+                <com.example.doreamon.widget.BadgeListLayout
+                    android:id="@+id/badge_list_layout"
+                    android:background="@color/color_black_333333"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"/>
 
 
                 <com.example.doreamon.widget.CustomSeekBar
@@ -79,6 +93,8 @@
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

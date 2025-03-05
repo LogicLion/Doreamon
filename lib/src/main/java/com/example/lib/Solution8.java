@@ -1,6 +1,13 @@
 package com.example.lib;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @author wzh
@@ -63,5 +70,112 @@ class Solution8 {
         res += num * sign;
 
         return res;
+    }
+
+
+    public int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (map.containsKey(target - nums[i])) {
+                return new int[]{map.get(target - nums[i]), i};
+            }
+            map.put(nums[i], i);
+        }
+        return new int[0];
+    }
+
+
+    public List<List<String>> groupAnagrams(String[] strs) {
+        Map<String, List<String>> map = new HashMap<>();
+        for (String s : strs) {
+            char[] chars = s.toCharArray();
+            Arrays.sort(chars);
+            String s1 = new String(chars);
+            List<String> list = map.getOrDefault(s1, new ArrayList<>());
+            list.add(s);
+            map.put(s1, list);
+        }
+
+        return new ArrayList<List<String>>(map.values());
+    }
+
+    public int longestConsecutive(int[] nums) {
+
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            set.add(num);
+        }
+
+        int currCount = 0;
+        int longestCount = 0;
+
+        for (int num : set) {
+            if (!set.contains(num - 1)) {
+                currCount = 1;
+                while (set.contains(num + currCount)) {
+                    currCount++;
+                }
+
+                if (currCount > longestCount) {
+                    longestCount = currCount;
+                }
+            }
+        }
+
+        return longestCount;
+    }
+
+
+    public void moveZeroes(int[] nums) {
+        int n = nums.length;
+        int fast = 0;
+        int slow = 0;
+        while (fast < n) {
+            if (nums[fast] != 0) {
+                int temp = nums[fast];
+                nums[fast] = nums[slow];
+                nums[slow] = temp;
+                slow++;
+            }
+
+            fast++;
+        }
+    }
+
+    public int maxArea(int[] height) {
+        int n = height.length;
+        int l = 0;
+        int r = n - 1;
+
+        int maxArea = 0;
+        while (l < r) {
+            if (height[l] > height[r]) {
+                maxArea = Math.max(height[r] * (r - l), maxArea);
+                r--;
+            } else {
+                maxArea = Math.max(height[l] * (r - l), maxArea);
+                l++;
+            }
+        }
+
+        return maxArea;
+    }
+
+    public int lengthOfLongestSubstring(String s) {
+        Set set = new HashSet();
+
+        int start = 0, end = 0, maxLen = 0;
+        while (end < s.length()) {
+            if (set.contains(s.charAt(end))) {
+                set.remove(s.charAt(start));
+                start++;
+            } else {
+                set.add(s.charAt(end));
+                end++;
+                maxLen = Math.max(maxLen, end - start);
+            }
+        }
+
+        return maxLen;
     }
 }

@@ -16,6 +16,7 @@ import kotlin.random.Random
  * @date 2023/1/3
  */
 class ChartDemoNewFragment : BaseFragment<BaseViewModel>() {
+
     override fun setupLayoutId() = R.layout.fragment_chart_demo_new
 
     override fun initView() {
@@ -23,9 +24,9 @@ class ChartDemoNewFragment : BaseFragment<BaseViewModel>() {
 
         setChartData()
 
-
         binding.tvUpdate.setOnClickListener {
             setChartData()
+
         }
 
     }
@@ -33,6 +34,9 @@ class ChartDemoNewFragment : BaseFragment<BaseViewModel>() {
 
     private fun setChartData() {
         val binding = getViewBinding<FragmentChartDemoNewBinding>()
+
+        binding.ivLock.setImageResource(R.drawable.ic_reading_exercise_lock)
+        binding.ivLock.setColorFilter(Color.RED)
 
         binding.customSeekBar.setProgressRange(0, 100)
         binding.customSeekBar.setProgress(50)
